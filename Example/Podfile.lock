@@ -1,0 +1,175 @@
+PODS:
+  - CommonCryptoModule (1.0.2)
+  - ExtensibleEnumeratedName (1.0.1)
+  - LifeHash (0.1.0):
+    - CommonCryptoModule
+    - WolfColor
+    - WolfFoundation
+    - WolfGeometry
+    - WolfImage
+    - WolfNumerics
+  - WolfAnimation (1.0):
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfLog
+  - WolfApp (1.0):
+    - WolfAnimation
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfLocale
+    - WolfOSBridge
+  - WolfAutolayout (1.0):
+    - WolfFoundation
+    - WolfGeometry
+    - WolfOSBridge
+  - WolfCache (1.0):
+    - ExtensibleEnumeratedName
+    - WolfConcurrency
+    - WolfImage
+    - WolfLog
+    - WolfNetwork
+  - WolfColor (1.0):
+    - ExtensibleEnumeratedName
+    - WolfNumerics
+    - WolfPipe
+    - WolfStrings
+  - WolfConcurrency (1.0):
+    - WolfFoundation
+    - WolfLog
+    - WolfNumerics
+  - WolfFoundation (1.0):
+    - WolfNumerics
+    - WolfPipe
+    - WolfStrings
+  - WolfGeometry (1.0):
+    - ExtensibleEnumeratedName
+    - WolfFoundation
+    - WolfNumerics
+    - WolfStrings
+  - WolfImage (1.0):
+    - ExtensibleEnumeratedName
+    - WolfColor
+    - WolfFoundation
+    - WolfGeometry
+    - WolfNumerics
+    - WolfPipe
+    - WolfStrings
+  - WolfLocale (1.0.1):
+    - ExtensibleEnumeratedName
+    - WolfLog
+    - WolfStrings
+  - WolfLog (1.0.1):
+    - ExtensibleEnumeratedName
+    - WolfNumerics
+    - WolfStrings
+  - WolfNesting (1.0)
+  - WolfNetwork (1.0):
+    - ExtensibleEnumeratedName
+    - WolfApp
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfLocale
+    - WolfLog
+    - WolfPipe
+    - WolfPubSub
+    - WolfSec
+    - WolfStrings
+  - WolfNumerics (1.0.1)
+  - WolfOSBridge (1.0)
+  - WolfPipe (1.0.1)
+  - WolfPubSub (1.0):
+    - WolfConcurrency
+    - WolfFoundation
+  - WolfSec (1.0):
+    - CommonCryptoModule
+    - WolfPipe
+    - WolfStrings
+  - WolfStrings (1.0.1):
+    - ExtensibleEnumeratedName
+    - WolfNumerics
+    - WolfPipe
+  - WolfViews (1.0):
+    - WolfAnimation
+    - WolfApp
+    - WolfAutolayout
+    - WolfCache
+    - WolfColor
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfGeometry
+    - WolfImage
+    - WolfLocale
+    - WolfNesting
+    - WolfOSBridge
+    - WolfStrings
+    - WolfWith
+  - WolfWith (1.0)
+
+DEPENDENCIES:
+  - LifeHash (from `../`)
+  - WolfAutolayout
+  - WolfColor
+  - WolfConcurrency
+  - WolfNesting
+  - WolfViews
+  - WolfWith
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CommonCryptoModule
+    - ExtensibleEnumeratedName
+    - WolfAnimation
+    - WolfApp
+    - WolfAutolayout
+    - WolfCache
+    - WolfColor
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfGeometry
+    - WolfImage
+    - WolfLocale
+    - WolfLog
+    - WolfNesting
+    - WolfNetwork
+    - WolfNumerics
+    - WolfOSBridge
+    - WolfPipe
+    - WolfPubSub
+    - WolfSec
+    - WolfStrings
+    - WolfViews
+    - WolfWith
+
+EXTERNAL SOURCES:
+  LifeHash:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
+  ExtensibleEnumeratedName: 70c35288c7e34eff64b4b1da8b0c6e993013738b
+  LifeHash: 5b9f5bfddde5099b73d091ad479c948257d2a8ee
+  WolfAnimation: 2e3e73b55af618bfa62601bd7dc64831386af076
+  WolfApp: 32c36657480ce514cff3a493be65a958201f77e0
+  WolfAutolayout: 7c4e7b1505d4cc73777388000ca3a63a2025b18e
+  WolfCache: 35ff3cffc589988706de302e0bb2bd2d1065e6f6
+  WolfColor: 7c3d1783be76e913f5a5202f354617e0c64bce43
+  WolfConcurrency: 6441a2ee3487398b02f78fc87b52659972cbbbb8
+  WolfFoundation: 90959f037de362da543adfdbe347f79c28e7f0db
+  WolfGeometry: ea6c54d93303363f61930d762617ff197a0c96aa
+  WolfImage: cf2b6043bc00e8a20961e8b8cdff6e0610ef5d20
+  WolfLocale: b70f1b375fa37a70f9ec4152db3f656e0dec12e6
+  WolfLog: e6e60ea7593e9fb1962d319a6bc190045f4f1e6e
+  WolfNesting: 8bc3463e33c86b2d5086523117eaf480ba767539
+  WolfNetwork: 7444a82d8693e00e62444c4e212e15d3e4026334
+  WolfNumerics: 47d911caaf5350fc838b638ca47a5427b676d275
+  WolfOSBridge: 238f042a7978e522c9ec0644dca85248d7e30148
+  WolfPipe: 7ddf803ae6bc9d42d34120bcce43d25940e3c791
+  WolfPubSub: 7bc645d58aa2eb17f65dbdd66d379821bcc9994a
+  WolfSec: 1f483d6712b5703503d29f974955934fa8f7a766
+  WolfStrings: 0691ee5c7aae7c040a6552ca97ddfa510ecccf88
+  WolfViews: 7a380e337ae794c2df89a1db1823d9bdd9d7a79e
+  WolfWith: 049a3b57d671e7c034f6494209b120bac4602e35
+
+PODFILE CHECKSUM: 3e138fb75bc801354ad7765e9a5a372998c7af09
+
+COCOAPODS: 1.6.0.beta.1
