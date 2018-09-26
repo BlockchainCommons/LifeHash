@@ -14,8 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		BC2B1DE04520DF63ECB1180C /* Pods_LifeHash_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0482D64EDEE9715D175CF016 /* Pods_LifeHash_Tests.framework */; };
-		EF6DB9BDC7D6962179D78605 /* Pods_LifeHash_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FEB700BCF9984F9E44F826 /* Pods_LifeHash_Example.framework */; };
+		E5AA72530BE56F2BDE04105F /* Pods_LifeHash_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39096ED353CDA733FA66BD6F /* Pods_LifeHash_Example.framework */; };
+		FA1C091D71824F940FC31A0F /* Pods_LifeHash_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561A9D22EE871C72F75D9604 /* Pods_LifeHash_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,11 +31,10 @@
 /* Begin PBXFileReference section */
 		0355E88BCB373C4803A6A18C /* LifeHash.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LifeHash.podspec; path = ../LifeHash.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashCollectionViewCell.swift; sourceTree = "<group>"; };
-		0482D64EDEE9715D175CF016 /* Pods_LifeHash_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D0FE05BA7A72641201C4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4EB2C27D3619D1CA0346AA96 /* Pods-LifeHash_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		51400B6C08379C0E6EC2285F /* Pods-LifeHash_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5E267DBE350210DDA6D5F071 /* Pods-LifeHash_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		14F4288833C26C301DED3912 /* Pods-LifeHash_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		39096ED353CDA733FA66BD6F /* Pods_LifeHash_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		561A9D22EE871C72F75D9604 /* Pods_LifeHash_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* LifeHash_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +45,10 @@
 		607FACE51AFB9204008FA782 /* LifeHash_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeHash_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		653EE703F7545ACADEA15A65 /* Pods-LifeHash_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.release.xcconfig"; sourceTree = "<group>"; };
 		844B88A490A39412A1A97776 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		94FEB700BCF9984F9E44F826 /* Pods_LifeHash_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F46FC20EA64552D99E9AFB0 /* Pods-LifeHash_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		BB83E80EE29FCB234BB4CD7D /* Pods-LifeHash_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F38C785C325E7287904D76C0 /* Pods-LifeHash_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6DB9BDC7D6962179D78605 /* Pods_LifeHash_Example.framework in Frameworks */,
+				E5AA72530BE56F2BDE04105F /* Pods_LifeHash_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,33 +64,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC2B1DE04520DF63ECB1180C /* Pods_LifeHash_Tests.framework in Frameworks */,
+				FA1C091D71824F940FC31A0F /* Pods_LifeHash_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E2E27C47B446D8DF8E09FC9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5E267DBE350210DDA6D5F071 /* Pods-LifeHash_Example.debug.xcconfig */,
-				653EE703F7545ACADEA15A65 /* Pods-LifeHash_Example.release.xcconfig */,
-				4EB2C27D3619D1CA0346AA96 /* Pods-LifeHash_Tests.debug.xcconfig */,
-				51400B6C08379C0E6EC2285F /* Pods-LifeHash_Tests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		5A95E4B96D10D8515149C1BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				94FEB700BCF9984F9E44F826 /* Pods_LifeHash_Example.framework */,
-				0482D64EDEE9715D175CF016 /* Pods_LifeHash_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +78,8 @@
 				607FACD21AFB9204008FA782 /* Example for LifeHash */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				2E2E27C47B446D8DF8E09FC9 /* Pods */,
-				5A95E4B96D10D8515149C1BF /* Frameworks */,
+				889477A6DCDE6C652B623E80 /* Frameworks */,
+				C6E7225C0346E39FE589A1C1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +142,26 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		889477A6DCDE6C652B623E80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39096ED353CDA733FA66BD6F /* Pods_LifeHash_Example.framework */,
+				561A9D22EE871C72F75D9604 /* Pods_LifeHash_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6E7225C0346E39FE589A1C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F46FC20EA64552D99E9AFB0 /* Pods-LifeHash_Example.debug.xcconfig */,
+				BB83E80EE29FCB234BB4CD7D /* Pods-LifeHash_Example.release.xcconfig */,
+				14F4288833C26C301DED3912 /* Pods-LifeHash_Tests.debug.xcconfig */,
+				F38C785C325E7287904D76C0 /* Pods-LifeHash_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,11 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHash_Example" */;
 			buildPhases = (
-				D1057688AA0D43C557F0FCBA /* [CP] Check Pods Manifest.lock */,
+				E3C9DC1B5B13F6DD26F4B22D /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				288882641AE88ECD39CD0290 /* [CP] Embed Pods Frameworks */,
+				7DF489825236A4AC5BC314E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHash_Tests" */;
 			buildPhases = (
-				31D8847F2CE4CC7175566907 /* [CP] Check Pods Manifest.lock */,
+				8DE39E6D80CBB0222B667831 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -265,7 +265,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		288882641AE88ECD39CD0290 /* [CP] Embed Pods Frameworks */ = {
+		7DF489825236A4AC5BC314E7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,7 +273,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework",
 				"${BUILT_PRODUCTS_DIR}/ExtensibleEnumeratedName/ExtensibleEnumeratedName.framework",
 				"${BUILT_PRODUCTS_DIR}/LifeHash/LifeHash.framework",
@@ -330,10 +330,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		31D8847F2CE4CC7175566907 /* [CP] Check Pods Manifest.lock */ = {
+		8DE39E6D80CBB0222B667831 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -355,7 +355,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1057688AA0D43C557F0FCBA /* [CP] Check Pods Manifest.lock */ = {
+		E3C9DC1B5B13F6DD26F4B22D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -533,7 +533,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E267DBE350210DDA6D5F071 /* Pods-LifeHash_Example.debug.xcconfig */;
+			baseConfigurationReference = 9F46FC20EA64552D99E9AFB0 /* Pods-LifeHash_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P776N9776G;
@@ -549,7 +549,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 653EE703F7545ACADEA15A65 /* Pods-LifeHash_Example.release.xcconfig */;
+			baseConfigurationReference = BB83E80EE29FCB234BB4CD7D /* Pods-LifeHash_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P776N9776G;
@@ -565,7 +565,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EB2C27D3619D1CA0346AA96 /* Pods-LifeHash_Tests.debug.xcconfig */;
+			baseConfigurationReference = 14F4288833C26C301DED3912 /* Pods-LifeHash_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -586,7 +586,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51400B6C08379C0E6EC2285F /* Pods-LifeHash_Tests.release.xcconfig */;
+			baseConfigurationReference = F38C785C325E7287904D76C0 /* Pods-LifeHash_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

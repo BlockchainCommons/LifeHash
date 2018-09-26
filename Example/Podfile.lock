@@ -37,7 +37,7 @@ PODS:
     - WolfFoundation
     - WolfLog
     - WolfNumerics
-  - WolfFoundation (1.0):
+  - WolfFoundation (1.0.1):
     - WolfNumerics
     - WolfPipe
     - WolfStrings
@@ -84,11 +84,11 @@ PODS:
     - CommonCryptoModule
     - WolfPipe
     - WolfStrings
-  - WolfStrings (1.0.1):
+  - WolfStrings (1.0.2):
     - ExtensibleEnumeratedName
     - WolfNumerics
     - WolfPipe
-  - WolfViews (1.0):
+  - WolfViews (1.0.2):
     - WolfAnimation
     - WolfApp
     - WolfAutolayout
@@ -154,7 +154,7 @@ SPEC CHECKSUMS:
   WolfCache: 35ff3cffc589988706de302e0bb2bd2d1065e6f6
   WolfColor: 7c3d1783be76e913f5a5202f354617e0c64bce43
   WolfConcurrency: 6441a2ee3487398b02f78fc87b52659972cbbbb8
-  WolfFoundation: 90959f037de362da543adfdbe347f79c28e7f0db
+  WolfFoundation: 131432cd56438a16cb5b076e7b9ffce76a612a46
   WolfGeometry: ea6c54d93303363f61930d762617ff197a0c96aa
   WolfImage: cf2b6043bc00e8a20961e8b8cdff6e0610ef5d20
   WolfLocale: b70f1b375fa37a70f9ec4152db3f656e0dec12e6
@@ -166,10 +166,10 @@ SPEC CHECKSUMS:
   WolfPipe: 7ddf803ae6bc9d42d34120bcce43d25940e3c791
   WolfPubSub: 7bc645d58aa2eb17f65dbdd66d379821bcc9994a
   WolfSec: 1f483d6712b5703503d29f974955934fa8f7a766
-  WolfStrings: 0691ee5c7aae7c040a6552ca97ddfa510ecccf88
-  WolfViews: 7a380e337ae794c2df89a1db1823d9bdd9d7a79e
+  WolfStrings: e3c9ddc33e0b7131ec2a368d2a88b36a69af4280
+  WolfViews: 894a7aa6879618e232759fa8d27b8bb28e8535ff
   WolfWith: 049a3b57d671e7c034f6494209b120bac4602e35
 
 PODFILE CHECKSUM: 3e138fb75bc801354ad7765e9a5a372998c7af09
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3
