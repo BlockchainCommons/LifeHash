@@ -35,14 +35,14 @@ class CellGrid: Grid<Bool> {
             let bits = BitEnumerator(data: newValue)
             forAll { point in
                 let alive = bits.next() ?? false
-                try! setValue(alive, atCoordinate: point)
+                setValue(alive, atCoordinate: point)
             }
         }
 
         get {
             var bitAggregator = BitAggregator()
             forAll { point in
-                try! bitAggregator.append(bit: getValue(atCoordinate: point))
+                bitAggregator.append(bit: getValue(atCoordinate: point))
             }
             return bitAggregator.data
         }

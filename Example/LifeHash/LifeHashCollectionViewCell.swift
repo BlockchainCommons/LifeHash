@@ -57,6 +57,7 @@ class LifeHashCollectionViewCell: CollectionViewCell {
 
     private func syncToInput() {
         reset()
+//        canceler = dispatchOnBackground {
         canceler = dispatchOnBackground(afterDelay: 0.25) {
             let lifeHash = LifeHash(data: self.hashInput)
             self.image = lifeHash.image

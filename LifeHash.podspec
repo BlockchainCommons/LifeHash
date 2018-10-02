@@ -12,6 +12,13 @@ Pod::Spec.new do |s|
     s.author           = { 'Wolf McNally' => 'wolf@wolfmcnally.com' }
     s.source           = { :git => 'https://github.com/wolfmcnally/LifeHash.git', :tag => s.version.to_s }
 
+    s.pod_target_xcconfig = {
+        'SWIFT_OPTIMIZATION_LEVEL' => '-O',
+        'SWIFT_COMPILATION_MODE' => 'wholemodule',
+        'ARCHS' => '$(ARCHS_STANDARD)',
+        'ONLY_ACTIVE_ARCH' => 'NO'
+    }
+
     s.source_files = 'LifeHash/Classes/**/*'
 
     s.swift_version = '4.2'

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B5C75499B570DEDD73AE40ACCDF78F6"
+               BlueprintIdentifier = "C76129E5482C11A62ED5D087EF993C2B"
                BuildableName = "LifeHash.framework"
                BlueprintName = "LifeHash"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -105,7 +105,7 @@
    <ProfileAction
       buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      savedToolIdentifier = ""
+      savedToolIdentifier = "/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Resources/templates/Time Profiler.tracetemplate"
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable

@@ -45,30 +45,30 @@ public class Grid<T: Equatable>: Equatable {
         return true
     }
 
-    public func checkValid(coordinate coord: IntPoint) throws {
-        guard isValid(coordinate: coord) else { throw LifeHashError("Invalid coordinate: \(coord)") }
-    }
+//    public func checkValid(coordinate coord: IntPoint) throws {
+//        guard isValid(coordinate: coord) else { throw LifeHashError("Invalid coordinate: \(coord)") }
+//    }
 
-    public func getValue(atCoordinate coord: IntPoint) throws -> T {
-        try checkValid(coordinate: coord)
+    public func getValue(atCoordinate coord: IntPoint) -> T {
+        //try checkValid(coordinate: coord)
         return rows[coord.y][coord.x]
     }
 
-    public func setValue(_ value: T, atCoordinate point: IntPoint) throws {
-        try checkValid(coordinate: point)
+    public func setValue(_ value: T, atCoordinate point: IntPoint) {
+        //try checkValid(coordinate: point)
         rows[point.y][point.x] = value
     }
 
     public func getValue(atCircularCoordinate coord: IntPoint) -> T {
         let cx = makeCircularIndex(at: coord.y, count: size.height)
         let cy = makeCircularIndex(at: coord.x, count: size.width)
-        return try! getValue(atCoordinate: IntPoint(x: cx, y: cy))
+        return getValue(atCoordinate: IntPoint(x: cx, y: cy))
     }
 
     public func setValue(_ value: T, atCircularCoordinate coord: IntPoint) {
         let cx = makeCircularIndex(at: coord.y, count: size.height)
         let cy = makeCircularIndex(at: coord.x, count: size.width)
-        try! setValue(value, atCoordinate: IntPoint(x: cx, y: cy))
+        setValue(value, atCoordinate: IntPoint(x: cx, y: cy))
     }
 
     public func forAll(_ f: (IntPoint) -> Void) {
@@ -96,8 +96,8 @@ public class Grid<T: Equatable>: Equatable {
     }
 
     public subscript(point: IntPoint) -> T {
-        get { return try! self.getValue(atCoordinate: point) }
-        set { try! self.setValue(newValue, atCoordinate: point) }
+        get { return self.getValue(atCoordinate: point) }
+        set { self.setValue(newValue, atCoordinate: point) }
     }
 
     public subscript(x: Int, y: Int) -> T {
