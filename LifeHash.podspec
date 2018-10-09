@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LifeHash'
-    s.version          = '0.1.0'
+    s.version          = '0.1.1'
     s.summary          = 'A beautiful method of hash visualization based on Conway’s Game of Life.'
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     s.swift_version = '4.2'
 
-    s.ios.deployment_target = '10.0'
+    s.ios.deployment_target = '9.3'
     s.macos.deployment_target = '10.13'
     s.tvos.deployment_target = '11.0'
 
