@@ -23,7 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import CommonCryptoModule
+import CommonCrypto
 
 /// Produces a SHA256 hash of the provided message data.
 ///

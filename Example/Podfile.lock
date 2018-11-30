@@ -1,8 +1,6 @@
 PODS:
-  - CommonCryptoModule (1.0.2)
   - ExtensibleEnumeratedName (1.0.3)
-  - LifeHash (0.1.2):
-    - CommonCryptoModule
+  - LifeHash (0.1.3):
     - WolfColor
     - WolfFoundation
     - WolfGeometry
@@ -28,8 +26,9 @@ PODS:
     - WolfImage
     - WolfLog
     - WolfNetwork
-  - WolfColor (1.0.4):
+  - WolfColor (1.0.5):
     - ExtensibleEnumeratedName
+    - WolfFoundation
     - WolfNumerics
     - WolfPipe
     - WolfStrings
@@ -37,23 +36,21 @@ PODS:
     - WolfFoundation
     - WolfLog
     - WolfNumerics
-  - WolfFoundation (1.0.3):
+  - WolfFoundation (1.0.4):
     - WolfNumerics
     - WolfPipe
-    - WolfStrings
   - WolfGeometry (2.0.1):
     - ExtensibleEnumeratedName
     - WolfFoundation
     - WolfNumerics
     - WolfStrings
-  - WolfImage (1.0.1):
+  - WolfImage (1.0.2):
     - ExtensibleEnumeratedName
     - WolfColor
     - WolfFoundation
     - WolfGeometry
     - WolfNumerics
     - WolfPipe
-    - WolfStrings
   - WolfLocale (1.0.2):
     - ExtensibleEnumeratedName
     - WolfLog
@@ -63,7 +60,7 @@ PODS:
     - WolfNumerics
     - WolfStrings
   - WolfNesting (1.0.1)
-  - WolfNetwork (1.0.2):
+  - WolfNetwork (1.0.3):
     - ExtensibleEnumeratedName
     - WolfApp
     - WolfConcurrency
@@ -73,18 +70,16 @@ PODS:
     - WolfPipe
     - WolfPubSub
     - WolfSec
-    - WolfStrings
-  - WolfNumerics (2.0.1)
+  - WolfNumerics (2.0.2)
   - WolfOSBridge (1.0.1)
-  - WolfPipe (1.0.5)
+  - WolfPipe (1.0.7)
   - WolfPubSub (1.0.1):
     - WolfConcurrency
     - WolfFoundation
-  - WolfSec (1.0.1):
-    - CommonCryptoModule
+  - WolfSec (1.0.3):
+    - WolfFoundation
     - WolfPipe
-    - WolfStrings
-  - WolfStrings (1.0.4):
+  - WolfStrings (1.0.5):
     - ExtensibleEnumeratedName
     - WolfNumerics
     - WolfPipe
@@ -116,7 +111,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - CommonCryptoModule
     - ExtensibleEnumeratedName
     - WolfAnimation
     - WolfApp
@@ -145,28 +139,27 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
   ExtensibleEnumeratedName: c6caeb662f79105e7229a613f9043e8a7e15e642
-  LifeHash: 7d92b06e53d445ed9d98881d321ed2b14c82eb29
+  LifeHash: 4331994d7271a9bb43ef0c857a88f77d43ed2ba0
   WolfAnimation: 357e094c886389a6f805e5330a11aa941abfc5e3
   WolfApp: c9ec6d2f3b24d74f25bf2eed7631417a36ad6cdf
   WolfAutolayout: 4c3decb14562f35d52e3a045cdc31b26d8e9f21c
   WolfCache: 54dea1dfde755581268de6e62279666c2c2e4692
-  WolfColor: a7f92dd96db411da054f830aaee2ac004c0ee3f9
+  WolfColor: 4a85833232989a290dc1dc3a453c2d33c3d80fd9
   WolfConcurrency: acb773dfc18e0fe7e003284cdf1ee57ab6373542
-  WolfFoundation: a28fc1c415ddfa8d31d97f202628109a9573da0c
+  WolfFoundation: 3badcb644013c8ab0329277474c9592ed8701d25
   WolfGeometry: 0543df4ddc413df6c2fbbc1d3b9b3608cd99e008
-  WolfImage: 05bcd47542da537ca59cff0e86414556ab4d685e
+  WolfImage: 7ae7b5869d83d273a5f6ff2dfd406a4931a3c024
   WolfLocale: cc7921bc5d24c5e792603e7732c476385f969176
   WolfLog: 6329a08de6c099ca6ccea857127d9df2f74dfea3
   WolfNesting: 748afba6baed203799ea30ec8d71f2bfa46402aa
-  WolfNetwork: c93cf4586286cf8ec23b5126ca1c8385bf9f5bff
-  WolfNumerics: 486042c29ec5ee608de6cbcf8a524b7c347624ed
+  WolfNetwork: 6e999bcc759f42ee5c45de3a95250851a9796142
+  WolfNumerics: a63222a42b4c3835e1a1cb489a71abb890f0d910
   WolfOSBridge: 6c3c6be3993a8c38db0dc2ab2d7fc9e98ec4938d
-  WolfPipe: 5cfa27c6a1e4e15db19aa7eb374e9a973a0805a7
+  WolfPipe: 1a2cbb23efb14833647a2adcc034468bf82a289e
   WolfPubSub: 9a29c3cf6c3ec1f70054febb22a612afcded5d9b
-  WolfSec: d5f6f34c98a3b76fb4be7c07df0ba391fda93bf2
-  WolfStrings: 75088362dcb4a65323b557dff7106c18a2203a45
+  WolfSec: bb7850c5563195b08ae73b443250cd6ea71e05dd
+  WolfStrings: da93adf75ddc98609744beaf5f3c2bdb1e85d1a4
   WolfViews: 33698a9f3346deb737659d6a6e63e82293329c9e
   WolfWith: 46dbfeaa023972bb82387740ca38c976bc65fbac
 

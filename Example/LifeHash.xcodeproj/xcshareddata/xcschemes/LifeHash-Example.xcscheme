@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C76129E5482C11A62ED5D087EF993C2B"
+               BlueprintIdentifier = "C9086979B5A8CA0934155FDF0A3AED77"
                BuildableName = "LifeHash.framework"
                BlueprintName = "LifeHash"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
