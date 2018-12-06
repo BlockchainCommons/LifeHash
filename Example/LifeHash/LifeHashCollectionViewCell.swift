@@ -3,8 +3,24 @@
 //  LifeHash_Example
 //
 //  Created by Wolf McNally on 9/17/18.
-//  Copyright © 2018 CocoaPods. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import Foundation
 import WolfViews
@@ -19,55 +35,24 @@ class LifeHashCollectionViewCell: CollectionViewCell {
 
     static let imageSize = CGSize(width: 64, height: 64)
 
-    private var canceler: Cancelable?
-
-    var hashInput: Data! = nil {
-        didSet {
-            syncToInput()
-        }
+    var hashInput: Data? {
+        get { return lifeHashView.hashInput }
+        set { lifeHashView.hashInput = newValue }
     }
 
-    private var image: UIImage!
-
-    private lazy var imageView = ImageView() • { 🍒 in
+    private lazy var lifeHashView = LifeHashView() • { 🍒 in
         🍒.constrainSize(to: Self.imageSize)
-        🍒.contentMode = .scaleToFill
-        🍒.layer.magnificationFilter = .nearest
     }
 
     override func setup() {
         super.setup()
 
         contentView => [
-            imageView
+            lifeHashView
         ]
     }
 
-    private func reset() {
-        canceler?.cancel()
-        canceler = nil
-        imageView.backgroundColor = .darkGray
-        imageView.image = nil
-    }
-
     override func prepareForReuse() {
-        reset()
-        super.prepareForReuse()
-    }
-
-    private func syncToInput() {
-        reset()
-//        canceler = dispatchOnBackground {
-        canceler = dispatchOnBackground(afterDelay: 0.25) {
-            let lifeHash = LifeHash(data: self.hashInput)
-            self.image = lifeHash.image
-            guard let canceler = self.canceler else { return }
-            guard !canceler.isCanceled else { return }
-            dispatchOnMain {
-                guard !canceler.isCanceled else { return }
-                self.imageView.backgroundColor = .clear
-                self.imageView.image = self.image
-            }
-        }
+        lifeHashView.reset()
     }
 }
