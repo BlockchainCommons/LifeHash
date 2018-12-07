@@ -22,17 +22,19 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import UIKit
+import WolfViewControllers
 import WolfAutolayout
 import WolfViews
 import WolfColor
 import WolfWith
 import WolfNesting
+import WolfPipe
+import WolfFoundation
 
-class MainViewController: UIViewController {
+class MainViewController: ViewController {
     private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in
-        🍒.itemSize = LifeHashCollectionViewCell.imageSize
-        🍒.minimumLineSpacing = 20
+        🍒.itemSize = LifeHashCollectionViewCell.size
+        🍒.minimumLineSpacing = 10
         🍒.minimumInteritemSpacing = 10
     }
 
@@ -59,6 +61,22 @@ class MainViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "toDetail":
+            let dest = segue.destination as! DetailViewController
+            let title = String(collectionView.indexPathsForSelectedItems!.first!.item)
+            dest.hashTitle = title
+            dest.hashInput = title |> toUTF8
+        default:
+            fatalError()
+        }
+    }
+
+    func navigateToItem(at indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetail", sender: nil)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -68,12 +86,15 @@ extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LifeHash", for: indexPath) as! LifeHashCollectionViewCell
-        let hashInput = String(indexPath.item).data(using: .utf8)
-        cell.hashInput = hashInput
+        let title = String(indexPath.item)
+        cell.hashTitle = title
+        cell.hashInput = title |> toUTF8
         return cell
     }
 }
 
 extension MainViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigateToItem(at: indexPath)
+    }
 }

@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */; };
 		03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9721B8D338000F4876 /* LifeHashView.swift */; };
+		03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9921B91523000F4876 /* DetailViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -33,13 +34,14 @@
 		0355E88BCB373C4803A6A18C /* LifeHash.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LifeHash.podspec; path = ../LifeHash.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashCollectionViewCell.swift; sourceTree = "<group>"; };
 		03E80B9721B8D338000F4876 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
+		03E80B9921B91523000F4876 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		05D0FE05BA7A72641201C4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		19EE60A5E8CE7C23A5D135F9 /* Pods-LifeHash_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AF98AF30A154BF12A07698E /* Pods-LifeHash_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LifeHash_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -118,7 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				607FACD71AFB9204008FA782 /* MainViewController.swift */,
+				03E80B9921B91523000F4876 /* DetailViewController.swift */,
 				038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */,
 				03E80B9721B8D338000F4876 /* LifeHashView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -214,7 +217,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = CocoaPods;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -342,6 +345,7 @@
 				"${BUILT_PRODUCTS_DIR}/WolfPubSub/WolfPubSub.framework",
 				"${BUILT_PRODUCTS_DIR}/WolfSec/WolfSec.framework",
 				"${BUILT_PRODUCTS_DIR}/WolfStrings/WolfStrings.framework",
+				"${BUILT_PRODUCTS_DIR}/WolfViewControllers/WolfViewControllers.framework",
 				"${BUILT_PRODUCTS_DIR}/WolfViews/WolfViews.framework",
 				"${BUILT_PRODUCTS_DIR}/WolfWith/WolfWith.framework",
 			);
@@ -370,6 +374,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfPubSub.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfSec.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfStrings.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfViewControllers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfViews.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfWith.framework",
 			);
@@ -386,7 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
+				03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */,
 			);

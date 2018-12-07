@@ -83,6 +83,14 @@ PODS:
     - ExtensibleEnumeratedName
     - WolfNumerics
     - WolfPipe
+  - WolfViewControllers (1.0.5):
+    - WolfConcurrency
+    - WolfFoundation
+    - WolfLocale
+    - WolfLog
+    - WolfNesting
+    - WolfStrings
+    - WolfViews
   - WolfViews (1.0.5):
     - WolfAnimation
     - WolfApp
@@ -106,6 +114,7 @@ DEPENDENCIES:
   - WolfColor
   - WolfConcurrency
   - WolfNesting
+  - WolfViewControllers
   - WolfViews
   - WolfWith
 
@@ -131,6 +140,7 @@ SPEC REPOS:
     - WolfPubSub
     - WolfSec
     - WolfStrings
+    - WolfViewControllers
     - WolfViews
     - WolfWith
 
@@ -160,9 +170,10 @@ SPEC CHECKSUMS:
   WolfPubSub: 9a29c3cf6c3ec1f70054febb22a612afcded5d9b
   WolfSec: bb7850c5563195b08ae73b443250cd6ea71e05dd
   WolfStrings: da93adf75ddc98609744beaf5f3c2bdb1e85d1a4
+  WolfViewControllers: 3d9ae8b470315878e742a03294f43832c6ab4d11
   WolfViews: 33698a9f3346deb737659d6a6e63e82293329c9e
   WolfWith: 46dbfeaa023972bb82387740ca38c976bc65fbac
 
-PODFILE CHECKSUM: 073f8688296d09796275774c54d6cd3016eca060
+PODFILE CHECKSUM: 07434bd2f22d7ca4214645d53bde59682b7b58c3
 
 COCOAPODS: 1.6.0.beta.2

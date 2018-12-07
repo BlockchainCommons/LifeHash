@@ -1,8 +1,8 @@
 //
-//  LifeHashCollectionViewCell.swift
+//  DetailViewController.swift
 //  LifeHash_Example
 //
-//  Created by Wolf McNally on 9/17/18.
+//  Created by Wolf McNally on 12/6/18.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,65 +22,83 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
+import WolfViewControllers
 import WolfViews
 import WolfWith
-import WolfAutolayout
 import WolfNesting
-import WolfConcurrency
-import LifeHash
+import WolfAutolayout
+import WolfNumerics
 
-class LifeHashCollectionViewCell: CollectionViewCell {
-    private typealias `Self` = LifeHashCollectionViewCell
+class DetailViewController: ViewController {
+    private typealias `Self` = DetailViewController
 
-    static let imageHeight: CGFloat = 64
-    static let width: CGFloat = 64
-    static let spacing: CGFloat = 5
-    static let height = imageHeight + spacing + labelHeight
-    static let imageSize = CGSize(width: width, height: imageHeight)
-    static let size = CGSize(width: width, height: height)
-    static let fontSize: CGFloat = 14
-    static let font = UIFont.boldSystemFont(ofSize: fontSize)
-    static let labelHeight = font.lineHeight
+    var hashTitle: String! {
+        get { return label.text }
+        set { label.text = newValue }
+    }
 
-    var hashInput: Data? {
+    var hashInput: Data! {
         get { return lifeHashView.hashInput }
         set { lifeHashView.hashInput = newValue }
     }
 
-    var hashTitle: String? {
-        didSet {
-            label.text = hashTitle
-        }
-    }
+    static let fontSize: CGFloat = 24
+    static let font = UIFont.boldSystemFont(ofSize: fontSize)
+    static let width: CGFloat = 200
+    static let imageSize = CGSize(width: width, height: width)
 
     private lazy var stackView = VerticalStackView() • { (🍒: VerticalStackView) in
-        🍒.spacing = Self.spacing
+        🍒.spacing = 20
     }
+
+    private lazy var blurView = ‡UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     private lazy var label = Label() • { (🍒: Label) in
         🍒.font = Self.font
         🍒.textColor = .gray
         🍒.textAlignment = .center
-        🍒.constrainHeight(to: Self.labelHeight)
     }
 
-    private lazy var lifeHashView = LifeHashView() • { 🍒 in
-        🍒.constrainSize(to: Self.imageSize)
+    private lazy var lifeHashView = LifeHashView() • { (🍒: LifeHashView) in
+        🍒.constrainAspect()
     }
 
     override func setup() {
         super.setup()
 
-        contentView => [
+        modalPresentationStyle = .overCurrentContext
+        modalTransitionStyle = .crossDissolve
+    }
+
+    private var tapAction: GestureRecognizerAction!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .clear
+
+        view => [
+            blurView,
             stackView => [
                 lifeHashView,
                 label
             ]
         ]
-    }
 
-    override func prepareForReuse() {
-        lifeHashView.reset()
+        blurView.constrainFrameToFrame()
+        stackView.constrainCenterToCenter()
+
+        let width: CGFloat = 60%
+
+        Constraints(
+            lifeHashView.widthAnchor == view.widthAnchor * width =&= .defaultHigh,
+            lifeHashView.heightAnchor == view.heightAnchor * width =&= .defaultHigh,
+            lifeHashView.widthAnchor <= view.widthAnchor * width,
+            lifeHashView.heightAnchor <= view.heightAnchor * width
+        )
+
+        tapAction = view.addAction(for: UITapGestureRecognizer()) { [unowned self] _ in
+            self.dismiss()
+        }
     }
 }

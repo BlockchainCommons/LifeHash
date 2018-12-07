@@ -13,7 +13,13 @@ After the pattern becomes stable (or begins repeating) the resulting history is 
 
 Some bits of the initial hash are then used to deterministically apply symmetry and color to the icon to add beauty and quick recognizability.
 
-![Samples of LifeHash](Art/LifeHashSamples.png?raw=true "Samples of LifeHash")
+![Samples of LifeHash](Art/Samples-0.jpg?raw=true "Samples 1") ![Samples of LifeHash](Art/Samples-1090.jpg?raw=true "Samples 2")
+
+![Samples of LifeHash](Art/Sample-315.jpg?raw=true "Sample 315") ![Samples of LifeHash](Art/Sample-777.jpg?raw=true "Sample 777")
+
+![Samples of LifeHash](Art/Sample-1012.jpg?raw=true "Sample 1012") ![Samples of LifeHash](Art/Sample-1015.jpg?raw=true "Sample 1015")
+
+![Samples of LifeHash](Art/Sample-1113.jpg?raw=true "Sample 1113") ![Samples of LifeHash](Art/Sample-2187.jpg?raw=true "Sample 2187")
 
 ## Example
 

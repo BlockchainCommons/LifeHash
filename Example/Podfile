@@ -20,6 +20,7 @@ target 'LifeHash_Example' do
     pod 'WolfWith'
     pod 'WolfNesting'
     pod 'WolfConcurrency'
+    pod 'WolfViewControllers'
 
     pod 'LifeHash', :path => '../'
 
