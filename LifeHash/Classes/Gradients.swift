@@ -25,6 +25,7 @@
 import Foundation
 import WolfNumerics
 import WolfColor
+import WolfPipe
 
 func selectGradient(entropy: BitEnumerator) -> ColorFunc {
     switch entropy.nextUInt2() {
@@ -69,8 +70,8 @@ private func selectMonochromaticGradient(entropy: BitEnumerator) -> ColorFunc {
     let saturation = selectValue(spreadFrac: saturationSpreadFrac, centerFrac: saturationCenterFrac, spreadInterval: 0.6 .. 1.0, contrast: 1.0, finalInterval: 0.3 .. 1.0, reverse: saturationReverse)
     let brightness = selectValue(spreadFrac: brightnessSpreadFrac, centerFrac: brightnessCenterFrac, spreadInterval: 0.5 .. 1.0, contrast: 1.0, finalInterval: 0.1 .. 1.0, reverse: brightnessReverse)
 
-    let color1 = Color(hue: hue, saturation: saturation.a, brightness: brightness.a)
-    let color2 = Color(hue: hue, saturation: saturation.b, brightness: brightness.b)
+    let color1 = HSBColor(hue: hue, saturation: saturation.a, brightness: brightness.a) |> toColor
+    let color2 = HSBColor(hue: hue, saturation: saturation.b, brightness: brightness.b) |> toColor
 
     return makeTwoColor(color1, color2)
 }
