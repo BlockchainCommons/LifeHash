@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LifeHash'
-    s.version          = '0.2.1'
+    s.version          = '0.2.2'
     s.summary          = 'A beautiful method of hash visualization based on Conway’s Game of Life.'
 
     s.description      = <<-DESC
@@ -14,9 +14,7 @@ Pod::Spec.new do |s|
 
     s.pod_target_xcconfig = {
         'SWIFT_OPTIMIZATION_LEVEL' => '-O',
-        'SWIFT_COMPILATION_MODE' => 'wholemodule',
-        'ARCHS' => '$(ARCHS_STANDARD)',
-        'ONLY_ACTIVE_ARCH' => 'NO'
+        'SWIFT_COMPILATION_MODE' => 'wholemodule'
     }
 
     s.source_files = 'LifeHash/Classes/**/*'
