@@ -321,62 +321,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ExtensibleEnumeratedName/ExtensibleEnumeratedName.framework",
-				"${BUILT_PRODUCTS_DIR}/LifeHash/LifeHash.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfAnimation/WolfAnimation.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfApp/WolfApp.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfAutolayout/WolfAutolayout.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfCache/WolfCache.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfColor/WolfColor.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfConcurrency/WolfConcurrency.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfFoundation/WolfFoundation.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfGeometry/WolfGeometry.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfImage/WolfImage.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfLocale/WolfLocale.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfLog/WolfLog.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfNesting/WolfNesting.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfNetwork/WolfNetwork.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfNumerics/WolfNumerics.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfOSBridge/WolfOSBridge.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfPipe/WolfPipe.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfPubSub/WolfPubSub.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfSec/WolfSec.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfStrings/WolfStrings.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfViewControllers/WolfViewControllers.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfViews/WolfViews.framework",
-				"${BUILT_PRODUCTS_DIR}/WolfWith/WolfWith.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExtensibleEnumeratedName.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LifeHash.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfAnimation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfApp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfAutolayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfColor.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfConcurrency.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfFoundation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfGeometry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfLocale.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfLog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfNesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfNetwork.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfNumerics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfOSBridge.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfPipe.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfPubSub.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfSec.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfStrings.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfViewControllers.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfViews.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WolfWith.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

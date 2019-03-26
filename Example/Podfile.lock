@@ -1,66 +1,66 @@
 PODS:
-  - ExtensibleEnumeratedName (1.0.4)
-  - LifeHash (0.2.2):
+  - ExtensibleEnumeratedName (2.0)
+  - LifeHash (0.3.0):
     - WolfColor
     - WolfFoundation
     - WolfGeometry
     - WolfImage
     - WolfNumerics
-  - WolfAnimation (1.3.0):
+  - WolfAnimation (2.0.0):
     - WolfConcurrency
     - WolfFoundation
     - WolfLog
-  - WolfApp (1.0.4):
+  - WolfApp (2.0.0):
     - WolfAnimation
     - WolfConcurrency
     - WolfFoundation
     - WolfLocale
     - WolfOSBridge
-  - WolfAutolayout (1.2.0):
+  - WolfAutolayout (2.0.0):
     - WolfFoundation
     - WolfGeometry
     - WolfOSBridge
     - WolfPipe
-  - WolfCache (1.0.3):
+  - WolfCache (2.0.0):
     - ExtensibleEnumeratedName
     - WolfConcurrency
     - WolfImage
     - WolfLog
     - WolfNetwork
-  - WolfColor (3.0.0):
+  - WolfColor (4.0.0):
     - WolfFoundation
     - WolfNumerics
     - WolfOSBridge
     - WolfPipe
-  - WolfConcurrency (1.1.3):
+  - WolfConcurrency (2.0.0):
     - WolfFoundation
     - WolfLog
     - WolfNumerics
-  - WolfFoundation (2.3.1):
+  - WolfFoundation (3.0.0):
     - WolfNumerics
     - WolfPipe
-  - WolfGeometry (3.0.1):
+  - WolfGeometry (4.0.0):
     - ExtensibleEnumeratedName
     - WolfFoundation
     - WolfNumerics
     - WolfStrings
-  - WolfImage (3.0.1):
+  - WolfImage (4.0.0):
     - WolfColor
     - WolfFoundation
     - WolfGeometry
     - WolfNumerics
     - WolfOSBridge
     - WolfPipe
-  - WolfLocale (1.0.2):
+  - WolfLocale (2.0.0):
     - ExtensibleEnumeratedName
     - WolfLog
     - WolfStrings
-  - WolfLog (1.0.2):
+  - WolfLog (2.0.0):
     - ExtensibleEnumeratedName
     - WolfNumerics
     - WolfStrings
-  - WolfNesting (1.0.2)
-  - WolfNetwork (1.0.4):
+  - WolfNesting (2.0.0)
+  - WolfNetwork (2.0.0):
     - ExtensibleEnumeratedName
     - WolfApp
     - WolfConcurrency
@@ -70,22 +70,22 @@ PODS:
     - WolfPipe
     - WolfPubSub
     - WolfSec
-  - WolfNumerics (3.0.4)
-  - WolfOSBridge (1.1.1)
-  - WolfPipe (1.1.3)
-  - WolfPubSub (1.0.1):
+  - WolfNumerics (4.0)
+  - WolfOSBridge (2.0.0)
+  - WolfPipe (2.0.0)
+  - WolfPubSub (2.0.0):
     - WolfConcurrency
     - WolfFoundation
-  - WolfSec (2.0.0):
+  - WolfSec (3.0.0):
     - WolfFoundation
     - WolfPipe
-  - WolfStrings (1.3.0):
+  - WolfStrings (2.0.0):
     - ExtensibleEnumeratedName
     - WolfNumerics
     - WolfOSBridge
     - WolfPipe
     - WolfWith
-  - WolfViewControllers (2.1.1):
+  - WolfViewControllers (3.0.0):
     - WolfConcurrency
     - WolfFoundation
     - WolfLocale
@@ -93,7 +93,7 @@ PODS:
     - WolfNesting
     - WolfStrings
     - WolfViews
-  - WolfViews (1.1.0):
+  - WolfViews (2.0.0):
     - WolfAnimation
     - WolfApp
     - WolfAutolayout
@@ -108,7 +108,7 @@ PODS:
     - WolfOSBridge
     - WolfStrings
     - WolfWith
-  - WolfWith (1.0.3)
+  - WolfWith (2.0.1)
 
 DEPENDENCIES:
   - LifeHash (from `../`)
@@ -153,31 +153,31 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ExtensibleEnumeratedName: 1a435d02877c2f0b5457229a9b662be840092758
-  LifeHash: ce698b8fe6e260f8133970d882d80067fc801216
-  WolfAnimation: 015d7ae3bc4034637bbed2d194da9a20b98693b5
-  WolfApp: a7510f65d535ba7aaa1fb999b0e48dfd969590f7
-  WolfAutolayout: 55f71e56aeeb9e3dc201a4731f60f2f0a7c2008d
-  WolfCache: 724446786523479b81d85e682b669b488993c729
-  WolfColor: a48141bff941a834447d0e6242a05accf2a6dead
-  WolfConcurrency: e2f17139a61ab6b26ea63e31f9c73ebe55295b18
-  WolfFoundation: 209c300a782f87a57f60c08cf5e33ba483e20c06
-  WolfGeometry: 991e3e296287ac60219443dfe5a86141991f335d
-  WolfImage: 649876668dee88f5fb1c6517a91644ceab42c8f8
-  WolfLocale: cc7921bc5d24c5e792603e7732c476385f969176
-  WolfLog: 6329a08de6c099ca6ccea857127d9df2f74dfea3
-  WolfNesting: ed169fafc53142d54e017da592ca55e6afbd10fa
-  WolfNetwork: 2b09957438c7b4529ffb39cf24b04eb9b56fe7e2
-  WolfNumerics: c88d30e8864ac043fe6f1482c769f4110aa0fbfd
-  WolfOSBridge: 7d2c1771eae28954492dbe03ba0f248de75d58fe
-  WolfPipe: dadd115dc4b91ca1e1c6b8b940d8de98eab71012
-  WolfPubSub: 9a29c3cf6c3ec1f70054febb22a612afcded5d9b
-  WolfSec: 50574442108ef063a86fb902c310024c98017cd7
-  WolfStrings: 8a7feb93cfb07b494d871b2e8b9e6a060a440e6b
-  WolfViewControllers: 9ab615fae9d4fbf9877f78e4b933c970856d144f
-  WolfViews: b2244fb612837348ac71f3a81971612fc3661b62
-  WolfWith: 4122f873db22b64dbb08dbc675970b538b1c8779
+  ExtensibleEnumeratedName: 50f2d256f6d56baecf681f6fbb6362343dcf885b
+  LifeHash: 42a2e17ec55c2b4e968d8df0d0271b23cd1ce9fd
+  WolfAnimation: 3395a7cbcd27085b2d1e67355b44fd264237071f
+  WolfApp: 688652cfaddedb1ccf734a5e9c33e6aa9e02ad90
+  WolfAutolayout: c663183345c2b96355622c73973543a38b398599
+  WolfCache: 4a4527ea7a4d98bc0120d96e1ba2d9b8cfc430ff
+  WolfColor: d002da00b08a511c364baf7c1c7539878f09ef31
+  WolfConcurrency: e5445d30df478486485b093408fbd50dac0887cc
+  WolfFoundation: df7514e9faf208f591f02cb156ddb537e2a14958
+  WolfGeometry: 5746cc882f3f407d9d7c948d3cd1020e828c3c03
+  WolfImage: 2b95775e99186b8386a91a56747d470f85dc932e
+  WolfLocale: cb8a9870ff13e1b3576d300af7c2057ba6aaaf28
+  WolfLog: b2f3483d6b69aaca1cd65c8e78cf84b20d5dbe50
+  WolfNesting: a35fe79a277341df0e96c720fdce68fb8050f1cb
+  WolfNetwork: 0c51b4a6decafd39c56a87096a928d29c3bc8d06
+  WolfNumerics: 6a57756b668073414da8a6911b86781096aded37
+  WolfOSBridge: e9260681790a7c89f725e134c0c1d4172d2d2dc9
+  WolfPipe: 18ffb77a188263392893a62630defc2a5b92b4f3
+  WolfPubSub: 14a07db9480028525d113ace211532fbdca25600
+  WolfSec: ca7fe7e83a15f4f140fc5b3312ce2e96c0bfd8d3
+  WolfStrings: edc63c08fbd1149ccbf5eca5020b13465084513b
+  WolfViewControllers: 3fb3d0a795c5f1fcea574debee21d661dcb475b3
+  WolfViews: 90b7c1371bcfed2145167fcb0f6f62357c285c6d
+  WolfWith: 2320a88a03a943df9ff1284c9cca10f86cb73c60
 
 PODFILE CHECKSUM: 3257ccb931660b0905fbc821ae9ca73ba6143c34
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.7.0.beta.2

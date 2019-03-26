@@ -33,7 +33,7 @@ func sha256(_ message: Data) -> Data {
     var digest = Data(count: digestLength)
     digest.withUnsafeMutableBytes { digestBytes in
         message.withUnsafeBytes { messageBytes in
-            _ = CC_SHA256(messageBytes, CC_LONG(message.count), digestBytes)
+            _ = CC_SHA256(messageBytes.bindMemory(to: UInt8.self).baseAddress, CC_LONG(message.count), digestBytes.bindMemory(to: UInt8.self).baseAddress)
         }
     }
     return digest
