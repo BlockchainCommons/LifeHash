@@ -3,20 +3,7 @@ use_frameworks!
 platform :ios, '12.0'
 
 target 'LifeHash_Example' do
-#    pod 'WolfAutolayout', :path => '../../WolfAutolayout/'
-#    pod 'WolfViews', :path => '../../WolfViews/'
-#    pod 'WolfColor', :path => '../../WolfColor/'
-#    pod 'WolfWith', :path => '../../WolfWith/'
-#    pod 'WolfNesting', :path => '../../WolfNesting/'
-#    pod 'WolfConcurrency', :path => '../../WolfConcurrency/'
-#    pod 'WolfPipe', :path => '../../WolfPipe/'
-#    pod 'WolfNetwork', :path => '../../WolfNetwork/'
-#    pod 'WolfCache', :path => '../../WolfCache/'
-#    pod 'WolfAnimation', :path => '../../WolfAnimation/'
-#    pod 'WolfViewControllers', :path => '../../WolfViewControllers/'
-#    pod 'WolfFoundation', :path => '../../WolfFoundation/'
-#    pod 'WolfImage', :path => '../../WolfImage/'
-
+    pod 'WolfCache'
     pod 'WolfAutolayout'
     pod 'WolfViews'
     pod 'WolfColor'

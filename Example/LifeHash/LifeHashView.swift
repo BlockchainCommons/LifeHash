@@ -48,39 +48,43 @@ class LifeHashView: ImageView {
     }
 
     func reset() {
-        canceler?.cancel()
-        canceler = nil
-        backgroundColor = .darkGray
-        image = nil
+        resetView()
+        hashInput = nil
     }
 
-    func set(image: UIImage) {
+    private func set(image: UIImage) {
         self.backgroundColor = .clear
         self.image = image
     }
 
+    private func resetView() {
+        backgroundColor = .darkGray
+        image = nil
+    }
+
     private func syncToInput() {
-        reset()
+        resetView()
 
         guard let hashInput = hashInput else { return }
 
-        let path = hashInput |> toHex
-        let url = URL(string: "lifehash:\(path)")!
-
-        canceler = run <| Self.cache.retrieveObject(for: url) ||> { image in
-            if let canceler = self.canceler, canceler.isCanceled { return }
+        let url = URL(string: "lifehash:\(hashInput |> toHex)")!
+        let future = Self.cache.retrieveObject(for: url)
+        future.whenSuccess { image in
+            guard hashInput == self.hashInput else { return }
             dispatchOnMain {
+                guard hashInput == self.hashInput else { return }
                 self.set(image: image)
             }
-        } ||! { error in
-            self.canceler = dispatchOnBackground(afterDelay: 0.25) {
-                guard let canceler = self.canceler else { return }
-                guard !canceler.isCanceled else { return }
+        }
+        future.whenFailure { error in
+            guard hashInput == self.hashInput else { return }
+            dispatchOnBackground {
                 let lifeHash = LifeHash(data: hashInput)
                 let image = lifeHash.image
                 Self.cache.store(obj: image, for: url)
+                guard hashInput == self.hashInput else { return }
                 dispatchOnMain {
-                    guard !canceler.isCanceled else { return }
+                    guard hashInput == self.hashInput else { return }
                     self.set(image: image)
                 }
             }
