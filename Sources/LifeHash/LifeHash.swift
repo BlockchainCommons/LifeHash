@@ -22,10 +22,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfNumerics
 import WolfColor
-import WolfStrings
-import WolfPipe
+import WolfCore
 import WolfGeometry
 import WolfImage
 

@@ -24,10 +24,8 @@
 
 import Foundation
 import WolfViews
-import WolfWith
+import WolfCore
 import WolfAutolayout
-import WolfNesting
-import WolfConcurrency
 import LifeHash
 
 class LifeHashCollectionViewCell: CollectionViewCell {

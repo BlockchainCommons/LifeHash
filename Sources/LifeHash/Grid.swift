@@ -23,7 +23,7 @@
 //  SOFTWARE.
 
 import WolfGeometry
-import WolfFoundation
+import WolfCore
 
 public class Grid<T: Equatable>: Equatable {
     public let size: IntSize

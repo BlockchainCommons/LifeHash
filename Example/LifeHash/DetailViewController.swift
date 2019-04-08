@@ -24,10 +24,8 @@
 
 import WolfViewControllers
 import WolfViews
-import WolfWith
-import WolfNesting
+import WolfCore
 import WolfAutolayout
-import WolfNumerics
 
 class DetailViewController: ViewController {
     private typealias `Self` = DetailViewController

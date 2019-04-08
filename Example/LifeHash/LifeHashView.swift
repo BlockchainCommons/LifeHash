@@ -24,10 +24,8 @@
 
 import WolfViews
 import LifeHash
-import WolfConcurrency
-import WolfPipe
+import WolfCore
 import WolfCache
-import WolfFoundation
 import WolfLog
 
 class LifeHashView: ImageView {

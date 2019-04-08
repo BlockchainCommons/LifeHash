@@ -23,9 +23,8 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfNumerics
+import WolfCore
 import WolfColor
-import WolfPipe
 
 func selectGradient(entropy: BitEnumerator) -> ColorFunc {
     switch entropy.nextUInt2() {

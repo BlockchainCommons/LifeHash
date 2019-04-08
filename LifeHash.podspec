@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LifeHash'
-    s.version          = '0.3.1'
+    s.version          = '0.3.2'
     s.summary          = 'A beautiful method of hash visualization based on Conway’s Game of Life.'
 
     s.description      = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
         'SWIFT_COMPILATION_MODE' => 'wholemodule'
     }
 
-    s.source_files = 'LifeHash/Classes/**/*'
+    s.source_files = 'Sources/LifeHash/**/*'
 
     s.swift_version = '5.0'
 
@@ -27,9 +27,8 @@ Pod::Spec.new do |s|
 
     s.module_name = 'LifeHash'
 
-    s.dependency 'WolfFoundation'
+    s.dependency 'WolfCore'
     s.dependency 'WolfColor'
-    s.dependency 'WolfNumerics'
     s.dependency 'WolfImage'
     s.dependency 'WolfGeometry'
 end

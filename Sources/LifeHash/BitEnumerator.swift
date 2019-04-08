@@ -23,7 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfNumerics
+import WolfCore
 
 final class BitEnumerator: Sequence, IteratorProtocol {
     private let data: Data

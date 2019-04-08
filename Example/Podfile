@@ -7,11 +7,8 @@ target 'LifeHash_Example' do
     pod 'WolfAutolayout'
     pod 'WolfViews'
     pod 'WolfColor'
-    pod 'WolfWith'
-    pod 'WolfNesting'
-    pod 'WolfConcurrency'
+    pod 'WolfCore'
     pod 'WolfViewControllers'
-    pod 'WolfFoundation'
     pod 'WolfImage'
 
     pod 'LifeHash', :path => '../'

@@ -23,8 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfNumerics
-import WolfStrings
+import WolfCore
 import WolfGeometry
 
 class FracGrid: Grid<Frac> {

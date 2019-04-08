@@ -26,10 +26,7 @@ import WolfViewControllers
 import WolfAutolayout
 import WolfViews
 import WolfColor
-import WolfWith
-import WolfNesting
-import WolfPipe
-import WolfFoundation
+import WolfCore
 
 class MainViewController: ViewController {
     private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in
