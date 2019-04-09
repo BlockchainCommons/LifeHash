@@ -4,11 +4,9 @@ PODS:
   - CNIOLinux (2.0.0)
   - CNIOSHA1 (2.0.0)
   - ExtensibleEnumeratedName (2.0)
-  - LifeHash (0.3.2):
-    - WolfColor
+  - LifeHash (0.3.4):
     - WolfCore
-    - WolfGeometry
-    - WolfImage
+    - WolfGraphics
   - SwiftNIO (2.0.0):
     - CNIOAtomics (= 2.0.0)
     - CNIODarwin (= 2.0.0)
@@ -33,12 +31,12 @@ PODS:
   - WolfApp (2.0.2):
     - WolfCore
     - WolfLocale
-  - WolfAutolayout (2.0.2):
+  - WolfAutolayout (2.0.3):
     - WolfCore
-    - WolfGeometry
-  - WolfCache (3.0.1):
+    - WolfGraphics
+  - WolfCache (3.0.2):
     - WolfCore
-    - WolfImage
+    - WolfGraphics
     - WolfLog
     - WolfNetwork
     - WolfNIO
@@ -62,19 +60,21 @@ PODS:
     - WolfPipe
   - WolfGeometry (4.0.1):
     - WolfCore
+  - WolfGraphics (1.0.0):
+    - WolfColor
+    - WolfGeometry
+    - WolfImage
   - WolfImage (4.0.1):
     - WolfColor
     - WolfCore
     - WolfGeometry
-  - WolfKit (1.0.0):
+  - WolfKit (1.0.2):
     - WolfAnimation
     - WolfApp
     - WolfAutolayout
     - WolfCache
-    - WolfColor
     - WolfCore
-    - WolfGeometry
-    - WolfImage
+    - WolfGraphics
     - WolfLocale
     - WolfLog
     - WolfNetwork
@@ -122,21 +122,19 @@ PODS:
     - WolfLocale
     - WolfLog
     - WolfViews
-  - WolfViews (3.0.1):
+  - WolfViews (3.0.2):
     - WolfAnimation
     - WolfApp
     - WolfAutolayout
     - WolfCache
-    - WolfColor
     - WolfCore
-    - WolfGeometry
-    - WolfImage
+    - WolfGraphics
     - WolfLocale
   - WolfWith (2.0.1)
 
 DEPENDENCIES:
   - LifeHash (from `../`)
-  - WolfKit (from `../../WolfKit`)
+  - WolfKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -159,7 +157,9 @@ SPEC REPOS:
     - WolfCore
     - WolfFoundation
     - WolfGeometry
+    - WolfGraphics
     - WolfImage
+    - WolfKit
     - WolfLocale
     - WolfLog
     - WolfNesting
@@ -179,8 +179,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   LifeHash:
     :path: "../"
-  WolfKit:
-    :path: "../../WolfKit"
 
 SPEC CHECKSUMS:
   CNIOAtomics: 740c1b1186b544f6aea3c5d70251cdcacac2131f
@@ -188,7 +186,7 @@ SPEC CHECKSUMS:
   CNIOLinux: 26befd30c9c349ee50c789cecba0749dab5d0de3
   CNIOSHA1: c732b8be9a737bb1a87078e4753914153f573549
   ExtensibleEnumeratedName: 50f2d256f6d56baecf681f6fbb6362343dcf885b
-  LifeHash: 57fa4cc51b3a66e6d2629e8bc1559f10dc3a1f75
+  LifeHash: b76011e3de54df2c84ea7568a57f028d77b6d33d
   SwiftNIO: 90e2f451448a4a275d2bce0edb780281c1715780
   SwiftNIOConcurrencyHelpers: a79f8bb5ae0f342107b2f33b1764eb78891dcf54
   SwiftNIOFoundationCompat: 6c7250f6a25c96112743a562dbd74e99f00d8f6e
@@ -196,15 +194,16 @@ SPEC CHECKSUMS:
   SwiftNIOTransportServices: 97d9ee8db0b0b015263fbef523f062c8823968a7
   WolfAnimation: 86ea2630759ca92d54abc011b56455742de8f4b3
   WolfApp: d6b36d8bc8dcdbbb22c5b071dd6bb1411caed828
-  WolfAutolayout: c15a06baec30b741cf71a5cd78f5a8dbd73b05a9
-  WolfCache: 0e9a3ebffe3f387a7495e67b9d08e7e72940bec4
+  WolfAutolayout: da30b1f598b536fee7fd4d86b69fb6eaa690615d
+  WolfCache: 476154e387671bf88d0dd4d5bd08ef9083382a8f
   WolfColor: 066c35c12b7283a1eb12a65d906d9ec4a35216e2
   WolfConcurrency: 50458b6d801209f89e41d4bb9d57c80c65984770
   WolfCore: 2cb29d73a6c3cd690152336b546d64d4fa52ae9a
   WolfFoundation: 43bf1ace604a99ce0775763fc283a9ce8d5309df
   WolfGeometry: 9b1cbefde3f778ea8e63e849fd26fdc4e3dd86b1
+  WolfGraphics: b8c45563a86d76cd74b241958ffb64213abc6cfd
   WolfImage: 4d9ac3f58f7d8c0df6fca406006305161f45c316
-  WolfKit: a9f14db139bb55afa2919d2f907d889baeff4923
+  WolfKit: 78242660e9ba2d2753d4479bd26ba17dc61c5e1b
   WolfLocale: 243737a1cf348a2f37c5a28036cc64be479ed658
   WolfLog: 6369581c3cbf14c51249a9c0206ebc35a11eb21d
   WolfNesting: 891247e766da604f0e8124d85a158fe123ceb8d8
@@ -218,9 +217,9 @@ SPEC CHECKSUMS:
   WolfStrings: edc63c08fbd1149ccbf5eca5020b13465084513b
   WolfValidation: de7e275276c721ab7bfd5153de3036924920f503
   WolfViewControllers: d0a5e3a32b7f53316384c03a60d4ae1516bdbdd0
-  WolfViews: bba179f2756013d37f7f40030b3c8da1e8435b10
+  WolfViews: 7f87fcdb6228890e89272c2452d2e2589870fa19
   WolfWith: 2320a88a03a943df9ff1284c9cca10f86cb73c60
 
-PODFILE CHECKSUM: 688c2deba377ff75d780a0b66a7893b8e5ffc424
+PODFILE CHECKSUM: ff69d9d1ab897872ebeaf3be39901ed8d48ccf87
 
 COCOAPODS: 1.7.0.beta.2
