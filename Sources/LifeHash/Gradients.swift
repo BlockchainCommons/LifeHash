@@ -24,7 +24,7 @@
 
 import Foundation
 import WolfCore
-import WolfColor
+import WolfGraphics
 
 func selectGradient(entropy: BitEnumerator) -> ColorFunc {
     switch entropy.nextUInt2() {

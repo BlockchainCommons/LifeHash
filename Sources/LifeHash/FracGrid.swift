@@ -24,7 +24,7 @@
 
 import Foundation
 import WolfCore
-import WolfGeometry
+import WolfGraphics
 
 class FracGrid: Grid<Frac> {
     init(size: IntSize) {

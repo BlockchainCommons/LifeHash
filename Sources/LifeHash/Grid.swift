@@ -22,7 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfGeometry
+import WolfGraphics
 import WolfCore
 
 public class Grid<T: Equatable>: Equatable {

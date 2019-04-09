@@ -23,7 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfGeometry
+import WolfGraphics
 
 class ChangeGrid: Grid<Bool> {
     init(size: IntSize) {

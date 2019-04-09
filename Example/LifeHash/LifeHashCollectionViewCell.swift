@@ -23,9 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfViews
-import WolfCore
-import WolfAutolayout
+import WolfKit
 import LifeHash
 
 class LifeHashCollectionViewCell: CollectionViewCell {

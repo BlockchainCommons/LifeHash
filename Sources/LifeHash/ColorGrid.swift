@@ -23,9 +23,7 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfColor
-import WolfGeometry
-import WolfImage
+import WolfGraphics
 
 class ColorGrid: Grid<Color> {
     private typealias `Self` = ColorGrid

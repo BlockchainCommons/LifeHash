@@ -22,10 +22,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfColor
+import WolfGraphics
 import WolfCore
-import WolfGeometry
-import WolfImage
 
 public struct LifeHash {
     private typealias `Self` = LifeHash

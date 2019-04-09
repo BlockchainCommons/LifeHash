@@ -3,15 +3,8 @@ use_frameworks!
 platform :ios, '12.0'
 
 target 'LifeHash_Example' do
-    pod 'WolfCache'
-    pod 'WolfAutolayout'
-    pod 'WolfViews'
-    pod 'WolfColor'
-    pod 'WolfCore'
-    pod 'WolfViewControllers'
-    pod 'WolfImage'
-
     pod 'LifeHash', :path => '../'
+    pod 'WolfKit'
 
     target 'LifeHash_Tests' do
         inherit! :search_paths

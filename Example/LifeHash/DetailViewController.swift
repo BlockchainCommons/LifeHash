@@ -22,10 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfViewControllers
-import WolfViews
-import WolfCore
-import WolfAutolayout
+import WolfKit
 
 class DetailViewController: ViewController {
     private typealias `Self` = DetailViewController

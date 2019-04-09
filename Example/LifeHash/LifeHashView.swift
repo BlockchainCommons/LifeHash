@@ -22,11 +22,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfViews
 import LifeHash
-import WolfCore
-import WolfCache
-import WolfLog
+import WolfKit
 
 class LifeHashView: ImageView {
     private typealias `Self` = LifeHashView

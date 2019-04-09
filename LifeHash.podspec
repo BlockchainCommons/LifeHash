@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LifeHash'
-    s.version          = '0.3.2'
+    s.version          = '0.3.4'
     s.summary          = 'A beautiful method of hash visualization based on Conway’s Game of Life.'
 
     s.description      = <<-DESC
@@ -28,7 +28,5 @@ Pod::Spec.new do |s|
     s.module_name = 'LifeHash'
 
     s.dependency 'WolfCore'
-    s.dependency 'WolfColor'
-    s.dependency 'WolfImage'
-    s.dependency 'WolfGeometry'
+    s.dependency 'WolfGraphics'
 end

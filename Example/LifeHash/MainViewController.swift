@@ -22,11 +22,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfViewControllers
-import WolfAutolayout
-import WolfViews
-import WolfColor
-import WolfCore
+import WolfKit
 
 class MainViewController: ViewController {
     private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in
