@@ -30,7 +30,9 @@ class LifeHashView: ImageView {
 
     private var canceler: Cancelable?
 
-    private static let cache = Cache<UIImage>.init(filename: "LifeHash.cache", sizeLimit: 100_000, includeHTTP: false)
+    private static let cache = Cache<UIImage>.init(filename: "LifeHash.cache", sizeLimit: 100_000, includeHTTP: false) • {
+        $0.removeAll()
+    }
 
     override func setup() {
         super.setup()

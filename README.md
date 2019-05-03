@@ -13,21 +13,15 @@ After the pattern becomes stable (or begins repeating) the resulting history is 
 
 Some bits of the initial hash are then used to deterministically apply symmetry and color to the icon to add beauty and quick recognizability.
 
-![Samples of LifeHash](Art/Samples-0.jpg?raw=true "Samples 1") ![Samples of LifeHash](Art/Samples-1090.jpg?raw=true "Samples 2")
+![Samples of LifeHash](Art/Samples-0.jpg?raw=true "Samples 1") ![Samples of LifeHash](Art/Samples-856.jpg?raw=true "Samples 2")
 
-![Samples of LifeHash](Art/Sample-315.jpg?raw=true "Sample 315") ![Samples of LifeHash](Art/Sample-777.jpg?raw=true "Sample 777")
+![Samples of LifeHash](Art/Sample-88.jpg?raw=true "Sample 88") ![Samples of LifeHash](Art/Sample-229.jpg?raw=true "Sample 229")
 
-![Samples of LifeHash](Art/Sample-1012.jpg?raw=true "Sample 1012") ![Samples of LifeHash](Art/Sample-1015.jpg?raw=true "Sample 1015")
-
-![Samples of LifeHash](Art/Sample-1113.jpg?raw=true "Sample 1113") ![Samples of LifeHash](Art/Sample-2187.jpg?raw=true "Sample 2187")
+![Samples of LifeHash](Art/Sample-526.jpg?raw=true "Sample 526") ![Samples of LifeHash](Art/Sample-799.jpg?raw=true "Sample 799")
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-Swift 4.2
 
 ## Installation
 

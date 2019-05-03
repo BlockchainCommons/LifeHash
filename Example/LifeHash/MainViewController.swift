@@ -80,6 +80,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LifeHash", for: indexPath) as! LifeHashCollectionViewCell
         let title = String(indexPath.item)
+//        let title = "166"
         cell.hashTitle = title
         cell.hashInput = title |> toUTF8
         return cell

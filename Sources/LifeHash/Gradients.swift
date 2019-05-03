@@ -26,7 +26,7 @@ import Foundation
 import WolfCore
 import WolfGraphics
 
-func selectGradient(entropy: BitEnumerator) -> ColorFunc {
+func selectGradient(entropy: BitEnumerator) -> Gradient {
     switch entropy.nextUInt2() {
     case 0:
         return selectMonochromaticGradient(entropy: entropy)
@@ -41,85 +41,120 @@ func selectGradient(entropy: BitEnumerator) -> ColorFunc {
     }
 }
 
-private func selectValue(spreadFrac: Frac, centerFrac: Frac, spreadInterval: Interval<Frac>, contrast: Frac, finalInterval: Interval<Frac>, reverse: Bool) -> Interval<Frac> {
-    let widenedSpreadFrac = spreadFrac.lerpedFromFrac(to: spreadInterval)
-    let spread = (0.5 - widenedSpreadFrac / 2 .. 0.5 + widenedSpreadFrac / 2)
-    let c = (centerFrac - 0.5) * (1.0 - spreadFrac)
-    let centeredSpread = spread.a + c .. spread.b + c
-    let mid = 0.5.lerpedFromFrac(to: centeredSpread)
-    let attenuatedA = contrast.lerpedFromFrac(to: mid .. centeredSpread.a)
-    let attenuatedB = contrast.lerpedFromFrac(to: mid .. centeredSpread.b)
-    let attenuated = attenuatedA .. attenuatedB
-    let final = attenuated.lerped(from: 0 .. 1, to: finalInterval)
-    let reversed = reverse ? final.swapped() : final
-    return reversed
-}
-
-private func selectMonochromaticGradient(entropy: BitEnumerator) -> ColorFunc {
+private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
     let hue: Frac = entropy.nextFrac()!
+    let isTint = entropy.next()!
+    let isReversed = entropy.next()!
+    let keyAdvance = entropy.nextFrac()! * 0.3 + 0.05
+    let neutralAdvance = entropy.nextFrac()! * 0.3 + 0.05
 
-    let saturationSpreadFrac = entropy.nextFrac()!
-    let saturationCenterFrac = entropy.nextFrac()!
-    let saturationReverse = entropy.next()!
+    var keyColor = HSBColor(hue: hue, saturation: 1.0, brightness: 1.0) |> toColor
 
-    let brightnessSpreadFrac = entropy.nextFrac()!
-    let brightnessCenterFrac = entropy.nextFrac()!
-    let brightnessReverse = entropy.next()!
+    let contrastBrightness: Frac
+    if isTint {
+        contrastBrightness = 1
+        keyColor = keyColor.darkened(by: 0.5)
+    } else {
+        contrastBrightness = 0
+    }
+    let neutralColor = HSBColor(hue: 0, saturation: 0, brightness: contrastBrightness) |> toColor
 
-    let saturation = selectValue(spreadFrac: saturationSpreadFrac, centerFrac: saturationCenterFrac, spreadInterval: 0.6 .. 1.0, contrast: 1.0, finalInterval: 0.3 .. 1.0, reverse: saturationReverse)
-    let brightness = selectValue(spreadFrac: brightnessSpreadFrac, centerFrac: brightnessCenterFrac, spreadInterval: 0.5 .. 1.0, contrast: 1.0, finalInterval: 0.1 .. 1.0, reverse: brightnessReverse)
+    let keyColor2 = keyColor.blend(to: neutralColor, at: keyAdvance)
+    let neutralColor2 = neutralColor.blend(to: keyColor, at: neutralAdvance)
 
-    let color1 = HSBColor(hue: hue, saturation: saturation.a, brightness: brightness.a) |> toColor
-    let color2 = HSBColor(hue: hue, saturation: saturation.b, brightness: brightness.b) |> toColor
-
-    return makeTwoColor(color1, color2)
+    let gradient = Gradient(makeTwoColor(keyColor2, neutralColor2))
+    return isReversed ? gradient.reversed : gradient
 }
 
-private func selectComplementaryGradient(entropy: BitEnumerator) -> ColorFunc {
-    let color1Frac = entropy.nextFrac()!
+private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 0.5).truncatingRemainder(dividingBy: 1)
+    let lighterAdvance = entropy.nextFrac()! * 0.3
+    let darkerAdvance = entropy.nextFrac()! * 0.3
+    let isReversed = entropy.next()!
 
-    let saturationSpreadFrac = entropy.nextFrac()!
-    let saturationCenterFrac = entropy.nextFrac()!
-    let saturationReverse = entropy.next()!
+    let color1 = spectrum(spectrum1)
+    let color2 = spectrum(spectrum2)
 
-    let brightnessSpreadFrac = entropy.nextFrac()!
-    let brightnessCenterFrac = entropy.nextFrac()!
-    let brightnessReverse = entropy.next()!
+    let luma1 = color1.luminance
+    let luma2 = color2.luminance
 
-    let color2Frac = (color1Frac + 0.5).truncatingRemainder(dividingBy: 1)
-    let saturation = selectValue(spreadFrac: saturationSpreadFrac, centerFrac: saturationCenterFrac, spreadInterval: 0.0 .. 1.0, contrast: 1.0, finalInterval: 0.0 .. 0.2, reverse: saturationReverse)
-    let brightness = selectValue(spreadFrac: brightnessSpreadFrac, centerFrac: brightnessCenterFrac, spreadInterval: 0.3 .. 1.0, contrast: 1.0, finalInterval: 0.3 .. 1.0, reverse: brightnessReverse)
+    let darkerColor: Color
+    let lighterColor: Color
+    if luma1 > luma2 {
+        darkerColor = color2
+        lighterColor = color1
+    } else {
+        darkerColor = color1
+        lighterColor = color2
+    }
 
-    let color1 = spectrum(color1Frac).darkened(by: 1 - brightness.a).lightened(by: saturation.a)
-    let color2 = spectrum(color2Frac).darkened(by: 1 - brightness.b).lightened(by: saturation.b)
+    let adjustedLighterColor = lighterColor.blend(to: .white, at: lighterAdvance)
+    let adjustedDarkerColor = darkerColor.blend(to: .black, at: darkerAdvance)
 
-    return makeTwoColor(color1, color2)
+    let gradient = Gradient(makeTwoColor(adjustedDarkerColor, adjustedLighterColor))
+    return isReversed ? gradient.reversed : gradient
 }
 
-private func selectTriadicGradient(entropy: BitEnumerator) -> ColorFunc {
-    let color1Frac = entropy.nextFrac()!
-    let color2Frac = (color1Frac + 1.0 / 3).truncatingRemainder(dividingBy: 1)
-    let color3Frac = (color1Frac + 2.0 / 3).truncatingRemainder(dividingBy: 1)
+private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 1.0 / 3).truncatingRemainder(dividingBy: 1)
+    let spectrum3 = (spectrum1 + 2.0 / 3).truncatingRemainder(dividingBy: 1)
+    let lighterAdvance = entropy.nextFrac()! * 0.3
+    let darkerAdvance = entropy.nextFrac()! * 0.3
+    let isReversed = entropy.next()!
 
-    let color1 = spectrum(color1Frac).lightened(by: 0.3)
-    let color2 = spectrum(color2Frac)
-    let color3 = spectrum(color3Frac).darkened(by: 0.3)
+    let colors = [spectrum(spectrum1), spectrum(spectrum2), spectrum(spectrum3)]
+    let sortedColors = colors.sorted { $0.luminance < $1.luminance }
 
-    return makeThreeColor(color1, color2, color3)
+    let darkerColor = sortedColors[0]
+    let middleColor = sortedColors[1]
+    let lighterColor = sortedColors[2]
+
+    let adjustedLighterColor = lighterColor.blend(to: .white, at: lighterAdvance)
+    let adjustedDarkerColor = darkerColor.blend(to: .black, at: darkerAdvance)
+
+    let gradient = Gradient(makeThreeColor(adjustedLighterColor, middleColor, adjustedDarkerColor))
+    return isReversed ? gradient.reversed : gradient
 }
 
-private func selectAnalogousGradient(entropy: BitEnumerator) -> ColorFunc {
-    let color1Frac = entropy.nextFrac()!
-    let color2Frac = (color1Frac + 1.0 / 12).truncatingRemainder(dividingBy: 1)
-    let color3Frac = (color1Frac + 2.0 / 12).truncatingRemainder(dividingBy: 1)
-    let color4Frac = (color1Frac + 3.0 / 12).truncatingRemainder(dividingBy: 1)
+private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 1.0 / 12).truncatingRemainder(dividingBy: 1)
+    let spectrum3 = (spectrum1 + 2.0 / 12).truncatingRemainder(dividingBy: 1)
+    let spectrum4 = (spectrum1 + 3.0 / 12).truncatingRemainder(dividingBy: 1)
+    let advance = entropy.nextFrac()! * 0.5 + 0.2
+    let isReversed = entropy.next()!
 
-    let color1 = spectrum(color1Frac).lightened(by: 0.2)
-    let color2 = spectrum(color2Frac)
-    let color3 = spectrum(color3Frac).darkened(by: 0.2)
-    let color4 = spectrum(color4Frac).darkened(by: 0.4)
+    let color1 = spectrum(spectrum1)
+    let color2 = spectrum(spectrum2)
+    let color3 = spectrum(spectrum3)
+    let color4 = spectrum(spectrum4)
 
-    return blend(colors: [color1, color2, color3, color4])
+    let darkestColor: Color
+    let darkColor: Color
+    let lightColor: Color
+    let lightestColor: Color
+
+    if color1.luminance < color4.luminance {
+        darkestColor = color1
+        darkColor = color2
+        lightColor = color3
+        lightestColor = color4
+    } else {
+        darkestColor = color4
+        darkColor = color3
+        lightColor = color2
+        lightestColor = color1
+    }
+
+    let adjustedDarkestColor = darkestColor.blend(to: .black, at: advance)
+    let adjustedDarkColor = darkColor.blend(to: .black, at: advance / 2)
+    let adjustedLightColor = lightColor.blend(to: .white, at: advance / 2)
+    let adjustedLightestColor = lightestColor.blend(to: .white, at: advance)
+
+    let gradient = Gradient(blend(colors: [adjustedDarkestColor, adjustedDarkColor, adjustedLightColor, adjustedLightestColor]))
+    return isReversed ? gradient.reversed : gradient
 }
 
 func selectPattern(entropy: BitEnumerator) -> ColorGrid.Pattern {

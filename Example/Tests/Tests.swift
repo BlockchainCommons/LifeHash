@@ -1,21 +1,11 @@
-//import XCTest
-//import WolfPipe
-//import WolfStrings
-//import WolfNumerics
+import XCTest
+//import WolfColor
+import WolfKit
 
-//@testable import LifeHash
-//
-//public func makeRandomData(count: Int) -> Data {
-//    var data = Data(count: count)
-//    data.withUnsafeMutableBytes { (dataBytes: UnsafeMutablePointer<UInt8>) -> Void in
-//        for i in 0 ..< count {
-//            dataBytes[i] = UInt8.random(in: UInt8.min ... UInt8.max)
-//        }
-//    }
-//    return data
-//}
-//
-//class Tests: XCTestCase {
+class Tests: XCTestCase {
+    func test1() {
+        print(Color.red |> toLABColor |> toColor)
+    }
 ////    func test1() {
 ////        var maxGenerations = Int.min
 ////        for i in 0 ..< 10 {
@@ -63,4 +53,4 @@
 //        selectValue(spreadFrac: 0.2, centerFrac: 1.0, contrast: 0.5, interval: 0.0 .. 0.5, reverse: true)
 //        selectValue(spreadFrac: 0.2, centerFrac: 1.0, contrast: 0.0, interval: 0.0 .. 0.5, reverse: false)
 //    }
-//}
+}

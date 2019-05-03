@@ -27,14 +27,22 @@ import WolfCore
 
 public class Grid<T: Equatable>: Equatable {
     public let size: IntSize
-    public var maxX: Int { return size.width - 1 }
-    public var maxY: Int { return size.height - 1 }
-    private(set) var rows: [[T]]
+    public let maxX: Int
+    public let maxY: Int
+    public let capacity: Int
+    public let storage: UnsafeMutablePointer<T>
 
     public init(size: IntSize, initialValue: T) {
         self.size = size
-        let row = [T](repeating: initialValue, count: size.width)
-        rows = [[T]](repeating: row, count: size.height)
+        maxX = size.width - 1
+        maxY = size.height - 1
+        capacity = size.width * size.height
+        storage = UnsafeMutablePointer<T>.allocate(capacity: capacity)
+        storage.initialize(repeating: initialValue, count: capacity)
+    }
+
+    deinit {
+        storage.deallocate()
     }
 
     public func isValid(coordinate point: IntPoint) -> Bool {
@@ -45,33 +53,33 @@ public class Grid<T: Equatable>: Equatable {
         return true
     }
 
-//    public func checkValid(coordinate coord: IntPoint) throws {
-//        guard isValid(coordinate: coord) else { throw LifeHashError("Invalid coordinate: \(coord)") }
-//    }
-
-    public func getValue(atCoordinate coord: IntPoint) -> T {
-        //try checkValid(coordinate: coord)
-        return rows[coord.y][coord.x]
+    @usableFromInline func offset(for coord: IntPoint) -> Int {
+        let o = coord.y * size.width + coord.x
+        guard o < capacity else { fatalError() }
+        return o
     }
 
-    public func setValue(_ value: T, atCoordinate point: IntPoint) {
-        //try checkValid(coordinate: point)
-        rows[point.y][point.x] = value
+    @inlinable public func getValue(atCoordinate coord: IntPoint) -> T {
+        return storage[offset(for: coord)]
     }
 
-    public func getValue(atCircularCoordinate coord: IntPoint) -> T {
+    @inlinable public func setValue(_ value: T, atCoordinate coord: IntPoint) {
+        storage[offset(for: coord)] = value
+    }
+
+    @inlinable public func getValue(atCircularCoordinate coord: IntPoint) -> T {
         let cx = makeCircularIndex(at: coord.y, count: size.height)
         let cy = makeCircularIndex(at: coord.x, count: size.width)
         return getValue(atCoordinate: IntPoint(x: cx, y: cy))
     }
 
-    public func setValue(_ value: T, atCircularCoordinate coord: IntPoint) {
+    @inlinable public func setValue(_ value: T, atCircularCoordinate coord: IntPoint) {
         let cx = makeCircularIndex(at: coord.y, count: size.height)
         let cy = makeCircularIndex(at: coord.x, count: size.width)
         setValue(value, atCoordinate: IntPoint(x: cx, y: cy))
     }
 
-    public func forAll(_ f: (IntPoint) -> Void) {
+    @inlinable public func forAll(_ f: (IntPoint) -> Void) {
         for y in 0..<size.height {
             for x in 0..<size.width {
                 f(IntPoint(x: x, y: y))
@@ -79,13 +87,13 @@ public class Grid<T: Equatable>: Equatable {
         }
     }
 
-    public func setAll(_ value: T) {
+    @inlinable public func setAll(_ value: T) {
         forAll { p in
             self[p] = value
         }
     }
 
-    public func forNeighborhood(at point: IntPoint, f: (_ o: IntPoint, _ p: IntPoint) -> Void) {
+    @inlinable public func forNeighborhood(at point: IntPoint, f: (_ o: IntPoint, _ p: IntPoint) -> Void) {
         for oy in -1 ... 1 {
             for ox in -1 ... 1 {
                 let o = IntPoint(x: ox, y: oy)
@@ -95,17 +103,17 @@ public class Grid<T: Equatable>: Equatable {
         }
     }
 
-    public subscript(point: IntPoint) -> T {
+    @inlinable public subscript(point: IntPoint) -> T {
         get { return self.getValue(atCoordinate: point) }
         set { self.setValue(newValue, atCoordinate: point) }
     }
 
-    public subscript(x: Int, y: Int) -> T {
+    @inlinable public subscript(x: Int, y: Int) -> T {
         get { return self[IntPoint(x: x, y: y)] }
         set { self[IntPoint(x: x, y: y)] = newValue }
     }
 
-    public func equals(_ g: Grid<T>) -> Bool {
+    @inlinable public func equals(_ g: Grid<T>) -> Bool {
         guard size == g.size else { return false }
         return true
     }
@@ -115,7 +123,23 @@ public class Grid<T: Equatable>: Equatable {
     }
 
     public var stringRepresentation: String {
-        return rows.map { $0.map { return "\(stringRepresentation(of: $0))" }.joined(separator: " ") }.joined(separator: "\n")
+        var result = ""
+
+        for y in 0..<size.height {
+            for x in 0..<size.width {
+                let p = IntPoint(x: x, y: y)
+                let value = self[p]
+                result.append(stringRepresentation(of: value))
+                if x != maxX {
+                    result.append(" ")
+                }
+            }
+            if y != maxY {
+                result.append("\n")
+            }
+        }
+
+        return result
     }
 
     public func dump() {

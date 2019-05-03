@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LifeHash'
-    s.version          = '0.3.4'
+    s.version          = '1.0.0'
     s.summary          = 'A beautiful method of hash visualization based on Conway’s Game of Life.'
 
     s.description      = <<-DESC

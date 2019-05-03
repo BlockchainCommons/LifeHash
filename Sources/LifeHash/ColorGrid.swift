@@ -33,7 +33,7 @@ class ColorGrid: Grid<Color> {
         case pinwheel
     }
 
-    init(fracGrid: FracGrid, gradient: ColorFunc, pattern: Pattern) {
+    init(fracGrid: FracGrid, gradient: Gradient, pattern: Pattern) {
         let size = IntSize(width: fracGrid.size.width * 2, height: fracGrid.size.height * 2)
         super.init(size: size, initialValue: .black)
 
@@ -46,7 +46,7 @@ class ColorGrid: Grid<Color> {
         }
 
         fracGrid.forAll { p in
-            let color = gradient(fracGrid[p])
+            let color = gradient.at(fracGrid[p])
             draw(p: p, color: color, transforms: patternTransforms)
         }
     }
