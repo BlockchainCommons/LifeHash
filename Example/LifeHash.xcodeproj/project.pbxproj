@@ -10,6 +10,14 @@
 		038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */; };
 		03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9721B8D338000F4876 /* LifeHashView.swift */; };
 		03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9921B91523000F4876 /* DetailViewController.swift */; };
+		03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BD1227CD438007B5302 /* AppDelegate.swift */; };
+		03EC4BD4227CD438007B5302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BD3227CD438007B5302 /* ViewController.swift */; };
+		03EC4BD7227CD438007B5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BD5227CD438007B5302 /* Main.storyboard */; };
+		03EC4BD9227CD43A007B5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BD8227CD43A007B5302 /* Assets.xcassets */; };
+		03EC4BDC227CD43A007B5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */; };
+		03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE1227CD75B007B5302 /* LifeHashView.swift */; };
+		03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */; };
+		2CA9E876DEBEFDA248344C94 /* Pods_LifeHash_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242D5CF411E5746DD4BF6C7D /* Pods_LifeHash_Gallery.framework */; };
 		551C281B29C6EAF9EE658F4A /* Pods_LifeHash_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3433AECCC8954FDAB245201F /* Pods_LifeHash_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
@@ -35,7 +43,18 @@
 		038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashCollectionViewCell.swift; sourceTree = "<group>"; };
 		03E80B9721B8D338000F4876 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
 		03E80B9921B91523000F4876 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03EC4BD1227CD438007B5302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03EC4BD3227CD438007B5302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		03EC4BD6227CD438007B5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03EC4BD8227CD43A007B5302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03EC4BDB227CD43A007B5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03EC4BDD227CD43A007B5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03EC4BE1227CD75B007B5302 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
+		03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashUtils.swift; sourceTree = "<group>"; };
 		05D0FE05BA7A72641201C4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		242D5CF411E5746DD4BF6C7D /* Pods_LifeHash_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		273C15DE418FF70A73F35CD9 /* Pods-LifeHash_Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Gallery.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		3433AECCC8954FDAB245201F /* Pods_LifeHash_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CACA46A9B0A0CDD8CA0579 /* Pods-LifeHash_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LifeHash_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,12 +69,21 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		769B58A939D51776D65CF92B /* Pods_LifeHash_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B88A490A39412A1A97776 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		852EFFFED14E85EA3ADC02EB /* Pods-LifeHash_Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Gallery.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 		89ED276674EF1322D23E2433 /* Pods-LifeHash_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0D0B32B0F55EF57A591E472 /* Pods-LifeHash_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Example.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CF20AB2ACA309AC5308D2098 /* Pods-LifeHash_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Tests.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Tests/Pods-LifeHash_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03EC4BCC227CD437007B5302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA9E876DEBEFDA248344C94 /* Pods_LifeHash_Gallery.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,8 +110,26 @@
 				B0D0B32B0F55EF57A591E472 /* Pods-LifeHash_Example.release.xcconfig */,
 				89ED276674EF1322D23E2433 /* Pods-LifeHash_Tests.debug.xcconfig */,
 				CF20AB2ACA309AC5308D2098 /* Pods-LifeHash_Tests.release.xcconfig */,
+				852EFFFED14E85EA3ADC02EB /* Pods-LifeHash_Gallery.debug.xcconfig */,
+				273C15DE418FF70A73F35CD9 /* Pods-LifeHash_Gallery.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		03EC4BD0227CD438007B5302 /* LifeHash Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				03EC4BD1227CD438007B5302 /* AppDelegate.swift */,
+				03EC4BD3227CD438007B5302 /* ViewController.swift */,
+				03EC4BE1227CD75B007B5302 /* LifeHashView.swift */,
+				03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */,
+				03EC4BD5227CD438007B5302 /* Main.storyboard */,
+				03EC4BD8227CD43A007B5302 /* Assets.xcassets */,
+				03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */,
+				03EC4BDD227CD43A007B5302 /* Info.plist */,
+			);
+			name = "LifeHash Gallery";
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -92,6 +138,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for LifeHash */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				03EC4BD0227CD438007B5302 /* LifeHash Gallery */,
 				607FACD11AFB9204008FA782 /* Products */,
 				037FD7A7D2C8558863B3BB2F /* Pods */,
 				6C0267E893626CFAA701491A /* Frameworks */,
@@ -103,6 +150,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* LifeHash_Example.app */,
 				607FACE51AFB9204008FA782 /* LifeHash_Tests.xctest */,
+				03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +212,7 @@
 			children = (
 				3433AECCC8954FDAB245201F /* Pods_LifeHash_Example.framework */,
 				769B58A939D51776D65CF92B /* Pods_LifeHash_Tests.framework */,
+				242D5CF411E5746DD4BF6C7D /* Pods_LifeHash_Gallery.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,6 +220,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		03EC4BCE227CD437007B5302 /* LifeHash_Gallery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHash_Gallery" */;
+			buildPhases = (
+				E9669A259A82428D51BEEFE5 /* [CP] Check Pods Manifest.lock */,
+				03EC4BCB227CD437007B5302 /* Sources */,
+				03EC4BCC227CD437007B5302 /* Frameworks */,
+				03EC4BCD227CD437007B5302 /* Resources */,
+				143194D7C60DE042EAEADC80 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LifeHash_Gallery;
+			productName = "LifeHash Gallery";
+			productReference = 03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */;
+			productType = "com.apple.product-type.application";
+		};
 		607FACCF1AFB9204008FA782 /* LifeHash_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHash_Example" */;
@@ -215,10 +283,13 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
+					03EC4BCE227CD437007B5302 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 1000;
@@ -245,11 +316,22 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* LifeHash_Example */,
 				607FACE41AFB9204008FA782 /* LifeHash_Tests */,
+				03EC4BCE227CD437007B5302 /* LifeHash_Gallery */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03EC4BCD227CD437007B5302 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03EC4BDC227CD43A007B5302 /* LaunchScreen.storyboard in Resources */,
+				03EC4BD9227CD43A007B5302 /* Assets.xcassets in Resources */,
+				03EC4BD7227CD438007B5302 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +374,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		143194D7C60DE042EAEADC80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A9CD509A14E4C5874A62894E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,9 +430,42 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeHash_Example/Pods-LifeHash_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E9669A259A82428D51BEEFE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LifeHash_Gallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		03EC4BCB227CD437007B5302 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03EC4BD4227CD438007B5302 /* ViewController.swift in Sources */,
+				03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */,
+				03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */,
+				03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +497,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03EC4BD5227CD438007B5302 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03EC4BD6227CD438007B5302 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03EC4BDB227CD43A007B5302 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -384,6 +532,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03EC4BDE227CD43A007B5302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 852EFFFED14E85EA3ADC02EB /* Pods-LifeHash_Gallery.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 92TUA8H52D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Gallery/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03EC4BDF227CD43A007B5302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273C15DE418FF70A73F35CD9 /* Pods-LifeHash_Gallery.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 92TUA8H52D;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/Gallery/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +788,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHash_Gallery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03EC4BDE227CD43A007B5302 /* Debug */,
+				03EC4BDF227CD43A007B5302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LifeHash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

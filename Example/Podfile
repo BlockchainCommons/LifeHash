@@ -2,11 +2,14 @@ use_frameworks!
 
 platform :ios, '12.0'
 
-target 'LifeHash_Example' do
-    pod 'LifeHash', :path => '../'
-    pod 'WolfKit'
+pod 'LifeHash', :path => '../'
+pod 'WolfKit'
 
+target 'LifeHash_Example' do
     target 'LifeHash_Tests' do
         inherit! :search_paths
     end
+end
+
+target 'LifeHash_Gallery' do
 end
