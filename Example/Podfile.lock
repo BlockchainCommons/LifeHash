@@ -24,6 +24,7 @@ PODS:
     - SwiftNIOConcurrencyHelpers (~> 2.0)
     - SwiftNIOFoundationCompat (~> 2.0)
     - SwiftNIOTLS (~> 2.0)
+  - UIImageColors (2.1.0)
   - WolfAnimation (3.0.4):
     - WolfCore
     - WolfLog
@@ -135,6 +136,7 @@ PODS:
 
 DEPENDENCIES:
   - LifeHash (from `../`)
+  - UIImageColors
   - WolfKit
 
 SPEC REPOS:
@@ -149,6 +151,7 @@ SPEC REPOS:
     - SwiftNIOFoundationCompat
     - SwiftNIOTLS
     - SwiftNIOTransportServices
+    - UIImageColors
     - WolfAnimation
     - WolfApp
     - WolfAutolayout
@@ -193,6 +196,7 @@ SPEC CHECKSUMS:
   SwiftNIOFoundationCompat: 6c7250f6a25c96112743a562dbd74e99f00d8f6e
   SwiftNIOTLS: 06bf911bd2f89236cf92519b2eeade592ef4518f
   SwiftNIOTransportServices: 97d9ee8db0b0b015263fbef523f062c8823968a7
+  UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
   WolfAnimation: db06040587cb7f530486a985a6072c5659d4df8c
   WolfApp: aec034af0a6ba599a20ee5891bdd185a43d97f0a
   WolfAutolayout: da30b1f598b536fee7fd4d86b69fb6eaa690615d
@@ -221,6 +225,6 @@ SPEC CHECKSUMS:
   WolfViews: e9a785776204b04577082209c469b1cd59ce4753
   WolfWith: 2320a88a03a943df9ff1284c9cca10f86cb73c60
 
-PODFILE CHECKSUM: 7b1461f4abb9c34fbcc4ec6ab217ec68de72ea68
+PODFILE CHECKSUM: 2da76c8eb373ae41b172e277e0e0a79a764772bc
 
 COCOAPODS: 1.7.0.beta.2

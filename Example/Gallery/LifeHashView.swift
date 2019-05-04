@@ -18,8 +18,6 @@ class LifeHashView: ImageView {
     override func setup() {
         super.setup()
         layer.magnificationFilter = .nearest
-        reset()
-        //logger?.setGroup(.cache)
     }
 
     var resetColor: UIColor = .darkGray {
@@ -34,16 +32,6 @@ class LifeHashView: ImageView {
         didSet { syncToInput() }
     }
 
-    func reset() {
-        resetView()
-        input = nil
-    }
-
-    func set(image: UIImage) {
-        self.backgroundColor = .clear
-        self.image = image
-    }
-
     private func syncToFingerprintable() {
         input = fingerprintable?.fingerprintInput
     }
@@ -54,12 +42,7 @@ class LifeHashView: ImageView {
     }
 
     private func syncToInput() {
-        resetView()
-
         guard let input = input else { return }
-        _ = LifeHash.getImageForInput(input).map { image in
-            guard self.input == input else { return }
-            self.set(image: image)
-        }
+        image = LifeHash(data: input).image
     }
 }

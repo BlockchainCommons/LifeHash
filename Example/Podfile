@@ -12,4 +12,5 @@ target 'LifeHash_Example' do
 end
 
 target 'LifeHash_Gallery' do
+  pod 'UIImageColors'
 end
