@@ -17,6 +17,8 @@
 		03EC4BDC227CD43A007B5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */; };
 		03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE1227CD75B007B5302 /* LifeHashView.swift */; };
 		03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */; };
+		03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE7227E0DBD007B5302 /* FrameView.swift */; };
+		03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE9227E107A007B5302 /* GroupView.swift */; };
 		2CA9E876DEBEFDA248344C94 /* Pods_LifeHash_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242D5CF411E5746DD4BF6C7D /* Pods_LifeHash_Gallery.framework */; };
 		551C281B29C6EAF9EE658F4A /* Pods_LifeHash_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3433AECCC8954FDAB245201F /* Pods_LifeHash_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 		03EC4BDD227CD43A007B5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03EC4BE1227CD75B007B5302 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
 		03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashUtils.swift; sourceTree = "<group>"; };
+		03EC4BE7227E0DBD007B5302 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		03EC4BE9227E107A007B5302 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		05D0FE05BA7A72641201C4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		242D5CF411E5746DD4BF6C7D /* Pods_LifeHash_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeHash_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		273C15DE418FF70A73F35CD9 /* Pods-LifeHash_Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeHash_Gallery.release.xcconfig"; path = "Target Support Files/Pods-LifeHash_Gallery/Pods-LifeHash_Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				03EC4BD1227CD438007B5302 /* AppDelegate.swift */,
+				03EC4BE7227E0DBD007B5302 /* FrameView.swift */,
 				03EC4BD3227CD438007B5302 /* ViewController.swift */,
+				03EC4BE9227E107A007B5302 /* GroupView.swift */,
 				03EC4BE1227CD75B007B5302 /* LifeHashView.swift */,
 				03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */,
 				03EC4BD5227CD438007B5302 /* Main.storyboard */,
@@ -461,7 +467,9 @@
 			files = (
 				03EC4BD4227CD438007B5302 /* ViewController.swift in Sources */,
 				03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */,
+				03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */,
 				03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */,
+				03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */,
 				03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

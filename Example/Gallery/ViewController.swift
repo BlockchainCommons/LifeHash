@@ -6,8 +6,6 @@
 //
 
 import WolfKit
-import LifeHash
-import UIImageColors
 
 class MainViewController: ViewController {
     override var prefersStatusBarHidden: Bool {
@@ -18,13 +16,11 @@ class MainViewController: ViewController {
         return true
     }
 
-    private lazy var frontImageView = LifeHashView() • {
-        $0.contentMode = .scaleAspectFit
+    private lazy var frontView = GroupView() • {
         $0.alpha = 0
     }
 
-    private lazy var backImageView = LifeHashView() • {
-        $0.contentMode = .scaleAspectFit
+    private lazy var backView = GroupView() • {
         $0.alpha = 0
     }
 
@@ -34,12 +30,12 @@ class MainViewController: ViewController {
         view.backgroundColor = .black
 
         view => [
-            backImageView,
-            frontImageView
+            backView,
+            frontView
         ]
 
-        backImageView.constrainFrameToFrame(insets: .init(all: 40))
-        frontImageView.constrainFrameToFrame(insets: .init(all: 40))
+        backView.constrainFrameToSafeArea()
+        frontView.constrainFrameToSafeArea()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,48 +54,25 @@ class MainViewController: ViewController {
     }
 
     private func updateImage(animated: Bool) {
-        swap(&frontImageView, &backImageView)
-        view.bringSubviewToFront(frontImageView)
-
-        let index = Int.random(in: 0 ..< 1_000_000)
-        let string = String(index)
-        let data = string |> toUTF8
-        frontImageView.input = data
-        let colors = frontImageView.image!.getColors(quality: .highest)!
-        let backgroundColor = (colors.nonNeutral ?? .black).darkened(by: 0.2)
+        swap(&frontView, &backView)
+        frontView.updateImage(traits: traitCollection)
+        view.bringSubviewToFront(frontView)
         _ = animation(animated, duration: 2) {
-            self.frontImageView.alpha = 1
-            self.view.backgroundColor = backgroundColor
+            self.frontView.alpha = 1
         }.map { _ in
-            self.backImageView.alpha = 0
+            self.backView.alpha = 0
         }
     }
 
     private var canceler: Cancelable?
 
     private func startTimer() {
-        canceler = dispatchRepeatedOnMain(atInterval: 10) { [unowned self] _ in
+        canceler = dispatchRepeatedOnMain(atInterval: 20) { [unowned self] _ in
             self.updateImage(animated: true)
         }
     }
 
     private func stopTimer() {
         canceler?.cancel()
-    }
-}
-
-extension UIImageColors {
-    var nonNeutral: UIColor? {
-        let prioritized = [detail, secondary, primary, background]
-        let notBlackOrWhite: [UIColor] = prioritized.compactMap {
-            guard let color = $0 else { return nil }
-            let e = Color(color)
-            if e != .black && e != .white {
-                return color
-            } else {
-                return nil
-            }
-        }
-        return notBlackOrWhite.first
     }
 }
