@@ -67,7 +67,7 @@ class MainViewController: ViewController {
     private var canceler: Cancelable?
 
     private func startTimer() {
-        canceler = dispatchRepeatedOnMain(atInterval: 20) { [unowned self] _ in
+        canceler = dispatchRepeatedOnMain(atInterval: 10) { [unowned self] _ in
             self.updateImage(animated: true)
         }
     }

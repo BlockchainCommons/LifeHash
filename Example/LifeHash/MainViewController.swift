@@ -23,6 +23,7 @@
 //  SOFTWARE.
 
 import WolfKit
+import UIKit
 
 class MainViewController: ViewController {
     private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in
@@ -35,7 +36,7 @@ class MainViewController: ViewController {
         🍒.register(LifeHashCollectionViewCell.self, forCellWithReuseIdentifier: "LifeHash")
         🍒.dataSource = self
         🍒.delegate = self
-        🍒.backgroundColor = .black
+        🍒.backgroundColor = .systemBackground
         🍒.contentInset = UIEdgeInsets(all: 20)
     }
 
@@ -48,7 +49,7 @@ class MainViewController: ViewController {
 
         collectionView.constrainFrameToFrame()
 
-        navigationController!.navigationBar.barStyle = .blackTranslucent
+        navigationController!.navigationBar.isTranslucent = true
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

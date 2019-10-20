@@ -8,6 +8,7 @@
 import WolfKit
 import LifeHash
 import UIImageColors
+import UIKit
 
 class FrameView: View {
     private lazy var imageView = LifeHashView() • {

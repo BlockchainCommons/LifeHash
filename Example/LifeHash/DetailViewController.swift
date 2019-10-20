@@ -23,6 +23,7 @@
 //  SOFTWARE.
 
 import WolfKit
+import UIKit
 
 class DetailViewController: ViewController {
     private typealias `Self` = DetailViewController
@@ -50,7 +51,7 @@ class DetailViewController: ViewController {
 
     private lazy var label = Label() • { (🍒: Label) in
         🍒.font = Self.font
-        🍒.textColor = .gray
+        🍒.textColor = .label
         🍒.textAlignment = .center
     }
 
@@ -94,6 +95,16 @@ class DetailViewController: ViewController {
 
         tapAction = view.addAction(for: UITapGestureRecognizer()) { [unowned self] _ in
             self.dismiss()
+        }
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if isDarkMode(self) {
+            blurView.effect = UIBlurEffect(style: .dark)
+        } else {
+            blurView.effect = UIBlurEffect(style: .light)
         }
     }
 }

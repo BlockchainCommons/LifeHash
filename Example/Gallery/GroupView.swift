@@ -6,6 +6,7 @@
 //
 
 import WolfKit
+import UIKit
 
 class GroupView: View {
     private lazy var columnStackView = StackView() |> vertical |> distribution(.fillEqually)

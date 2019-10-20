@@ -24,6 +24,7 @@
 
 import LifeHash
 import WolfKit
+import UIKit
 
 class LifeHashView: ImageView {
     private typealias `Self` = LifeHashView

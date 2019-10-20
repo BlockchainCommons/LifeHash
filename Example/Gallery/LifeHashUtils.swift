@@ -1,6 +1,7 @@
 import WolfKit
 import LifeHash
 import simd
+import UIKit
 
 extension LifeHash {
     private static let serializer = Serializer()

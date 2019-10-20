@@ -25,6 +25,7 @@
 import Foundation
 import WolfKit
 import LifeHash
+import UIKit
 
 class LifeHashCollectionViewCell: CollectionViewCell {
     private typealias `Self` = LifeHashCollectionViewCell
@@ -56,7 +57,7 @@ class LifeHashCollectionViewCell: CollectionViewCell {
 
     private lazy var label = Label() • { (🍒: Label) in
         🍒.font = Self.font
-        🍒.textColor = .gray
+        🍒.textColor = .label
         🍒.textAlignment = .center
         🍒.constrainHeight(to: Self.labelHeight)
     }

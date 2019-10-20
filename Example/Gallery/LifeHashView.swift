@@ -7,6 +7,7 @@
 
 import WolfKit
 import LifeHash
+import UIKit
 
 protocol Fingerprintable {
     var fingerprintInput: Data { get }
