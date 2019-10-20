@@ -24,6 +24,7 @@
 
 import WolfGraphics
 import WolfCore
+import Foundation
 
 public struct LifeHash {
     private typealias `Self` = LifeHash

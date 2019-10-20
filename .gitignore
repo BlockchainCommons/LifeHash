@@ -24,3 +24,7 @@ DerivedData
 
 Carthage/Build
 Pods/
+
+Lifehash.xcodeproj/
+.build/
+Package.resolved
