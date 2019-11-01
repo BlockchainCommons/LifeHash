@@ -8,11 +8,15 @@ After the pattern becomes stable (or begins repeating) the resulting history is 
 
 Some bits of the initial hash are then used to deterministically apply symmetry and color to the icon to add beauty and quick recognizability.
 
-![Samples of LifeHash](Art/Samples-0.jpg?raw=true "Samples 1") ![Samples of LifeHash](Art/Samples-856.jpg?raw=true "Samples 2")
+![Samples of LifeHash](Art/Samples-0.jpg?raw=true "Samples 0") ![Samples of LifeHash](Art/Samples-856.jpg?raw=true "Samples 856")
 
 ![Samples of LifeHash](Art/Sample-88.jpg?raw=true "Sample 88") ![Samples of LifeHash](Art/Sample-229.jpg?raw=true "Sample 229")
 
 ![Samples of LifeHash](Art/Sample-526.jpg?raw=true "Sample 526") ![Samples of LifeHash](Art/Sample-799.jpg?raw=true "Sample 799")
+
+An example from the Mathematica implementation.
+
+![Samples of LifeHash](Art/Samples-0-Mathematica.jpg?raw=true "Samples 0") 
 
 ## Platforms
 
