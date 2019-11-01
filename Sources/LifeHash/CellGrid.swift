@@ -71,8 +71,8 @@ class CellGrid: Grid<Bool> {
         nextCellGrid.setAll(false)
         nextChangeGrid.setAll(false)
         forAll { p in
+            let currentAlive = self[p]
             if currentChangeGrid[p] {
-                let currentAlive = self[p]
                 let neighborsCount = self.countNeighbors(p)
                 let nextAlive = CellGrid.isAliveInNextGeneration(currentAlive, neighborsCount: neighborsCount)
                 if nextAlive {
@@ -81,6 +81,8 @@ class CellGrid: Grid<Bool> {
                 if currentAlive != nextAlive {
                     nextChangeGrid.setChanged(p)
                 }
+            } else {
+                nextCellGrid[p] = currentAlive
             }
         }
     }

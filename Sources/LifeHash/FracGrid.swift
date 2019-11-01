@@ -40,6 +40,6 @@ class FracGrid: Grid<Frac> {
     }
 
     override func stringRepresentation(of value: Frac) -> String {
-        return (value %% 2).padded(to: 4, onRight: true)
+        return (value %% 4).padded(to: 4, onRight: true)
     }
 }
