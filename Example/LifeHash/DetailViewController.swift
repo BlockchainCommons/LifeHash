@@ -22,8 +22,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfKit
 import UIKit
+import WolfViews
+import WolfAutolayout
+import WolfWith
+import WolfViewControllers
+import WolfFoundation
+import WolfNesting
+import WolfApp
+import WolfNumerics
 
 class DetailViewController: ViewController {
     var hashTitle: String! {

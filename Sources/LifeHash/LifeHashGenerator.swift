@@ -23,25 +23,28 @@
 
 import Foundation
 import UIKit
-import CryptoKit
 import Combine
 import Dispatch
 
 public struct LifeHashGenerator {
     public static func generate(_ obj: Fingerprintable) -> Future<UIImage, Never> {
-        return generate(digest: obj.fingerprint)
+        return generate(obj.fingerprint)
     }
 
-    public static func generate(digest: SHA256Digest) -> Future<UIImage, Never> {
+    public static func generate(_ fingerprint: Fingerprint) -> Future<UIImage, Never> {
         return Future { promise in
             DispatchQueue.global().async {
-                let image = _generate(digest: digest)
+                let image = generateSync(fingerprint)
                 promise(.success(image))
             }
         }
     }
 
-    private static func _generate(digest: SHA256Digest) -> UIImage {
+    public static func generateSync(_ obj: Fingerprintable) -> UIImage {
+        return generateSync(obj.fingerprint)
+    }
+
+    public static func generateSync(_ fingerprint: Fingerprint) -> UIImage {
         let size = IntSize(width: 16, height: 16)
         let maxGenerations = 150
 
@@ -54,7 +57,7 @@ public struct LifeHashGenerator {
         var historySet = Set<Data>()
         var history = [Data]()
 
-        nextCellGrid.data = Data(digest)
+        nextCellGrid.data = fingerprint.digest
         nextChangeGrid.setAll(true)
 
         while history.count < maxGenerations {
@@ -79,7 +82,7 @@ public struct LifeHashGenerator {
             fracGrid.overlay(cellGrid: currentCellGrid, frac: frac)
         }
 
-        let entropy = BitEnumerator(data: Data(digest))
+        let entropy = BitEnumerator(data: fingerprint.digest)
         let gradient = selectGradient(entropy: entropy)
         let pattern = selectPattern(entropy: entropy)
         let colorGrid = ColorGrid(fracGrid: fracGrid, gradient: gradient, pattern: pattern)

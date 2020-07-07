@@ -5,10 +5,13 @@
 //  Created by Wolf McNally on 5/4/19.
 //
 
-import WolfKit
 import LifeHash
 import UIImageColors
 import UIKit
+import WolfNesting
+import WolfWith
+import WolfViews
+import WolfColor
 
 class FrameView: View {
     private lazy var imageView = LifeHashView() • {

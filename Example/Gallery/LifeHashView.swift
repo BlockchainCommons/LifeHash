@@ -5,9 +5,9 @@
 //  Created by Wolf McNally on 5/3/19.
 //
 
-import WolfKit
 import LifeHash
 import UIKit
+import WolfViews
 
 protocol Fingerprintable {
     var fingerprintInput: Data { get }
@@ -42,6 +42,6 @@ class LifeHashView: ImageView {
 
     private func syncToInput() {
         guard let input = input else { return }
-        image = LifeHash(data: input).image
+        image = LifeHashGenerator.generateSync(input)
     }
 }

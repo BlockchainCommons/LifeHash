@@ -6,27 +6,35 @@
 //
 
 import Foundation
-import CryptoKit
 import UIKit
 import Combine
 
-extension LifeHashGenerator {
-    private final class DigestKey: Hashable, Equatable {
-        let digest: SHA256Digest
+@objc private class DigestKey: NSObject {
+    let digest: Data
 
-        init(_ digest: SHA256Digest) { self.digest = digest }
+    init(_ digest: Data) { self.digest = digest }
 
-        func hash(into hasher: inout Hasher) { hasher.combine(digest) }
-        static func ==(lhs: DigestKey, rhs: DigestKey) -> Bool { lhs.digest == rhs.digest }
+    override var hash: Int {
+        return digest.hashValue
     }
 
+    override func isEqual(_ object: Any?) -> Bool {
+        return digest == (object as! DigestKey).digest
+    }
+}
+
+extension LifeHashGenerator {
     private static let cache = NSCache<DigestKey, UIImage>()
     private typealias Promise = (Result<UIImage, Never>) -> Void
     private static var promises: [DigestKey: [Promise]] = [:]
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
 
-    static func getImageForDigest(_ digest: SHA256Digest) -> Future<UIImage, Never> {
+    public static func getCachedImage(_ obj: Fingerprintable) -> Future<UIImage, Never> {
+        getCachedImage(obj.fingerprint)
+    }
+
+    public static func getCachedImage(_ fingerprint: Fingerprint) -> Future<UIImage, Never> {
         /// Additional requests for the same LifeHash image while one is already in progress are recorded,
         /// and all are responded to when the image is done. This is so almost-simultaneous requests for the
         /// same data don't trigger duplicate work.
@@ -57,15 +65,22 @@ extension LifeHashGenerator {
         }
 
         return Future { promise in
-            let digestKey = DigestKey(digest)
+            let digestKey = DigestKey(fingerprint.digest)
             if recordPromise(promise, for: digestKey) {
                 if let image = cache.object(forKey: digestKey) {
+                    //print("HIT")
                     succeedPromises(for: digestKey, with: image)
                 } else {
-                    cancellables[digestKey] = LifeHashGenerator.generate(digest: digestKey.digest).sink { image in
-                        cancellables.removeValue(forKey: digestKey)
+                    //print("MISS")
+                    let cancellable = LifeHashGenerator.generate(fingerprint).sink { image in
+                        serializer.sync {
+                            cancellables[digestKey] = nil
+                        }
                         cache.setObject(image, forKey: digestKey)
                         succeedPromises(for: digestKey, with: image)
+                    }
+                    serializer.sync {
+                        cancellables[digestKey] = cancellable
                     }
                 }
             }

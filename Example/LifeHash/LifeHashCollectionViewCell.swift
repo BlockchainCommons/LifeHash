@@ -23,9 +23,11 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfKit
 import LifeHash
 import UIKit
+import WolfViews
+import WolfWith
+import WolfNesting
 
 class LifeHashCollectionViewCell: CollectionViewCell {
     static let imageHeight: CGFloat = 64

@@ -5,8 +5,10 @@
 //  Created by Wolf McNally on 5/4/19.
 //
 
-import WolfKit
 import UIKit
+import WolfViews
+import WolfNesting
+import WolfPipe
 
 class GroupView: View {
     private lazy var columnStackView = StackView() |> vertical |> distribution(.fillEqually)

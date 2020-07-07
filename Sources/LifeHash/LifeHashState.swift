@@ -9,19 +9,18 @@ import Foundation
 import Combine
 import UIKit
 import Dispatch
-import CryptoKit
 
 public final class LifeHashState: ObservableObject {
     public var input: Fingerprintable? {
-        didSet { digest = input?.fingerprint }
+        didSet { fingerprint = input?.fingerprint }
     }
 
-    public var digest: SHA256Digest? {
+    public var fingerprint: Fingerprint? {
         didSet { updateImage() }
     }
 
-    public init(_ digest: SHA256Digest? = nil) {
-        self.digest = digest
+    public init(_ fingerprint: Fingerprint? = nil) {
+        self.fingerprint = fingerprint
         updateImage()
     }
 
@@ -30,12 +29,12 @@ public final class LifeHashState: ObservableObject {
     private var cancellable: AnyCancellable?
 
     private func updateImage() {
-        guard let digest = digest else {
+        guard let fingerprint = fingerprint else {
             image = nil
             return
         }
         cancellable?.cancel()
-        cancellable = LifeHashGenerator.getImageForDigest(digest).sink { image in
+        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { image in
             DispatchQueue.main.async {
                 self.image = image
             }

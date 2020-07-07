@@ -9,13 +9,13 @@ import Foundation
 import CryptoKit
 
 public protocol Fingerprintable {
-    var fingerprint: SHA256Digest { get }
     var fingerprintData: Data { get }
+    var fingerprint: Fingerprint { get }
 }
 
 extension Fingerprintable {
-    public var fingerprint: SHA256Digest {
-        SHA256.hash(data: fingerprintData)
+    public var fingerprint: Fingerprint {
+        return Fingerprint(digest: Data(SHA256.hash(data: fingerprintData)))
     }
 }
 
@@ -25,4 +25,13 @@ extension Data: Fingerprintable {
 
 extension String: Fingerprintable {
     public var fingerprintData: Data { self.data(using: .utf8)! }
+}
+
+public struct Fingerprint {
+    public let digest: Data
+
+    public init(digest: Data) {
+        assert(digest.count == SHA256.byteCount)
+        self.digest = digest
+    }
 }

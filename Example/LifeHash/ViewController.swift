@@ -23,7 +23,6 @@
 //  SOFTWARE.
 
 import UIKit
-import WolfKit
 
 class MainViewController: UIViewController {
     private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in

@@ -23,15 +23,16 @@
 //  SOFTWARE.
 
 import LifeHash
-import WolfKit
 import UIKit
+import WolfViews
+import WolfConcurrency
+import WolfWith
+import WolfPipe
+import WolfFoundation
+import Combine
 
 class LifeHashView: ImageView {
     private var canceler: Cancelable?
-
-    private static let cache = Cache<UIImage>.init(filename: "LifeHash.cache", sizeLimit: 100_000, includeHTTP: false) • {
-        $0.removeAll()
-    }
 
     override func setup() {
         super.setup()
@@ -58,32 +59,16 @@ class LifeHashView: ImageView {
         image = nil
     }
 
+    private var cancellable: AnyCancellable?
+
     private func syncToInput() {
         resetView()
 
         guard let hashInput = hashInput else { return }
 
-        let url = URL(string: "lifehash:\(hashInput |> toHex)")!
-        let future = Self.cache.retrieveObject(for: url)
-        future.whenSuccess { image in
+        self.cancellable = LifeHashGenerator.getCachedImage(hashInput).receive(on: DispatchQueue.main).sink { image in
             guard hashInput == self.hashInput else { return }
-            dispatchOnMain {
-                guard hashInput == self.hashInput else { return }
-                self.set(image: image)
-            }
-        }
-        future.whenFailure { error in
-            guard hashInput == self.hashInput else { return }
-            dispatchOnBackground {
-                let lifeHash = LifeHash(data: hashInput)
-                let image = lifeHash.image
-                Self.cache.store(obj: image, for: url)
-                guard hashInput == self.hashInput else { return }
-                dispatchOnMain {
-                    guard hashInput == self.hashInput else { return }
-                    self.set(image: image)
-                }
-            }
+            self.set(image: image)
         }
     }
 }
