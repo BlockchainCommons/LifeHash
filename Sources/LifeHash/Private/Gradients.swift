@@ -23,8 +23,6 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfCore
-import WolfGraphics
 
 func selectGradient(entropy: BitEnumerator) -> Gradient {
     switch entropy.nextUInt2() {
@@ -59,8 +57,8 @@ private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
     }
     let neutralColor = HSBColor(hue: 0, saturation: 0, brightness: contrastBrightness) |> toColor
 
-    let keyColor2 = keyColor.blend(to: neutralColor, at: keyAdvance)
-    let neutralColor2 = neutralColor.blend(to: keyColor, at: neutralAdvance)
+    let keyColor2 = blend(from: keyColor, to: neutralColor, at: keyAdvance)
+    let neutralColor2 = blend(from: neutralColor, to: keyColor, at: neutralAdvance)
 
     let gradient = Gradient(makeTwoColor(keyColor2, neutralColor2))
     return isReversed ? gradient.reversed : gradient
@@ -89,8 +87,8 @@ private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
         lighterColor = color2
     }
 
-    let adjustedLighterColor = lighterColor.blend(to: .white, at: lighterAdvance)
-    let adjustedDarkerColor = darkerColor.blend(to: .black, at: darkerAdvance)
+    let adjustedLighterColor = blend(from: lighterColor, to: .white, at: lighterAdvance)
+    let adjustedDarkerColor = blend(from: darkerColor, to: .black, at: darkerAdvance)
 
     let gradient = Gradient(makeTwoColor(adjustedDarkerColor, adjustedLighterColor))
     return isReversed ? gradient.reversed : gradient
@@ -111,8 +109,8 @@ private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
     let middleColor = sortedColors[1]
     let lighterColor = sortedColors[2]
 
-    let adjustedLighterColor = lighterColor.blend(to: .white, at: lighterAdvance)
-    let adjustedDarkerColor = darkerColor.blend(to: .black, at: darkerAdvance)
+    let adjustedLighterColor = blend(from: lighterColor, to: .white, at: lighterAdvance)
+    let adjustedDarkerColor = blend(from: darkerColor, to: .black, at: darkerAdvance)
 
     let gradient = Gradient(makeThreeColor(adjustedLighterColor, middleColor, adjustedDarkerColor))
     return isReversed ? gradient.reversed : gradient
@@ -148,10 +146,10 @@ private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
         lightestColor = color1
     }
 
-    let adjustedDarkestColor = darkestColor.blend(to: .black, at: advance)
-    let adjustedDarkColor = darkColor.blend(to: .black, at: advance / 2)
-    let adjustedLightColor = lightColor.blend(to: .white, at: advance / 2)
-    let adjustedLightestColor = lightestColor.blend(to: .white, at: advance)
+    let adjustedDarkestColor = blend(from: darkestColor, to: .black, at: advance)
+    let adjustedDarkColor = blend(from: darkColor, to: .black, at: advance / 2)
+    let adjustedLightColor = blend(from: lightColor, to: .white, at: advance / 2)
+    let adjustedLightestColor = blend(from: lightestColor, to: .white, at: advance)
 
     let gradient = Gradient(blend(colors: [adjustedDarkestColor, adjustedDarkColor, adjustedLightColor, adjustedLightestColor]))
     return isReversed ? gradient.reversed : gradient

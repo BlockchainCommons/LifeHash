@@ -27,8 +27,6 @@ import WolfKit
 import UIKit
 
 class LifeHashView: ImageView {
-    private typealias `Self` = LifeHashView
-
     private var canceler: Cancelable?
 
     private static let cache = Cache<UIImage>.init(filename: "LifeHash.cache", sizeLimit: 100_000, includeHTTP: false) • {

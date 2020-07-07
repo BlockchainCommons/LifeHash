@@ -14,8 +14,6 @@ protocol Fingerprintable {
 }
 
 class LifeHashView: ImageView {
-    private typealias `Self` = LifeHashView
-
     override func setup() {
         super.setup()
         layer.magnificationFilter = .nearest

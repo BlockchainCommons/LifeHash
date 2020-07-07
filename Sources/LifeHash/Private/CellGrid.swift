@@ -23,7 +23,6 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfGraphics
 
 class CellGrid: Grid<Bool> {
     init(size: IntSize) {

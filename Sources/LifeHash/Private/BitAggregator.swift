@@ -1,5 +1,5 @@
 //
-//  SHA256.swift
+//  BitAggregator.swift
 //  LifeHash
 //
 //  Created by Wolf McNally on 9/16/18.
@@ -23,18 +23,24 @@
 //  SOFTWARE.
 
 import Foundation
-import CommonCrypto
 
-/// Produces a SHA256 hash of the provided message data.
-///
-/// This is a single-argument function suitable for use with the pipe operator.
-func sha256(_ message: Data) -> Data {
-    let digestLength = Int(CC_SHA256_DIGEST_LENGTH)
-    var digest = Data(count: digestLength)
-    digest.withUnsafeMutableBytes { digestBytes in
-        message.withUnsafeBytes { messageBytes in
-            _ = CC_SHA256(messageBytes.bindMemory(to: UInt8.self).baseAddress, CC_LONG(message.count), digestBytes.bindMemory(to: UInt8.self).baseAddress)
-        }
+struct BitAggregator {
+    var data: Data
+    private var bitMask: UInt8
+
+    init() {
+        data = Data(count: 0)
+        bitMask = 0
     }
-    return digest
+
+    mutating func append(bit: Bool) {
+        if bitMask == 0 {
+            bitMask = 0x80
+            data.append(0)
+        }
+        if bit {
+            data[data.count - 1] = data[data.count - 1] | bitMask
+        }
+        bitMask >>= 1
+    }
 }

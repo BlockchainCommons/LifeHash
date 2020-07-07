@@ -28,8 +28,6 @@ import LifeHash
 import UIKit
 
 class LifeHashCollectionViewCell: CollectionViewCell {
-    private typealias `Self` = LifeHashCollectionViewCell
-
     static let imageHeight: CGFloat = 64
     static let width: CGFloat = 64
     static let spacing: CGFloat = 5

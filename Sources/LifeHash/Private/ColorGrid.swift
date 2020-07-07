@@ -23,11 +23,9 @@
 //  SOFTWARE.
 
 import Foundation
-import WolfGraphics
+import UIKit
 
 class ColorGrid: Grid<Color> {
-    private typealias `Self` = ColorGrid
-
     enum Pattern {
         case snowflake
         case pinwheel
@@ -93,7 +91,7 @@ class ColorGrid: Grid<Color> {
         return IntPoint(x: x, y: y)
     }
 
-    var image: OSImage {
+    var image: UIImage {
         let canvas = Canvas(size: size)
         forAll { p in
             canvas[p] = self[p]
@@ -102,6 +100,6 @@ class ColorGrid: Grid<Color> {
     }
 
     override func stringRepresentation(of value: Color) -> String {
-        return value.debugSummary
+        return "\(value)"
     }
 }

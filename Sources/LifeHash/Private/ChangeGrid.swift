@@ -1,8 +1,8 @@
 //
-//  BitAggregator.swift
+//  ChangeGrid.swift
 //  LifeHash
 //
-//  Created by Wolf McNally on 9/16/18.
+//  Created by Wolf McNally on 9/15/18.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,18 @@
 
 import Foundation
 
-struct BitAggregator {
-    public private(set) var data: Data
-    private var bitMask: UInt8
-
-    init() {
-        data = Data(count: 0)
-        bitMask = 0
+class ChangeGrid: Grid<Bool> {
+    init(size: IntSize) {
+        super.init(size: size, initialValue: false)
     }
 
-    mutating func append(bit: Bool) {
-        if bitMask == 0 {
-            bitMask = 0x80
-            data.append(0)
+    func setChanged(_ g: IntPoint) {
+        forNeighborhood(at: g) { (_, p) in
+            self[p] = true
         }
-        if bit {
-            data[data.count - 1] = data[data.count - 1] | bitMask
-        }
-        bitMask >>= 1
+    }
+
+    override func stringRepresentation(of value: Bool) -> String {
+        return value ? "🔴" : "🔵"
     }
 }

@@ -1,10 +1,10 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
     name: "LifeHash",
     platforms: [
-        .iOS(.v9), .macOS(.v10_13), .tvOS(.v11)
+        .iOS(.v13), .macOS(.v10_15), .tvOS(.v13)
     ],
     products: [
         .library(
@@ -12,12 +12,11 @@ let package = Package(
             targets: ["LifeHash"]),
         ],
     dependencies: [
-        .package(url: "https://github.com/wolfmcnally/WolfCore", from: "5.0.0"),
-        .package(url: "https://github.com/wolfmcnally/WolfGraphics", from: "1.0.0"),
     ],
     targets: [
         .target(
             name: "LifeHash",
-            dependencies: ["WolfCore", "WolfGraphics"])
+            dependencies: [
+            ])
         ]
 )

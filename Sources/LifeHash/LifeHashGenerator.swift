@@ -1,6 +1,5 @@
 //
-//  LifeHash.swift
-//  WolfCore
+//  LifeHashGenerator.swift
 //
 //  Created by Wolf McNally on 1/20/16.
 //
@@ -22,32 +21,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import WolfGraphics
-import WolfCore
 import Foundation
+import UIKit
+import CryptoKit
+import Combine
+import Dispatch
 
-public struct LifeHash {
-    private typealias `Self` = LifeHash
-    private static let defaultSize = IntSize(width: 16, height: 16)
-    private static let defaultMaxGenerations = 150
-
-    public let size: IntSize
-    let fracGrid: FracGrid
-    let generations: Int
-    let colorGrid: ColorGrid
-
-    public init(data: Data) {
-        self.init(data: data, size: Self.defaultSize, maxGenerations: Self.defaultMaxGenerations)
+public struct LifeHashGenerator {
+    public static func generate(_ obj: Fingerprintable) -> Future<UIImage, Never> {
+        return generate(digest: obj.fingerprint)
     }
 
-    public init(string: String) {
-        let data = string.data(using: .utf8)!
-        self.init(data: data, size: Self.defaultSize, maxGenerations: Self.defaultMaxGenerations)
+    public static func generate(digest: SHA256Digest) -> Future<UIImage, Never> {
+        return Future { promise in
+            DispatchQueue.global().async {
+                let image = _generate(digest: digest)
+                promise(.success(image))
+            }
+        }
     }
 
-    init(data: Data, size: IntSize, maxGenerations: Int) {
-        let shaDigest = data |> sha256
-        self.size = size
+    private static func _generate(digest: SHA256Digest) -> UIImage {
+        let size = IntSize(width: 16, height: 16)
+        let maxGenerations = 150
 
         var currentCellGrid = CellGrid(size: size)
         var nextCellGrid = CellGrid(size: size)
@@ -58,7 +54,7 @@ public struct LifeHash {
         var historySet = Set<Data>()
         var history = [Data]()
 
-        nextCellGrid.data = shaDigest
+        nextCellGrid.data = Data(digest)
         nextChangeGrid.setAll(true)
 
         while history.count < maxGenerations {
@@ -75,7 +71,7 @@ public struct LifeHash {
             currentCellGrid.nextGeneration(currentChangeGrid: currentChangeGrid, nextCellGrid: nextCellGrid, nextChangeGrid: nextChangeGrid)
         }
 
-        fracGrid = FracGrid(size: size)
+        let fracGrid = FracGrid(size: size)
         for (index, data) in history.enumerated() {
             currentCellGrid.data = data
             let frac: Frac
@@ -83,15 +79,10 @@ public struct LifeHash {
             fracGrid.overlay(cellGrid: currentCellGrid, frac: frac)
         }
 
-        generations = history.count
-
-        let entropy = BitEnumerator(data: shaDigest)
+        let entropy = BitEnumerator(data: Data(digest))
         let gradient = selectGradient(entropy: entropy)
         let pattern = selectPattern(entropy: entropy)
-        colorGrid = ColorGrid(fracGrid: fracGrid, gradient: gradient, pattern: pattern)
-    }
-
-    public var image: OSImage {
+        let colorGrid = ColorGrid(fracGrid: fracGrid, gradient: gradient, pattern: pattern)
         return colorGrid.image
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LifeHashError.swift
+//  FracGrid.swift
 //  LifeHash
 //
 //  Created by Wolf McNally on 9/15/18.
@@ -24,10 +24,20 @@
 
 import Foundation
 
-public struct LifeHashError: Error {
-    public let message: String
+class FracGrid: Grid<Frac> {
+    init(size: IntSize) {
+        super.init(size: size, initialValue: 0)
+    }
 
-    public init(_ message: String) {
-        self.message = message
+    func overlay(cellGrid: CellGrid, frac: Frac) {
+        forAll { p in
+            if cellGrid[p] {
+                self[p] = frac
+            }
+        }
+    }
+
+    override func stringRepresentation(of value: Frac) -> String {
+        "\(value)"
     }
 }

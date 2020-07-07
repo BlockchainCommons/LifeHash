@@ -26,8 +26,6 @@ import WolfKit
 import UIKit
 
 class DetailViewController: ViewController {
-    private typealias `Self` = DetailViewController
-
     var hashTitle: String! {
         get { return label.text }
         set { label.text = newValue }
