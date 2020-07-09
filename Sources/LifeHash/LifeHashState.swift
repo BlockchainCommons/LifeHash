@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import UIKit
 import Dispatch
+import SwiftUI
 
 public final class LifeHashState: ObservableObject {
     public var input: Fingerprintable? {
@@ -24,7 +25,13 @@ public final class LifeHashState: ObservableObject {
         updateImage()
     }
 
-    @Published var image: UIImage?
+    public init(input: Fingerprintable?) {
+        self.input = input
+        self.fingerprint = input?.fingerprint
+        updateImage()
+    }
+
+    @Published var image: Image?
 
     private var cancellable: AnyCancellable?
 
@@ -36,7 +43,7 @@ public final class LifeHashState: ObservableObject {
         cancellable?.cancel()
         cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { image in
             DispatchQueue.main.async {
-                self.image = image
+                self.image = Image(uiImage: image).interpolation(.none)
             }
         }
     }

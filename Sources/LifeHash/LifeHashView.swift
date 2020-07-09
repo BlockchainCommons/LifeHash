@@ -20,9 +20,8 @@ public struct LifeHashView<MissingView: View>: View {
     public var body: some View {
         Group {
             if state.image != nil {
-                Image(uiImage: state.image!)
+                state.image!
                     .resizable()
-                    .interpolation(.none)
             } else {
                 missingView
             }

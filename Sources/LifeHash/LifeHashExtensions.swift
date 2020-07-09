@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Combine
+import SwiftUI
 
 @objc private class DigestKey: NSObject {
     let digest: Data
@@ -29,6 +30,12 @@ extension LifeHashGenerator {
     private static var promises: [DigestKey: [Promise]] = [:]
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
+
+    public static func image(for fingerprint: Fingerprint) -> AnyPublisher<Image, Never> {
+        getCachedImage(fingerprint).map { image in
+            Image(uiImage: image).interpolation(.none)
+        }.eraseToAnyPublisher()
+    }
 
     public static func getCachedImage(_ obj: Fingerprintable) -> Future<UIImage, Never> {
         getCachedImage(obj.fingerprint)
