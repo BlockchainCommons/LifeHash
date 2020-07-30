@@ -117,7 +117,6 @@
 		03EC4BD9227CD43A007B5302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BD8227CD43A007B5302 /* Assets.xcassets */; };
 		03EC4BDC227CD43A007B5302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */; };
 		03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE1227CD75B007B5302 /* LifeHashView.swift */; };
-		03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */; };
 		03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE7227E0DBD007B5302 /* FrameView.swift */; };
 		03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE9227E107A007B5302 /* GroupView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -215,7 +214,6 @@
 		03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashUtils.swift; sourceTree = "<group>"; };
 		03EC4BE7227E0DBD007B5302 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		03EC4BE9227E107A007B5302 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
-		05D0FE05BA7A72641201C4E1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LifeHash_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		844B88A490A39412A1A97776 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,7 +321,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for LifeHash */,
 				03EC4BD0227CD438007B5302 /* LifeHash Gallery */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -365,15 +361,6 @@
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				05D0FE05BA7A72641201C4E1 /* README.md */,
-				844B88A490A39412A1A97776 /* LICENSE */,
-			);
-			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,7 +557,6 @@
 				03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */,
 				03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */,
 				03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */,
-				03EC4BE4227CD7AB007B5302 /* LifeHashUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
