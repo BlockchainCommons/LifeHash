@@ -37,4 +37,8 @@ public struct Fingerprint {
         assert(digest.count == SHA256.byteCount)
         self.digest = digest
     }
+
+    public func identifier(_ count: Int = 7) -> String {
+        String(digest.hex.prefix(count))
+    }
 }
