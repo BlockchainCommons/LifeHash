@@ -11,11 +11,11 @@
 import Foundation
 import SwiftUI
 
-public struct LifeHashView<MissingView: View>: View {
+public struct LifeHashView<MissingView>: View where MissingView: View {
     @ObservedObject var state: LifeHashState
-    private var missingView: MissingView
+    private let missingView: () -> MissingView
 
-    public init(state: LifeHashState, missingView: MissingView) {
+    public init(state: LifeHashState, @ViewBuilder missingView: @escaping () -> MissingView) {
         self.state = state
         self.missingView = missingView
     }
@@ -26,7 +26,7 @@ public struct LifeHashView<MissingView: View>: View {
                 state.image!
                     .resizable()
             } else {
-                missingView
+                missingView()
             }
         }
         .aspectRatio(contentMode: .fit)
@@ -44,12 +44,12 @@ struct LifeHashView_Previews: PreviewProvider {
 
         @State var lifeHashState = LifeHashState()
 
-        let missingView: some View = Image(systemName: "square").resizable().foregroundColor(.blue)
-
         var body: some View {
             VStack {
-                LifeHashView(state: lifeHashState, missingView: missingView)
-                    .frame(width: 128)
+                LifeHashView(state: lifeHashState) {
+                    Image(systemName: "square").resizable().foregroundColor(.blue)
+                }
+                .frame(width: 128)
                 Text(string ?? "<nil>")
                 Button(action: {
                     self.string = nil

@@ -34,7 +34,7 @@ public final class LifeHashState: ObservableObject {
         updateImage()
     }
 
-    @Published var image: Image?
+    @Published public var image: Image?
 
     private var cancellable: AnyCancellable?
 
