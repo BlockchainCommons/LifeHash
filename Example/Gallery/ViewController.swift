@@ -8,13 +8,10 @@
 //  Created by Wolf McNally on 5/3/19.
 //
 
-import WolfViewControllers
-import WolfWith
-import WolfConcurrency
-import WolfNesting
-import WolfAnimation
+import UIKit
+import Combine
 
-class MainViewController: ViewController {
+class MainViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -23,23 +20,25 @@ class MainViewController: ViewController {
         return true
     }
 
-    private lazy var frontView = GroupView() • {
-        $0.alpha = 0
-    }
+    private lazy var frontView: GroupView = {
+        let view = GroupView()
+        view.alpha = 0
+        return view
+    }()
 
-    private lazy var backView = GroupView() • {
-        $0.alpha = 0
-    }
+    private lazy var backView: GroupView = {
+        let view = GroupView()
+        view.alpha = 0
+        return view
+    }()
 
-    override func build() {
-        super.build()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         view.backgroundColor = .black
 
-        view => [
-            backView,
-            frontView
-        ]
+        view.addSubview(backView)
+        view.addSubview(frontView)
 
         backView.constrainFrameToSafeArea()
         frontView.constrainFrameToSafeArea()
@@ -64,22 +63,24 @@ class MainViewController: ViewController {
         swap(&frontView, &backView)
         frontView.updateImage(traits: traitCollection)
         view.bringSubviewToFront(frontView)
-        _ = animation(animated, duration: 2) {
+        UIView.animate(withDuration: 2) {
             self.frontView.alpha = 1
-        }.map { _ in
+        } completion: { _ in
             self.backView.alpha = 0
         }
     }
 
-    private var canceler: Cancelable?
+    private var cancellable: AnyCancellable?
 
     private func startTimer() {
-        canceler = dispatchRepeatedOnMain(atInterval: 10) { [unowned self] _ in
-            self.updateImage(animated: true)
-        }
+        cancellable = Timer.publish(every: 10, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                self.updateImage(animated: true)
+            }
     }
 
     private func stopTimer() {
-        canceler?.cancel()
+        cancellable = nil
     }
 }

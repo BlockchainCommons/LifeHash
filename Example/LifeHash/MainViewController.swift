@@ -9,37 +9,32 @@
 //
 
 import UIKit
-import WolfWith
-import WolfViews
-import WolfViewControllers
-import WolfPipe
-import WolfNesting
-import WolfFoundation
 
-class MainViewController: ViewController {
-    private lazy var collectionViewLayout = UICollectionViewFlowLayout() • { 🍒 in
-        🍒.itemSize = LifeHashCollectionViewCell.size
-        🍒.minimumLineSpacing = 10
-        🍒.minimumInteritemSpacing = 10
-    }
+class MainViewController: UIViewController {
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = LifeHashCollectionViewCell.size
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        return layout
+    }()
 
-    private lazy var collectionView = CollectionView(collectionViewLayout: self.collectionViewLayout) • { 🍒 in
-        🍒.register(LifeHashCollectionViewCell.self, forCellWithReuseIdentifier: "LifeHash")
-        🍒.dataSource = self
-        🍒.delegate = self
-        🍒.backgroundColor = .systemBackground
-        🍒.contentInset = UIEdgeInsets(all: 20)
-    }
+    private lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.register(LifeHashCollectionViewCell.self, forCellWithReuseIdentifier: "LifeHash")
+        view.dataSource = self
+        view.delegate = self
+        view.backgroundColor = .systemBackground
+        view.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view => [
-            collectionView
-        ]
-
+        view.addSubview(collectionView)
         collectionView.constrainFrameToFrame()
-
         navigationController!.navigationBar.isTranslucent = true
     }
 
@@ -53,7 +48,7 @@ class MainViewController: ViewController {
             let dest = segue.destination as! DetailViewController
             let title = String(collectionView.indexPathsForSelectedItems!.first!.item)
             dest.hashTitle = title
-            dest.hashInput = title |> toUTF8
+            dest.hashInput = title.data(using: .utf8)
         default:
             fatalError()
         }
@@ -74,7 +69,7 @@ extension MainViewController: UICollectionViewDataSource {
         let title = String(indexPath.item)
 //        let title = "166"
         cell.hashTitle = title
-        cell.hashInput = title |> toUTF8
+        cell.hashInput = title.data(using: .utf8)
         return cell
     }
 }

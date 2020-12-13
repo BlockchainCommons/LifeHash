@@ -34,6 +34,12 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 ![Samples of LifeHash](Art/Samples-0-Mathematica.jpg?raw=true "Samples 0") 
 
+## Tips for Presenting LifeHash Images
+
+* Don't vignette or round the corners of a LifeHash image, every pixel contributes to the security of the image, so show the image as a square.
+* Don't interpolate or blur a LifeHash image: show every pixel crisply. On iOS UIKit this is accomplished by setting `layer.magnificationFilter = .nearest` on a `UIImageView`. Under SwiftUI you call `myImage.interpolation(.none)`. The iOS LifeHash library already does this for you.
+* The iOS/Mac LifeHash library renders LifeHash images asynchronously and caches the result, so if you pass in the same Fingerprint you'll get the same image back right away. But if LifeHash rendering seems slow, be sure you're compiling the Release configuration of your target: LifeHash is *really fast* when compiled for Release.
+
 ## Platforms
 
 LifeHash is currently available through Swift Package Manager and as a Mathematica (Wolfram Language) notebook.

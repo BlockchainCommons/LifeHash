@@ -11,24 +11,24 @@
 import LifeHash
 import UIImageColors
 import UIKit
-import WolfNesting
-import WolfWith
-import WolfViews
-import WolfColor
+import Interpolate
 
-class FrameView: View {
-    private lazy var imageView = LifeHashView() • {
-        $0.contentMode = .scaleAspectFit
+class FrameView: UIView {
+    private lazy var imageView: LifeHashView = {
+        let view = LifeHashView(frame: .zero)
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(imageView)
+        imageView.constrainFrameToFrame(insets: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40))
     }
 
-    override func setup() {
-        super.setup()
-
-        self => [
-            imageView
-        ]
-
-        imageView.constrainFrameToFrame(insets: .init(all: 40))
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func updateImage() {
@@ -39,7 +39,8 @@ class FrameView: View {
         }
         imageView.input = data
         let colors = imageView.image!.getColors(quality: .highest)!
-        backgroundColor = (colors.nonNeutral ?? .black).darkened(by: 0.2)
+        let c = colors.nonNeutral ?? .black
+        backgroundColor = c.interpolate(to: UIColor.black, at: 0.2)
     }
 }
 
@@ -48,8 +49,9 @@ extension UIImageColors {
         let prioritized = [detail, secondary, primary, background]
         let notBlackOrWhite: [UIColor] = prioritized.compactMap {
             guard let color = $0 else { return nil }
-            let e = Color(color)
-            if e != .black && e != .white {
+            var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+            color.getRed(&r, green: &g, blue: &b, alpha: &a)
+            if (r, g, b) != (0, 0, 0) && (r, g, b) != (1, 1, 1) {
                 return color
             } else {
                 return nil

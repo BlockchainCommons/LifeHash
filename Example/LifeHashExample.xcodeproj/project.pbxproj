@@ -7,108 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		034A928F24B414100079BD0E /* WolfViews in Frameworks */ = {isa = PBXBuildFile; productRef = 034A928E24B414100079BD0E /* WolfViews */; };
-		034A929024B414100079BD0E /* WolfViews in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A928E24B414100079BD0E /* WolfViews */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A929424B414590079BD0E /* WolfConcurrency in Frameworks */ = {isa = PBXBuildFile; productRef = 034A929324B414590079BD0E /* WolfConcurrency */; };
-		034A929524B414590079BD0E /* WolfConcurrency in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A929324B414590079BD0E /* WolfConcurrency */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A929824B414840079BD0E /* WolfCache in Frameworks */ = {isa = PBXBuildFile; productRef = 034A929724B414840079BD0E /* WolfCache */; };
-		034A929924B414840079BD0E /* WolfCache in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A929724B414840079BD0E /* WolfCache */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A929C24B414AB0079BD0E /* WolfWith in Frameworks */ = {isa = PBXBuildFile; productRef = 034A929B24B414AB0079BD0E /* WolfWith */; };
-		034A929D24B414AB0079BD0E /* WolfWith in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A929B24B414AB0079BD0E /* WolfWith */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92A024B414BE0079BD0E /* WolfPipe in Frameworks */ = {isa = PBXBuildFile; productRef = 034A929F24B414BE0079BD0E /* WolfPipe */; };
-		034A92A124B414BE0079BD0E /* WolfPipe in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A929F24B414BE0079BD0E /* WolfPipe */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92A424B4157A0079BD0E /* WolfFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92A324B4157A0079BD0E /* WolfFoundation */; };
-		034A92A524B4157A0079BD0E /* WolfFoundation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92A324B4157A0079BD0E /* WolfFoundation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92A824B415D00079BD0E /* WolfNesting in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92A724B415D00079BD0E /* WolfNesting */; };
-		034A92A924B415D00079BD0E /* WolfNesting in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92A724B415D00079BD0E /* WolfNesting */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92AC24B4189E0079BD0E /* WolfAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92AB24B4189E0079BD0E /* WolfAutolayout */; };
-		034A92AD24B4189E0079BD0E /* WolfAutolayout in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92AB24B4189E0079BD0E /* WolfAutolayout */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92B024B418D70079BD0E /* WolfViewControllers in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92AF24B418D70079BD0E /* WolfViewControllers */; };
-		034A92B124B418D70079BD0E /* WolfViewControllers in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92AF24B418D70079BD0E /* WolfViewControllers */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92B424B418EA0079BD0E /* WolfNumerics in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92B324B418EA0079BD0E /* WolfNumerics */; };
-		034A92B524B418EA0079BD0E /* WolfNumerics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92B324B418EA0079BD0E /* WolfNumerics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92B824B419680079BD0E /* WolfApp in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92B724B419680079BD0E /* WolfApp */; };
-		034A92B924B419680079BD0E /* WolfApp in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92B724B419680079BD0E /* WolfApp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92BC24B419770079BD0E /* WolfGeometry in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92BB24B419770079BD0E /* WolfGeometry */; };
-		034A92BD24B419770079BD0E /* WolfGeometry in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92BB24B419770079BD0E /* WolfGeometry */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92C024B419880079BD0E /* WolfNIO in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92BF24B419880079BD0E /* WolfNIO */; };
-		034A92C124B419880079BD0E /* WolfNIO in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92BF24B419880079BD0E /* WolfNIO */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92C424B427E30079BD0E /* WolfLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92C324B427E30079BD0E /* WolfLocale */; };
-		034A92C524B427E30079BD0E /* WolfLocale in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92C324B427E30079BD0E /* WolfLocale */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92C824B428130079BD0E /* WolfStrings in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92C724B428130079BD0E /* WolfStrings */; };
-		034A92C924B428130079BD0E /* WolfStrings in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92C724B428130079BD0E /* WolfStrings */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92CC24B4281F0079BD0E /* WolfLog in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92CB24B4281F0079BD0E /* WolfLog */; };
-		034A92CD24B4281F0079BD0E /* WolfLog in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92CB24B4281F0079BD0E /* WolfLog */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92D024B428370079BD0E /* WolfNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92CF24B428370079BD0E /* WolfNetwork */; };
-		034A92D124B428370079BD0E /* WolfNetwork in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92CF24B428370079BD0E /* WolfNetwork */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92D424B428440079BD0E /* WolfOSBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92D324B428440079BD0E /* WolfOSBridge */; };
-		034A92D524B428440079BD0E /* WolfOSBridge in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92D324B428440079BD0E /* WolfOSBridge */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92D824B428540079BD0E /* ExtensibleEnumeratedName in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92D724B428540079BD0E /* ExtensibleEnumeratedName */; };
-		034A92D924B428540079BD0E /* ExtensibleEnumeratedName in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92D724B428540079BD0E /* ExtensibleEnumeratedName */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92DC24B428C20079BD0E /* WolfSec in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92DB24B428C20079BD0E /* WolfSec */; };
-		034A92DD24B428C20079BD0E /* WolfSec in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92DB24B428C20079BD0E /* WolfSec */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92E024B429120079BD0E /* WolfPubSub in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92DF24B429120079BD0E /* WolfPubSub */; };
-		034A92E124B429120079BD0E /* WolfPubSub in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92DF24B429120079BD0E /* WolfPubSub */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92E424B429A20079BD0E /* WolfImage in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92E324B429A20079BD0E /* WolfImage */; };
-		034A92E524B429A20079BD0E /* WolfImage in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92E324B429A20079BD0E /* WolfImage */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92E824B429B50079BD0E /* WolfColor in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92E724B429B50079BD0E /* WolfColor */; };
-		034A92E924B429B50079BD0E /* WolfColor in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92E724B429B50079BD0E /* WolfColor */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92EC24B429DD0079BD0E /* WolfGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92EB24B429DD0079BD0E /* WolfGraphics */; };
-		034A92ED24B429DD0079BD0E /* WolfGraphics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92EB24B429DD0079BD0E /* WolfGraphics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92F024B42A050079BD0E /* WolfAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92EF24B42A050079BD0E /* WolfAnimation */; };
-		034A92F124B42A050079BD0E /* WolfAnimation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92EF24B42A050079BD0E /* WolfAnimation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92F324B42B240079BD0E /* WolfConcurrency in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F224B42B240079BD0E /* WolfConcurrency */; };
-		034A92F424B42B240079BD0E /* WolfConcurrency in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F224B42B240079BD0E /* WolfConcurrency */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92F724B42B370079BD0E /* WolfCache in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F624B42B370079BD0E /* WolfCache */; };
-		034A92F824B42B370079BD0E /* WolfCache in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F624B42B370079BD0E /* WolfCache */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92FA24B42B710079BD0E /* WolfViewControllers in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F924B42B710079BD0E /* WolfViewControllers */; };
-		034A92FB24B42B710079BD0E /* WolfViewControllers in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92F924B42B710079BD0E /* WolfViewControllers */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A92FD24B42B780079BD0E /* WolfWith in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92FC24B42B780079BD0E /* WolfWith */; };
-		034A92FE24B42B780079BD0E /* WolfWith in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92FC24B42B780079BD0E /* WolfWith */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930024B42BBA0079BD0E /* WolfViews in Frameworks */ = {isa = PBXBuildFile; productRef = 034A92FF24B42BBA0079BD0E /* WolfViews */; };
-		034A930124B42BBA0079BD0E /* WolfViews in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A92FF24B42BBA0079BD0E /* WolfViews */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930324B42BE50079BD0E /* WolfNesting in Frameworks */ = {isa = PBXBuildFile; productRef = 034A930224B42BE50079BD0E /* WolfNesting */; };
-		034A930424B42BE50079BD0E /* WolfNesting in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A930224B42BE50079BD0E /* WolfNesting */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930624B42C040079BD0E /* WolfPipe in Frameworks */ = {isa = PBXBuildFile; productRef = 034A930524B42C040079BD0E /* WolfPipe */; };
-		034A930724B42C040079BD0E /* WolfPipe in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A930524B42C040079BD0E /* WolfPipe */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930924B42C350079BD0E /* WolfColor in Frameworks */ = {isa = PBXBuildFile; productRef = 034A930824B42C350079BD0E /* WolfColor */; };
-		034A930A24B42C350079BD0E /* WolfColor in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A930824B42C350079BD0E /* WolfColor */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930C24B42C4B0079BD0E /* WolfAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 034A930B24B42C4B0079BD0E /* WolfAnimation */; };
-		034A930D24B42C4B0079BD0E /* WolfAnimation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A930B24B42C4B0079BD0E /* WolfAnimation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A930F24B42CD30079BD0E /* WolfNIO in Frameworks */ = {isa = PBXBuildFile; productRef = 034A930E24B42CD30079BD0E /* WolfNIO */; };
-		034A931024B42CD30079BD0E /* WolfNIO in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A930E24B42CD30079BD0E /* WolfNIO */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A931224B42CE00079BD0E /* WolfGeometry in Frameworks */ = {isa = PBXBuildFile; productRef = 034A931124B42CE00079BD0E /* WolfGeometry */; };
-		034A931324B42CE00079BD0E /* WolfGeometry in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A931124B42CE00079BD0E /* WolfGeometry */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A931524B42CEC0079BD0E /* WolfAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = 034A931424B42CEC0079BD0E /* WolfAutolayout */; };
-		034A931624B42CEC0079BD0E /* WolfAutolayout in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A931424B42CEC0079BD0E /* WolfAutolayout */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A931824B42D5F0079BD0E /* WolfNumerics in Frameworks */ = {isa = PBXBuildFile; productRef = 034A931724B42D5F0079BD0E /* WolfNumerics */; };
-		034A931924B42D5F0079BD0E /* WolfNumerics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A931724B42D5F0079BD0E /* WolfNumerics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A931B24B42D7C0079BD0E /* WolfOSBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 034A931A24B42D7C0079BD0E /* WolfOSBridge */; };
-		034A931C24B42D7C0079BD0E /* WolfOSBridge in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A931A24B42D7C0079BD0E /* WolfOSBridge */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A931E24B42D930079BD0E /* WolfFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 034A931D24B42D930079BD0E /* WolfFoundation */; };
-		034A931F24B42D930079BD0E /* WolfFoundation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A931D24B42D930079BD0E /* WolfFoundation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A932124B42DA80079BD0E /* ExtensibleEnumeratedName in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932024B42DA80079BD0E /* ExtensibleEnumeratedName */; };
-		034A932224B42DA80079BD0E /* ExtensibleEnumeratedName in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932024B42DA80079BD0E /* ExtensibleEnumeratedName */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A932424B42DBC0079BD0E /* WolfStrings in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932324B42DBC0079BD0E /* WolfStrings */; };
-		034A932524B42DBC0079BD0E /* WolfStrings in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932324B42DBC0079BD0E /* WolfStrings */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A932724B42DD10079BD0E /* WolfLog in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932624B42DD10079BD0E /* WolfLog */; };
-		034A932824B42DD10079BD0E /* WolfLog in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932624B42DD10079BD0E /* WolfLog */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A932A24B42DED0079BD0E /* WolfNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932924B42DED0079BD0E /* WolfNetwork */; };
-		034A932B24B42DED0079BD0E /* WolfNetwork in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932924B42DED0079BD0E /* WolfNetwork */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A932D24B42E110079BD0E /* WolfLocale in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932C24B42E110079BD0E /* WolfLocale */; };
-		034A932E24B42E110079BD0E /* WolfLocale in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932C24B42E110079BD0E /* WolfLocale */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A933024B42E270079BD0E /* WolfSec in Frameworks */ = {isa = PBXBuildFile; productRef = 034A932F24B42E270079BD0E /* WolfSec */; };
-		034A933124B42E270079BD0E /* WolfSec in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A932F24B42E270079BD0E /* WolfSec */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A933324B42E520079BD0E /* WolfApp in Frameworks */ = {isa = PBXBuildFile; productRef = 034A933224B42E520079BD0E /* WolfApp */; };
-		034A933424B42E520079BD0E /* WolfApp in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A933224B42E520079BD0E /* WolfApp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A933624B42E6A0079BD0E /* WolfPubSub in Frameworks */ = {isa = PBXBuildFile; productRef = 034A933524B42E6A0079BD0E /* WolfPubSub */; };
-		034A933724B42E6B0079BD0E /* WolfPubSub in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A933524B42E6A0079BD0E /* WolfPubSub */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		034A933924B42E920079BD0E /* WolfImage in Frameworks */ = {isa = PBXBuildFile; productRef = 034A933824B42E920079BD0E /* WolfImage */; };
-		034A933A24B42E920079BD0E /* WolfImage in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 034A933824B42E920079BD0E /* WolfImage */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0382CE00235CFBAB009636DC /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CDFF235CFBAB009636DC /* LifeHash */; };
 		0382CE02235CFBBE009636DC /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CE01235CFBBE009636DC /* LifeHash */; };
 		0382CE0B235D0C9E009636DC /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CE0A235D0C9E009636DC /* UIImageColors */; };
 		038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */; };
+		03A18D122585FFE900AE5FE4 /* DispatchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D102585FF9E00AE5FE4 /* DispatchUtils.swift */; };
+		03A18D152586039A00AE5FE4 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D13258602B000AE5FE4 /* ViewExtensions.swift */; };
+		03A18D1D2586085300AE5FE4 /* Interpolate in Frameworks */ = {isa = PBXBuildFile; productRef = 03A18D1C2586085300AE5FE4 /* Interpolate */; };
+		03A18D1F25860D7500AE5FE4 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */; };
+		03A18D21258622F900AE5FE4 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D20258622F900AE5FE4 /* ViewExtensions.swift */; };
 		03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9721B8D338000F4876 /* LifeHashView.swift */; };
 		03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9921B91523000F4876 /* DetailViewController.swift */; };
 		03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BD1227CD438007B5302 /* AppDelegate.swift */; };
@@ -133,31 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				034A929D24B414AB0079BD0E /* WolfWith in Embed Frameworks */,
-				034A92D524B428440079BD0E /* WolfOSBridge in Embed Frameworks */,
-				034A92CD24B4281F0079BD0E /* WolfLog in Embed Frameworks */,
-				034A92A924B415D00079BD0E /* WolfNesting in Embed Frameworks */,
-				034A92B524B418EA0079BD0E /* WolfNumerics in Embed Frameworks */,
-				034A92A524B4157A0079BD0E /* WolfFoundation in Embed Frameworks */,
-				034A92BD24B419770079BD0E /* WolfGeometry in Embed Frameworks */,
-				034A929524B414590079BD0E /* WolfConcurrency in Embed Frameworks */,
-				034A92C524B427E30079BD0E /* WolfLocale in Embed Frameworks */,
-				034A929024B414100079BD0E /* WolfViews in Embed Frameworks */,
-				034A92E524B429A20079BD0E /* WolfImage in Embed Frameworks */,
-				034A92B124B418D70079BD0E /* WolfViewControllers in Embed Frameworks */,
-				034A92D124B428370079BD0E /* WolfNetwork in Embed Frameworks */,
-				034A92D924B428540079BD0E /* ExtensibleEnumeratedName in Embed Frameworks */,
-				034A92F124B42A050079BD0E /* WolfAnimation in Embed Frameworks */,
-				034A92C124B419880079BD0E /* WolfNIO in Embed Frameworks */,
-				034A92AD24B4189E0079BD0E /* WolfAutolayout in Embed Frameworks */,
-				034A92C924B428130079BD0E /* WolfStrings in Embed Frameworks */,
-				034A929924B414840079BD0E /* WolfCache in Embed Frameworks */,
-				034A92E924B429B50079BD0E /* WolfColor in Embed Frameworks */,
-				034A92A124B414BE0079BD0E /* WolfPipe in Embed Frameworks */,
-				034A92E124B429120079BD0E /* WolfPubSub in Embed Frameworks */,
-				034A92ED24B429DD0079BD0E /* WolfGraphics in Embed Frameworks */,
-				034A92DD24B428C20079BD0E /* WolfSec in Embed Frameworks */,
-				034A92B924B419680079BD0E /* WolfApp in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,30 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				034A933124B42E270079BD0E /* WolfSec in Embed Frameworks */,
-				034A930D24B42C4B0079BD0E /* WolfAnimation in Embed Frameworks */,
-				034A930A24B42C350079BD0E /* WolfColor in Embed Frameworks */,
-				034A930124B42BBA0079BD0E /* WolfViews in Embed Frameworks */,
-				034A92FE24B42B780079BD0E /* WolfWith in Embed Frameworks */,
-				034A92F424B42B240079BD0E /* WolfConcurrency in Embed Frameworks */,
-				034A931624B42CEC0079BD0E /* WolfAutolayout in Embed Frameworks */,
-				034A932524B42DBC0079BD0E /* WolfStrings in Embed Frameworks */,
-				034A932224B42DA80079BD0E /* ExtensibleEnumeratedName in Embed Frameworks */,
-				034A930724B42C040079BD0E /* WolfPipe in Embed Frameworks */,
-				034A933424B42E520079BD0E /* WolfApp in Embed Frameworks */,
-				034A931F24B42D930079BD0E /* WolfFoundation in Embed Frameworks */,
-				034A92F824B42B370079BD0E /* WolfCache in Embed Frameworks */,
-				034A92FB24B42B710079BD0E /* WolfViewControllers in Embed Frameworks */,
-				034A930424B42BE50079BD0E /* WolfNesting in Embed Frameworks */,
-				034A932B24B42DED0079BD0E /* WolfNetwork in Embed Frameworks */,
-				034A931024B42CD30079BD0E /* WolfNIO in Embed Frameworks */,
-				034A931924B42D5F0079BD0E /* WolfNumerics in Embed Frameworks */,
-				034A932824B42DD10079BD0E /* WolfLog in Embed Frameworks */,
-				034A933724B42E6B0079BD0E /* WolfPubSub in Embed Frameworks */,
-				034A933A24B42E920079BD0E /* WolfImage in Embed Frameworks */,
-				034A931324B42CE00079BD0E /* WolfGeometry in Embed Frameworks */,
-				034A932E24B42E110079BD0E /* WolfLocale in Embed Frameworks */,
-				034A931C24B42D7C0079BD0E /* WolfOSBridge in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,10 +58,16 @@
 
 /* Begin PBXFileReference section */
 		0382CDFD235CFAFE009636DC /* LifeHash */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LifeHash; path = ..; sourceTree = "<group>"; };
+		03852D9F2585F4A500A116B0 /* LifeHash_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeHash_Example.entitlements; sourceTree = "<group>"; };
+		03852DA02585F7E700A116B0 /* LifeHash_Gallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeHash_Gallery.entitlements; sourceTree = "<group>"; };
 		038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashCollectionViewCell.swift; sourceTree = "<group>"; };
+		03A18D102585FF9E00AE5FE4 /* DispatchUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchUtils.swift; sourceTree = "<group>"; };
+		03A18D13258602B000AE5FE4 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
+		03A18D20258622F900AE5FE4 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		03E80B9721B8D338000F4876 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
 		03E80B9921B91523000F4876 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03EC4BCF227CD437007B5302 /* LifeHashGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHashGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EC4BD1227CD438007B5302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03EC4BD3227CD438007B5302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03EC4BD6227CD438007B5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -211,10 +75,9 @@
 		03EC4BDB227CD43A007B5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03EC4BDD227CD43A007B5302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03EC4BE1227CD75B007B5302 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
-		03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashUtils.swift; sourceTree = "<group>"; };
 		03EC4BE7227E0DBD007B5302 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		03EC4BE9227E107A007B5302 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* LifeHash_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHash_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* LifeHashExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHashExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -228,32 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034A933324B42E520079BD0E /* WolfApp in Frameworks */,
-				034A930924B42C350079BD0E /* WolfColor in Frameworks */,
+				03A18D1D2586085300AE5FE4 /* Interpolate in Frameworks */,
 				0382CE0B235D0C9E009636DC /* UIImageColors in Frameworks */,
-				034A931824B42D5F0079BD0E /* WolfNumerics in Frameworks */,
-				034A931E24B42D930079BD0E /* WolfFoundation in Frameworks */,
-				034A932424B42DBC0079BD0E /* WolfStrings in Frameworks */,
-				034A932A24B42DED0079BD0E /* WolfNetwork in Frameworks */,
-				034A931B24B42D7C0079BD0E /* WolfOSBridge in Frameworks */,
-				034A933624B42E6A0079BD0E /* WolfPubSub in Frameworks */,
-				034A931224B42CE00079BD0E /* WolfGeometry in Frameworks */,
-				034A92F724B42B370079BD0E /* WolfCache in Frameworks */,
-				034A930024B42BBA0079BD0E /* WolfViews in Frameworks */,
-				034A932D24B42E110079BD0E /* WolfLocale in Frameworks */,
-				034A932124B42DA80079BD0E /* ExtensibleEnumeratedName in Frameworks */,
-				034A930624B42C040079BD0E /* WolfPipe in Frameworks */,
-				034A930324B42BE50079BD0E /* WolfNesting in Frameworks */,
-				034A931524B42CEC0079BD0E /* WolfAutolayout in Frameworks */,
-				034A92FD24B42B780079BD0E /* WolfWith in Frameworks */,
-				034A930C24B42C4B0079BD0E /* WolfAnimation in Frameworks */,
-				034A933024B42E270079BD0E /* WolfSec in Frameworks */,
-				034A933924B42E920079BD0E /* WolfImage in Frameworks */,
-				034A92F324B42B240079BD0E /* WolfConcurrency in Frameworks */,
-				034A930F24B42CD30079BD0E /* WolfNIO in Frameworks */,
-				034A932724B42DD10079BD0E /* WolfLog in Frameworks */,
 				0382CE02235CFBBE009636DC /* LifeHash in Frameworks */,
-				034A92FA24B42B710079BD0E /* WolfViewControllers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,32 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034A92DC24B428C20079BD0E /* WolfSec in Frameworks */,
-				034A92E424B429A20079BD0E /* WolfImage in Frameworks */,
-				034A92B824B419680079BD0E /* WolfApp in Frameworks */,
-				034A92A024B414BE0079BD0E /* WolfPipe in Frameworks */,
-				034A92BC24B419770079BD0E /* WolfGeometry in Frameworks */,
-				034A92A424B4157A0079BD0E /* WolfFoundation in Frameworks */,
-				034A92AC24B4189E0079BD0E /* WolfAutolayout in Frameworks */,
-				034A92D024B428370079BD0E /* WolfNetwork in Frameworks */,
-				034A92E824B429B50079BD0E /* WolfColor in Frameworks */,
-				034A92CC24B4281F0079BD0E /* WolfLog in Frameworks */,
 				0382CE00235CFBAB009636DC /* LifeHash in Frameworks */,
-				034A92D424B428440079BD0E /* WolfOSBridge in Frameworks */,
-				034A92A824B415D00079BD0E /* WolfNesting in Frameworks */,
-				034A92B424B418EA0079BD0E /* WolfNumerics in Frameworks */,
-				034A92EC24B429DD0079BD0E /* WolfGraphics in Frameworks */,
-				034A92F024B42A050079BD0E /* WolfAnimation in Frameworks */,
-				034A929824B414840079BD0E /* WolfCache in Frameworks */,
-				034A929424B414590079BD0E /* WolfConcurrency in Frameworks */,
-				034A929C24B414AB0079BD0E /* WolfWith in Frameworks */,
-				034A92D824B428540079BD0E /* ExtensibleEnumeratedName in Frameworks */,
-				034A928F24B414100079BD0E /* WolfViews in Frameworks */,
-				034A92E024B429120079BD0E /* WolfPubSub in Frameworks */,
-				034A92B024B418D70079BD0E /* WolfViewControllers in Frameworks */,
-				034A92C824B428130079BD0E /* WolfStrings in Frameworks */,
-				034A92C424B427E30079BD0E /* WolfLocale in Frameworks */,
-				034A92C024B419880079BD0E /* WolfNIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,9 +121,10 @@
 				03EC4BD1227CD438007B5302 /* AppDelegate.swift */,
 				03EC4BE7227E0DBD007B5302 /* FrameView.swift */,
 				03EC4BD3227CD438007B5302 /* ViewController.swift */,
+				03A18D13258602B000AE5FE4 /* ViewExtensions.swift */,
 				03EC4BE9227E107A007B5302 /* GroupView.swift */,
 				03EC4BE1227CD75B007B5302 /* LifeHashView.swift */,
-				03EC4BE3227CD7AB007B5302 /* LifeHashUtils.swift */,
+				03A18D102585FF9E00AE5FE4 /* DispatchUtils.swift */,
 				03EC4BD5227CD438007B5302 /* Main.storyboard */,
 				03EC4BD8227CD43A007B5302 /* Assets.xcassets */,
 				03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */,
@@ -321,6 +137,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				03852DA02585F7E700A116B0 /* LifeHash_Gallery.entitlements */,
+				03852D9F2585F4A500A116B0 /* LifeHash_Example.entitlements */,
 				607FACD21AFB9204008FA782 /* Example for LifeHash */,
 				03EC4BD0227CD438007B5302 /* LifeHash Gallery */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -332,8 +150,8 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* LifeHash_Example.app */,
-				03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */,
+				607FACD01AFB9204008FA782 /* LifeHashExample.app */,
+				03EC4BCF227CD437007B5302 /* LifeHashGallery.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,7 +163,9 @@
 				607FACD71AFB9204008FA782 /* MainViewController.swift */,
 				03E80B9921B91523000F4876 /* DetailViewController.swift */,
 				038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */,
+				03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */,
 				03E80B9721B8D338000F4876 /* LifeHashView.swift */,
+				03A18D20258622F900AE5FE4 /* ViewExtensions.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -366,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		03EC4BCE227CD437007B5302 /* LifeHash_Gallery */ = {
+		03EC4BCE227CD437007B5302 /* LifeHashGallery */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHash_Gallery" */;
+			buildConfigurationList = 03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHashGallery" */;
 			buildPhases = (
 				03EC4BCB227CD437007B5302 /* Sources */,
 				03EC4BCC227CD437007B5302 /* Frameworks */,
@@ -379,42 +199,19 @@
 			);
 			dependencies = (
 			);
-			name = LifeHash_Gallery;
+			name = LifeHashGallery;
 			packageProductDependencies = (
 				0382CE01235CFBBE009636DC /* LifeHash */,
 				0382CE0A235D0C9E009636DC /* UIImageColors */,
-				034A92F224B42B240079BD0E /* WolfConcurrency */,
-				034A92F624B42B370079BD0E /* WolfCache */,
-				034A92F924B42B710079BD0E /* WolfViewControllers */,
-				034A92FC24B42B780079BD0E /* WolfWith */,
-				034A92FF24B42BBA0079BD0E /* WolfViews */,
-				034A930224B42BE50079BD0E /* WolfNesting */,
-				034A930524B42C040079BD0E /* WolfPipe */,
-				034A930824B42C350079BD0E /* WolfColor */,
-				034A930B24B42C4B0079BD0E /* WolfAnimation */,
-				034A930E24B42CD30079BD0E /* WolfNIO */,
-				034A931124B42CE00079BD0E /* WolfGeometry */,
-				034A931424B42CEC0079BD0E /* WolfAutolayout */,
-				034A931724B42D5F0079BD0E /* WolfNumerics */,
-				034A931A24B42D7C0079BD0E /* WolfOSBridge */,
-				034A931D24B42D930079BD0E /* WolfFoundation */,
-				034A932024B42DA80079BD0E /* ExtensibleEnumeratedName */,
-				034A932324B42DBC0079BD0E /* WolfStrings */,
-				034A932624B42DD10079BD0E /* WolfLog */,
-				034A932924B42DED0079BD0E /* WolfNetwork */,
-				034A932C24B42E110079BD0E /* WolfLocale */,
-				034A932F24B42E270079BD0E /* WolfSec */,
-				034A933224B42E520079BD0E /* WolfApp */,
-				034A933524B42E6A0079BD0E /* WolfPubSub */,
-				034A933824B42E920079BD0E /* WolfImage */,
+				03A18D1C2586085300AE5FE4 /* Interpolate */,
 			);
 			productName = "LifeHash Gallery";
-			productReference = 03EC4BCF227CD437007B5302 /* LifeHash_Gallery.app */;
+			productReference = 03EC4BCF227CD437007B5302 /* LifeHashGallery.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACCF1AFB9204008FA782 /* LifeHash_Example */ = {
+		607FACCF1AFB9204008FA782 /* LifeHashExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHash_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHashExample" */;
 			buildPhases = (
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
@@ -425,37 +222,12 @@
 			);
 			dependencies = (
 			);
-			name = LifeHash_Example;
+			name = LifeHashExample;
 			packageProductDependencies = (
 				0382CDFF235CFBAB009636DC /* LifeHash */,
-				034A928E24B414100079BD0E /* WolfViews */,
-				034A929324B414590079BD0E /* WolfConcurrency */,
-				034A929724B414840079BD0E /* WolfCache */,
-				034A929B24B414AB0079BD0E /* WolfWith */,
-				034A929F24B414BE0079BD0E /* WolfPipe */,
-				034A92A324B4157A0079BD0E /* WolfFoundation */,
-				034A92A724B415D00079BD0E /* WolfNesting */,
-				034A92AB24B4189E0079BD0E /* WolfAutolayout */,
-				034A92AF24B418D70079BD0E /* WolfViewControllers */,
-				034A92B324B418EA0079BD0E /* WolfNumerics */,
-				034A92B724B419680079BD0E /* WolfApp */,
-				034A92BB24B419770079BD0E /* WolfGeometry */,
-				034A92BF24B419880079BD0E /* WolfNIO */,
-				034A92C324B427E30079BD0E /* WolfLocale */,
-				034A92C724B428130079BD0E /* WolfStrings */,
-				034A92CB24B4281F0079BD0E /* WolfLog */,
-				034A92CF24B428370079BD0E /* WolfNetwork */,
-				034A92D324B428440079BD0E /* WolfOSBridge */,
-				034A92D724B428540079BD0E /* ExtensibleEnumeratedName */,
-				034A92DB24B428C20079BD0E /* WolfSec */,
-				034A92DF24B429120079BD0E /* WolfPubSub */,
-				034A92E324B429A20079BD0E /* WolfImage */,
-				034A92E724B429B50079BD0E /* WolfColor */,
-				034A92EB24B429DD0079BD0E /* WolfGraphics */,
-				034A92EF24B42A050079BD0E /* WolfAnimation */,
 			);
 			productName = LifeHash;
-			productReference = 607FACD01AFB9204008FA782 /* LifeHash_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* LifeHashExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -465,7 +237,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					03EC4BCE227CD437007B5302 = {
@@ -488,38 +260,14 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
 				0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */,
-				034A928D24B414100079BD0E /* XCRemoteSwiftPackageReference "WolfViews" */,
-				034A929224B414590079BD0E /* XCRemoteSwiftPackageReference "WolfConcurrency" */,
-				034A929624B414840079BD0E /* XCRemoteSwiftPackageReference "WolfCache" */,
-				034A929A24B414AB0079BD0E /* XCRemoteSwiftPackageReference "WolfWith" */,
-				034A929E24B414BE0079BD0E /* XCRemoteSwiftPackageReference "WolfPipe" */,
-				034A92A224B4157A0079BD0E /* XCRemoteSwiftPackageReference "WolfFoundation" */,
-				034A92A624B415D00079BD0E /* XCRemoteSwiftPackageReference "WolfNesting" */,
-				034A92AA24B4189E0079BD0E /* XCRemoteSwiftPackageReference "WolfAutolayout" */,
-				034A92AE24B418D70079BD0E /* XCRemoteSwiftPackageReference "WolfViewControllers" */,
-				034A92B224B418EA0079BD0E /* XCRemoteSwiftPackageReference "WolfNumerics" */,
-				034A92B624B419680079BD0E /* XCRemoteSwiftPackageReference "WolfApp" */,
-				034A92BA24B419770079BD0E /* XCRemoteSwiftPackageReference "WolfGeometry" */,
-				034A92BE24B419880079BD0E /* XCRemoteSwiftPackageReference "WolfNIO" */,
-				034A92C224B427E30079BD0E /* XCRemoteSwiftPackageReference "WolfLocale" */,
-				034A92C624B428130079BD0E /* XCRemoteSwiftPackageReference "WolfStrings" */,
-				034A92CA24B4281F0079BD0E /* XCRemoteSwiftPackageReference "WolfLog" */,
-				034A92CE24B428370079BD0E /* XCRemoteSwiftPackageReference "WolfNetwork" */,
-				034A92D224B428440079BD0E /* XCRemoteSwiftPackageReference "WolfOSBridge" */,
-				034A92D624B428540079BD0E /* XCRemoteSwiftPackageReference "ExtensibleEnumeratedName" */,
-				034A92DA24B428C20079BD0E /* XCRemoteSwiftPackageReference "WolfSec" */,
-				034A92DE24B429120079BD0E /* XCRemoteSwiftPackageReference "WolfPubSub" */,
-				034A92E224B429A20079BD0E /* XCRemoteSwiftPackageReference "WolfImage" */,
-				034A92E624B429B50079BD0E /* XCRemoteSwiftPackageReference "WolfColor" */,
-				034A92EA24B429DD0079BD0E /* XCRemoteSwiftPackageReference "WolfGraphics" */,
-				034A92EE24B42A050079BD0E /* XCRemoteSwiftPackageReference "WolfAnimation" */,
+				03A18D192586084200AE5FE4 /* XCRemoteSwiftPackageReference "Interpolate" */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* LifeHash_Example */,
-				03EC4BCE227CD437007B5302 /* LifeHash_Gallery */,
+				607FACCF1AFB9204008FA782 /* LifeHashExample */,
+				03EC4BCE227CD437007B5302 /* LifeHashGallery */,
 			);
 		};
 /* End PBXProject section */
@@ -553,6 +301,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EC4BD4227CD438007B5302 /* ViewController.swift in Sources */,
+				03A18D152586039A00AE5FE4 /* ViewExtensions.swift in Sources */,
+				03A18D122585FFE900AE5FE4 /* DispatchUtils.swift in Sources */,
 				03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */,
 				03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */,
 				03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */,
@@ -565,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */,
+				03A18D21258622F900AE5FE4 /* ViewExtensions.swift in Sources */,
+				03A18D1F25860D7500AE5FE4 /* DeviceUtils.swift in Sources */,
 				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
 				03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -620,6 +372,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LifeHash_Gallery.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -635,6 +388,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -651,6 +405,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LifeHash_Gallery.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TUA8H52D;
@@ -664,6 +419,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -692,6 +448,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -749,6 +506,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -781,9 +539,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LifeHash_Example.entitlements;
 				DEVELOPMENT_TEAM = 92TUA8H52D;
 				INFOPLIST_FILE = LifeHash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,7 +551,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -799,9 +560,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LifeHash_Example.entitlements;
 				DEVELOPMENT_TEAM = 92TUA8H52D;
 				INFOPLIST_FILE = LifeHash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,14 +572,15 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHash_Gallery" */ = {
+		03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHashGallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03EC4BDE227CD43A007B5302 /* Debug */,
@@ -834,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHash_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHashExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
@@ -846,206 +610,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		034A928D24B414100079BD0E /* XCRemoteSwiftPackageReference "WolfViews" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfViews.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
-			};
-		};
-		034A929224B414590079BD0E /* XCRemoteSwiftPackageReference "WolfConcurrency" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfConcurrency.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.9;
-			};
-		};
-		034A929624B414840079BD0E /* XCRemoteSwiftPackageReference "WolfCache" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfCache.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.3;
-			};
-		};
-		034A929A24B414AB0079BD0E /* XCRemoteSwiftPackageReference "WolfWith" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfWith.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.3;
-			};
-		};
-		034A929E24B414BE0079BD0E /* XCRemoteSwiftPackageReference "WolfPipe" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfPipe.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
-			};
-		};
-		034A92A224B4157A0079BD0E /* XCRemoteSwiftPackageReference "WolfFoundation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfFoundation.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		034A92A624B415D00079BD0E /* XCRemoteSwiftPackageReference "WolfNesting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfNesting.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.4;
-			};
-		};
-		034A92AA24B4189E0079BD0E /* XCRemoteSwiftPackageReference "WolfAutolayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfAutolayout.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.5;
-			};
-		};
-		034A92AE24B418D70079BD0E /* XCRemoteSwiftPackageReference "WolfViewControllers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfViewControllers.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		034A92B224B418EA0079BD0E /* XCRemoteSwiftPackageReference "WolfNumerics" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfNumerics.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.4;
-			};
-		};
-		034A92B624B419680079BD0E /* XCRemoteSwiftPackageReference "WolfApp" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfApp.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.1;
-			};
-		};
-		034A92BA24B419770079BD0E /* XCRemoteSwiftPackageReference "WolfGeometry" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfGeometry.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.7;
-			};
-		};
-		034A92BE24B419880079BD0E /* XCRemoteSwiftPackageReference "WolfNIO" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfNIO.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.4;
-			};
-		};
-		034A92C224B427E30079BD0E /* XCRemoteSwiftPackageReference "WolfLocale" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfLocale.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.3;
-			};
-		};
-		034A92C624B428130079BD0E /* XCRemoteSwiftPackageReference "WolfStrings" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfStrings.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.1;
-			};
-		};
-		034A92CA24B4281F0079BD0E /* XCRemoteSwiftPackageReference "WolfLog" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfLog.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.4;
-			};
-		};
-		034A92CE24B428370079BD0E /* XCRemoteSwiftPackageReference "WolfNetwork" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfNetwork.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
-			};
-		};
-		034A92D224B428440079BD0E /* XCRemoteSwiftPackageReference "WolfOSBridge" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfOSBridge.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.3;
-			};
-		};
-		034A92D624B428540079BD0E /* XCRemoteSwiftPackageReference "ExtensibleEnumeratedName" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/ExtensibleEnumeratedName.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
-			};
-		};
-		034A92DA24B428C20079BD0E /* XCRemoteSwiftPackageReference "WolfSec" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfSec.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.5;
-			};
-		};
-		034A92DE24B429120079BD0E /* XCRemoteSwiftPackageReference "WolfPubSub" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfPubSub.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.3;
-			};
-		};
-		034A92E224B429A20079BD0E /* XCRemoteSwiftPackageReference "WolfImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.7;
-			};
-		};
-		034A92E624B429B50079BD0E /* XCRemoteSwiftPackageReference "WolfColor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfColor.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.10;
-			};
-		};
-		034A92EA24B429DD0079BD0E /* XCRemoteSwiftPackageReference "WolfGraphics" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfGraphics.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
-			};
-		};
-		034A92EE24B42A050079BD0E /* XCRemoteSwiftPackageReference "WolfAnimation" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/wolfmcnally/WolfAnimation.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.8;
-			};
-		};
 		0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wolfmcnally/UIImageColors.git";
@@ -1054,254 +618,17 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		03A18D192586084200AE5FE4 /* XCRemoteSwiftPackageReference "Interpolate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wolfmcnally/Interpolate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		034A928E24B414100079BD0E /* WolfViews */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A928D24B414100079BD0E /* XCRemoteSwiftPackageReference "WolfViews" */;
-			productName = WolfViews;
-		};
-		034A929324B414590079BD0E /* WolfConcurrency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929224B414590079BD0E /* XCRemoteSwiftPackageReference "WolfConcurrency" */;
-			productName = WolfConcurrency;
-		};
-		034A929724B414840079BD0E /* WolfCache */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929624B414840079BD0E /* XCRemoteSwiftPackageReference "WolfCache" */;
-			productName = WolfCache;
-		};
-		034A929B24B414AB0079BD0E /* WolfWith */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929A24B414AB0079BD0E /* XCRemoteSwiftPackageReference "WolfWith" */;
-			productName = WolfWith;
-		};
-		034A929F24B414BE0079BD0E /* WolfPipe */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929E24B414BE0079BD0E /* XCRemoteSwiftPackageReference "WolfPipe" */;
-			productName = WolfPipe;
-		};
-		034A92A324B4157A0079BD0E /* WolfFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92A224B4157A0079BD0E /* XCRemoteSwiftPackageReference "WolfFoundation" */;
-			productName = WolfFoundation;
-		};
-		034A92A724B415D00079BD0E /* WolfNesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92A624B415D00079BD0E /* XCRemoteSwiftPackageReference "WolfNesting" */;
-			productName = WolfNesting;
-		};
-		034A92AB24B4189E0079BD0E /* WolfAutolayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92AA24B4189E0079BD0E /* XCRemoteSwiftPackageReference "WolfAutolayout" */;
-			productName = WolfAutolayout;
-		};
-		034A92AF24B418D70079BD0E /* WolfViewControllers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92AE24B418D70079BD0E /* XCRemoteSwiftPackageReference "WolfViewControllers" */;
-			productName = WolfViewControllers;
-		};
-		034A92B324B418EA0079BD0E /* WolfNumerics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92B224B418EA0079BD0E /* XCRemoteSwiftPackageReference "WolfNumerics" */;
-			productName = WolfNumerics;
-		};
-		034A92B724B419680079BD0E /* WolfApp */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92B624B419680079BD0E /* XCRemoteSwiftPackageReference "WolfApp" */;
-			productName = WolfApp;
-		};
-		034A92BB24B419770079BD0E /* WolfGeometry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92BA24B419770079BD0E /* XCRemoteSwiftPackageReference "WolfGeometry" */;
-			productName = WolfGeometry;
-		};
-		034A92BF24B419880079BD0E /* WolfNIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92BE24B419880079BD0E /* XCRemoteSwiftPackageReference "WolfNIO" */;
-			productName = WolfNIO;
-		};
-		034A92C324B427E30079BD0E /* WolfLocale */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92C224B427E30079BD0E /* XCRemoteSwiftPackageReference "WolfLocale" */;
-			productName = WolfLocale;
-		};
-		034A92C724B428130079BD0E /* WolfStrings */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92C624B428130079BD0E /* XCRemoteSwiftPackageReference "WolfStrings" */;
-			productName = WolfStrings;
-		};
-		034A92CB24B4281F0079BD0E /* WolfLog */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92CA24B4281F0079BD0E /* XCRemoteSwiftPackageReference "WolfLog" */;
-			productName = WolfLog;
-		};
-		034A92CF24B428370079BD0E /* WolfNetwork */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92CE24B428370079BD0E /* XCRemoteSwiftPackageReference "WolfNetwork" */;
-			productName = WolfNetwork;
-		};
-		034A92D324B428440079BD0E /* WolfOSBridge */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92D224B428440079BD0E /* XCRemoteSwiftPackageReference "WolfOSBridge" */;
-			productName = WolfOSBridge;
-		};
-		034A92D724B428540079BD0E /* ExtensibleEnumeratedName */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92D624B428540079BD0E /* XCRemoteSwiftPackageReference "ExtensibleEnumeratedName" */;
-			productName = ExtensibleEnumeratedName;
-		};
-		034A92DB24B428C20079BD0E /* WolfSec */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92DA24B428C20079BD0E /* XCRemoteSwiftPackageReference "WolfSec" */;
-			productName = WolfSec;
-		};
-		034A92DF24B429120079BD0E /* WolfPubSub */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92DE24B429120079BD0E /* XCRemoteSwiftPackageReference "WolfPubSub" */;
-			productName = WolfPubSub;
-		};
-		034A92E324B429A20079BD0E /* WolfImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92E224B429A20079BD0E /* XCRemoteSwiftPackageReference "WolfImage" */;
-			productName = WolfImage;
-		};
-		034A92E724B429B50079BD0E /* WolfColor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92E624B429B50079BD0E /* XCRemoteSwiftPackageReference "WolfColor" */;
-			productName = WolfColor;
-		};
-		034A92EB24B429DD0079BD0E /* WolfGraphics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92EA24B429DD0079BD0E /* XCRemoteSwiftPackageReference "WolfGraphics" */;
-			productName = WolfGraphics;
-		};
-		034A92EF24B42A050079BD0E /* WolfAnimation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92EE24B42A050079BD0E /* XCRemoteSwiftPackageReference "WolfAnimation" */;
-			productName = WolfAnimation;
-		};
-		034A92F224B42B240079BD0E /* WolfConcurrency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929224B414590079BD0E /* XCRemoteSwiftPackageReference "WolfConcurrency" */;
-			productName = WolfConcurrency;
-		};
-		034A92F624B42B370079BD0E /* WolfCache */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929624B414840079BD0E /* XCRemoteSwiftPackageReference "WolfCache" */;
-			productName = WolfCache;
-		};
-		034A92F924B42B710079BD0E /* WolfViewControllers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92AE24B418D70079BD0E /* XCRemoteSwiftPackageReference "WolfViewControllers" */;
-			productName = WolfViewControllers;
-		};
-		034A92FC24B42B780079BD0E /* WolfWith */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929A24B414AB0079BD0E /* XCRemoteSwiftPackageReference "WolfWith" */;
-			productName = WolfWith;
-		};
-		034A92FF24B42BBA0079BD0E /* WolfViews */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A928D24B414100079BD0E /* XCRemoteSwiftPackageReference "WolfViews" */;
-			productName = WolfViews;
-		};
-		034A930224B42BE50079BD0E /* WolfNesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92A624B415D00079BD0E /* XCRemoteSwiftPackageReference "WolfNesting" */;
-			productName = WolfNesting;
-		};
-		034A930524B42C040079BD0E /* WolfPipe */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A929E24B414BE0079BD0E /* XCRemoteSwiftPackageReference "WolfPipe" */;
-			productName = WolfPipe;
-		};
-		034A930824B42C350079BD0E /* WolfColor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92E624B429B50079BD0E /* XCRemoteSwiftPackageReference "WolfColor" */;
-			productName = WolfColor;
-		};
-		034A930B24B42C4B0079BD0E /* WolfAnimation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92EE24B42A050079BD0E /* XCRemoteSwiftPackageReference "WolfAnimation" */;
-			productName = WolfAnimation;
-		};
-		034A930E24B42CD30079BD0E /* WolfNIO */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92BE24B419880079BD0E /* XCRemoteSwiftPackageReference "WolfNIO" */;
-			productName = WolfNIO;
-		};
-		034A931124B42CE00079BD0E /* WolfGeometry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92BA24B419770079BD0E /* XCRemoteSwiftPackageReference "WolfGeometry" */;
-			productName = WolfGeometry;
-		};
-		034A931424B42CEC0079BD0E /* WolfAutolayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92AA24B4189E0079BD0E /* XCRemoteSwiftPackageReference "WolfAutolayout" */;
-			productName = WolfAutolayout;
-		};
-		034A931724B42D5F0079BD0E /* WolfNumerics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92B224B418EA0079BD0E /* XCRemoteSwiftPackageReference "WolfNumerics" */;
-			productName = WolfNumerics;
-		};
-		034A931A24B42D7C0079BD0E /* WolfOSBridge */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92D224B428440079BD0E /* XCRemoteSwiftPackageReference "WolfOSBridge" */;
-			productName = WolfOSBridge;
-		};
-		034A931D24B42D930079BD0E /* WolfFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92A224B4157A0079BD0E /* XCRemoteSwiftPackageReference "WolfFoundation" */;
-			productName = WolfFoundation;
-		};
-		034A932024B42DA80079BD0E /* ExtensibleEnumeratedName */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92D624B428540079BD0E /* XCRemoteSwiftPackageReference "ExtensibleEnumeratedName" */;
-			productName = ExtensibleEnumeratedName;
-		};
-		034A932324B42DBC0079BD0E /* WolfStrings */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92C624B428130079BD0E /* XCRemoteSwiftPackageReference "WolfStrings" */;
-			productName = WolfStrings;
-		};
-		034A932624B42DD10079BD0E /* WolfLog */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92CA24B4281F0079BD0E /* XCRemoteSwiftPackageReference "WolfLog" */;
-			productName = WolfLog;
-		};
-		034A932924B42DED0079BD0E /* WolfNetwork */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92CE24B428370079BD0E /* XCRemoteSwiftPackageReference "WolfNetwork" */;
-			productName = WolfNetwork;
-		};
-		034A932C24B42E110079BD0E /* WolfLocale */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92C224B427E30079BD0E /* XCRemoteSwiftPackageReference "WolfLocale" */;
-			productName = WolfLocale;
-		};
-		034A932F24B42E270079BD0E /* WolfSec */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92DA24B428C20079BD0E /* XCRemoteSwiftPackageReference "WolfSec" */;
-			productName = WolfSec;
-		};
-		034A933224B42E520079BD0E /* WolfApp */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92B624B419680079BD0E /* XCRemoteSwiftPackageReference "WolfApp" */;
-			productName = WolfApp;
-		};
-		034A933524B42E6A0079BD0E /* WolfPubSub */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92DE24B429120079BD0E /* XCRemoteSwiftPackageReference "WolfPubSub" */;
-			productName = WolfPubSub;
-		};
-		034A933824B42E920079BD0E /* WolfImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 034A92E224B429A20079BD0E /* XCRemoteSwiftPackageReference "WolfImage" */;
-			productName = WolfImage;
-		};
 		0382CDFF235CFBAB009636DC /* LifeHash */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LifeHash;
@@ -1314,6 +641,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */;
 			productName = UIImageColors;
+		};
+		03A18D1C2586085300AE5FE4 /* Interpolate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03A18D192586084200AE5FE4 /* XCRemoteSwiftPackageReference "Interpolate" */;
+			productName = Interpolate;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

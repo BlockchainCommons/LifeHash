@@ -9,16 +9,8 @@
 //
 
 import UIKit
-import WolfViews
-import WolfAutolayout
-import WolfWith
-import WolfViewControllers
-import WolfFoundation
-import WolfNesting
-import WolfApp
-import WolfNumerics
 
-class DetailViewController: ViewController {
+class DetailViewController: UIViewController {
     var hashTitle: String! {
         get { return label.text }
         set { label.text = newValue }
@@ -34,59 +26,83 @@ class DetailViewController: ViewController {
     static let width: CGFloat = 200
     static let imageSize = CGSize(width: width, height: width)
 
-    private lazy var stackView = VerticalStackView() • { (🍒: VerticalStackView) in
-        🍒.spacing = 20
-    }
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.spacing = 20
+        return view
+    }()
 
-    private lazy var blurView = ‡UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    private lazy var blurView: UIVisualEffectView = {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
-    private lazy var label = Label() • { (🍒: Label) in
-        🍒.font = Self.font
-        🍒.textColor = .label
-        🍒.textAlignment = .center
-    }
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Self.font
+        label.textColor = .label
+        label.textAlignment = .center
+        return label
+    }()
 
-    private lazy var lifeHashView = LifeHashView() • { (🍒: LifeHashView) in
-        🍒.constrainAspect()
-    }
+    private lazy var lifeHashView: LifeHashView = {
+        let view = LifeHashView(frame: .zero)
+        view.constrainAspect()
+        return view
+    }()
 
-    override func setup() {
-        super.setup()
-
+    private func setup() {
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
     }
 
-    private var tapAction: GestureRecognizerAction!
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+
+    private let tapRecognizer = UITapGestureRecognizer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        view.translatesAutoresizingMaskIntoConstraints = false
+
         view.backgroundColor = .clear
 
-        view => [
-            blurView,
-            stackView => [
-                lifeHashView,
-                label
-            ]
-        ]
+        stackView.addArrangedSubview(lifeHashView)
+        stackView.addArrangedSubview(label)
+
+        view.addSubview(blurView)
+        view.addSubview(stackView)
 
         blurView.constrainFrameToFrame()
         stackView.constrainCenterToCenter()
 
-        let width: CGFloat = 60%
+        let width: CGFloat = 0.6
 
-        Constraints(
-            lifeHashView.widthAnchor == view.widthAnchor * width =&= .defaultHigh,
-            lifeHashView.heightAnchor == view.heightAnchor * width =&= .defaultHigh,
-            lifeHashView.widthAnchor <= view.widthAnchor * width,
-            lifeHashView.heightAnchor <= view.heightAnchor * width
-        )
+        NSLayoutConstraint.activate([
+            lifeHashView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: width).setPriority(to: .defaultHigh),
+            lifeHashView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: width).setPriority(to: .defaultHigh),
+            lifeHashView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: width),
+            lifeHashView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: width)
+        ])
 
-        tapAction = view.addAction(for: UITapGestureRecognizer()) { [unowned self] _ in
-            self.dismiss()
-        }
+        tapRecognizer.addTarget(self, action: #selector(didTap))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+
+    @objc private func didTap(_ recognizer: UIGestureRecognizer) {
+        self.dismiss(animated: true)
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

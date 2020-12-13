@@ -11,11 +11,8 @@
 import Foundation
 import LifeHash
 import UIKit
-import WolfViews
-import WolfWith
-import WolfNesting
 
-class LifeHashCollectionViewCell: CollectionViewCell {
+class LifeHashCollectionViewCell: UICollectionViewCell {
     static let imageHeight: CGFloat = 64
     static let width: CGFloat = 64
     static let spacing: CGFloat = 5
@@ -37,30 +34,44 @@ class LifeHashCollectionViewCell: CollectionViewCell {
         }
     }
 
-    private lazy var stackView = VerticalStackView() • { (🍒: VerticalStackView) in
-        🍒.spacing = Self.spacing
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.spacing = Self.spacing
+        return view
+    }()
+
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Self.font
+        label.textColor = .label
+        label.textAlignment = .center
+        label.constrainHeight(to: Self.labelHeight)
+        return label
+    }()
+
+    private lazy var lifeHashView: LifeHashView = {
+        let view = LifeHashView(frame: .zero)
+        view.constrainSize(to: Self.imageSize)
+        return view
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
+        // https://stackoverflow.com/questions/24750158/autoresizing-issue-of-uicollectionviewcell-contentviews-frame-in-storyboard-pro
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        stackView.addArrangedSubview(lifeHashView)
+        stackView.addArrangedSubview(label)
+
+        contentView.addSubview(stackView)
     }
 
-    private lazy var label = Label() • { (🍒: Label) in
-        🍒.font = Self.font
-        🍒.textColor = .label
-        🍒.textAlignment = .center
-        🍒.constrainHeight(to: Self.labelHeight)
-    }
-
-    private lazy var lifeHashView = LifeHashView() • { 🍒 in
-        🍒.constrainSize(to: Self.imageSize)
-    }
-
-    override func setup() {
-        super.setup()
-
-        contentView => [
-            stackView => [
-                lifeHashView,
-                label
-            ]
-        ]
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func prepareForReuse() {

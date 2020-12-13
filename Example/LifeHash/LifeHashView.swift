@@ -10,27 +10,24 @@
 
 import LifeHash
 import UIKit
-import WolfViews
-import WolfConcurrency
-import WolfWith
-import WolfPipe
-import WolfFoundation
 import Combine
 
-class LifeHashView: ImageView {
-    private var canceler: Cancelable?
-
-    override func setup() {
-        super.setup()
+public class LifeHashView: UIImageView {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         layer.magnificationFilter = .nearest
-        //logger?.setGroup(.cache)
     }
 
-    var hashInput: Data? = nil {
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    public var hashInput: Data? = nil {
         didSet { syncToInput() }
     }
 
-    func reset() {
+    public func reset() {
         resetView()
         hashInput = nil
     }

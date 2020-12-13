@@ -10,16 +10,20 @@
 
 import LifeHash
 import UIKit
-import WolfViews
 
 protocol Fingerprintable {
     var fingerprintInput: Data { get }
 }
 
-class LifeHashView: ImageView {
-    override func setup() {
-        super.setup()
+class LifeHashView: UIImageView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         layer.magnificationFilter = .nearest
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     var resetColor: UIColor = .darkGray {
