@@ -78,6 +78,7 @@ class MainViewController: UIViewController {
             .sink { _ in
                 self.updateImage(animated: true)
             }
+        updateImage(animated: true)
     }
 
     private func stopTimer() {
