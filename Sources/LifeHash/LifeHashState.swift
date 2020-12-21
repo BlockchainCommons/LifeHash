@@ -35,18 +35,27 @@ public final class LifeHashState: ObservableObject {
     }
 
     @Published public var image: Image?
+    @Published public var uiImage: UIImage? {
+        didSet {
+            if let uiImage = uiImage {
+                image = Image(uiImage: uiImage).interpolation(.none)
+            } else {
+                image = nil
+            }
+        }
+    }
 
     private var cancellable: AnyCancellable?
 
     private func updateImage() {
         guard let fingerprint = fingerprint else {
-            image = nil
+            uiImage = nil
             return
         }
         cancellable?.cancel()
-        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { image in
+        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { uiImage in
             DispatchQueue.main.async {
-                self.image = Image(uiImage: image).interpolation(.none)
+                self.uiImage = uiImage
             }
         }
     }
