@@ -10,9 +10,14 @@
 
 import Foundation
 import Combine
-import UIKit
 import Dispatch
 import SwiftUI
+
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 public final class LifeHashState: ObservableObject {
     public var input: Fingerprintable? {
@@ -35,10 +40,10 @@ public final class LifeHashState: ObservableObject {
     }
 
     @Published public var image: Image?
-    @Published public var uiImage: UIImage? {
+    @Published public var osImage: OSImage? {
         didSet {
-            if let uiImage = uiImage {
-                image = Image(uiImage: uiImage).interpolation(.none)
+            if let osImage = osImage {
+                image = Image(osImage: osImage).interpolation(.none)
             } else {
                 image = nil
             }
@@ -49,13 +54,13 @@ public final class LifeHashState: ObservableObject {
 
     private func updateImage() {
         guard let fingerprint = fingerprint else {
-            uiImage = nil
+            osImage = nil
             return
         }
         cancellable?.cancel()
-        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { uiImage in
+        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { osImage in
             DispatchQueue.main.async {
-                self.uiImage = uiImage
+                self.osImage = osImage
             }
         }
     }

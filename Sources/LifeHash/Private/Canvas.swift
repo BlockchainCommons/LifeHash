@@ -10,7 +10,13 @@
 
 import Foundation
 import Accelerate
+import CoreGraphics
+
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 class Canvas {
     let bounds: IntRect
@@ -37,7 +43,7 @@ class Canvas {
     private var maxPixelValues: [Float] = [1, 1, 1, 1]
     private var minPixelValues: [Float] = [0, 0, 0, 0]
     private let context: CGContext
-    private var _image: UIImage?
+    private var _image: CGImage?
 
     init(size: IntSize, clearColor: Color? = .black) {
         bounds = size.bounds
@@ -96,22 +102,27 @@ class Canvas {
         greenFData.deallocate()
         blueFData.deallocate()
     }
-
+    
+    #if canImport(UIKit)
     var image: UIImage {
+        UIImage(cgImage: cgImage)
+    }
+    #elseif canImport(AppKit)
+    var image: NSImage {
+        let boundsSize = self.bounds.size
+        let size = CGSize(width: CGFloat(boundsSize.width), height: CGFloat(boundsSize.height))
+        return NSImage(cgImage: cgImage, size: size)
+    }
+    #endif
+
+    var cgImage: CGImage {
         get {
             if self._image == nil {
                 var error = vImageConvert_PlanarFToARGB8888(&alphaF, &redF, &greenF, &blueF, &argb8, &maxPixelValues, &minPixelValues, UInt32(kvImageNoFlags))
                 assert(error == kvImageNoError, "Error when converting canvas to chunky")
                 error = vImagePremultiplyData_ARGB8888(&argb8, &argb8Premultiplied, UInt32(kvImageNoFlags))
                 assert(error == kvImageNoError, "Error when premultiplying canvas")
-                let cgImage = self.context.makeImage()
-                #if os(macOS)
-                let boundsSize = self.bounds.size
-                let size = CGSize(width: CGFloat(boundsSize.width), height: CGFloat(boundsSize.height))
-                self._image = NSImage(cgImage: cgImage!, size: size)
-                #else
-                self._image = UIImage(cgImage: cgImage!)
-                #endif
+                _image = self.context.makeImage()
                 assert(self._image != nil, "Error when converting")
             }
             return self._image!

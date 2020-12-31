@@ -9,7 +9,6 @@
 //
 
 import Foundation
-import UIKit
 import Combine
 import SwiftUI
 
@@ -28,23 +27,23 @@ import SwiftUI
 }
 
 extension LifeHashGenerator {
-    private static let cache = NSCache<DigestKey, UIImage>()
-    private typealias Promise = (Result<UIImage, Never>) -> Void
+    private static let cache = NSCache<DigestKey, OSImage>()
+    private typealias Promise = (Result<OSImage, Never>) -> Void
     private static var promises: [DigestKey: [Promise]] = [:]
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
 
     public static func image(for fingerprint: Fingerprint) -> AnyPublisher<Image, Never> {
         getCachedImage(fingerprint).map { image in
-            Image(uiImage: image).interpolation(.none)
+            Image(osImage: image).interpolation(.none)
         }.eraseToAnyPublisher()
     }
 
-    public static func getCachedImage(_ obj: Fingerprintable) -> Future<UIImage, Never> {
+    public static func getCachedImage(_ obj: Fingerprintable) -> Future<OSImage, Never> {
         getCachedImage(obj.fingerprint)
     }
 
-    public static func getCachedImage(_ fingerprint: Fingerprint) -> Future<UIImage, Never> {
+    public static func getCachedImage(_ fingerprint: Fingerprint) -> Future<OSImage, Never> {
         /// Additional requests for the same LifeHash image while one is already in progress are recorded,
         /// and all are responded to when the image is done. This is so almost-simultaneous requests for the
         /// same data don't trigger duplicate work.
@@ -64,7 +63,7 @@ extension LifeHashGenerator {
             return result
         }
 
-        func succeedPromises(for digestKey: DigestKey, with image: UIImage) {
+        func succeedPromises(for digestKey: DigestKey, with image: OSImage) {
             serializer.sync {
                 guard let digestPromises = promises[digestKey] else { return }
                 promises.removeValue(forKey: digestKey)

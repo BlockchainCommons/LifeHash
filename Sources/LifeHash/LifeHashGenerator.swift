@@ -9,16 +9,15 @@
 //
 
 import Foundation
-import UIKit
 import Combine
 import Dispatch
 
 public struct LifeHashGenerator {
-    public static func generate(_ obj: Fingerprintable) -> Future<UIImage, Never> {
+    public static func generate(_ obj: Fingerprintable) -> Future<OSImage, Never> {
         return generate(obj.fingerprint)
     }
 
-    public static func generate(_ fingerprint: Fingerprint) -> Future<UIImage, Never> {
+    public static func generate(_ fingerprint: Fingerprint) -> Future<OSImage, Never> {
         return Future { promise in
             DispatchQueue.global().async {
                 let image = generateSync(fingerprint)
@@ -27,11 +26,11 @@ public struct LifeHashGenerator {
         }
     }
 
-    public static func generateSync(_ obj: Fingerprintable) -> UIImage {
+    public static func generateSync(_ obj: Fingerprintable) -> OSImage {
         return generateSync(obj.fingerprint)
     }
 
-    public static func generateSync(_ fingerprint: Fingerprint) -> UIImage {
+    public static func generateSync(_ fingerprint: Fingerprint) -> OSImage {
         let size = IntSize(width: 16, height: 16)
         let maxGenerations = 150
 

@@ -9,7 +9,6 @@
 //
 
 import Foundation
-import UIKit
 
 class ColorGrid: Grid<Color> {
     enum Pattern {
@@ -77,7 +76,7 @@ class ColorGrid: Grid<Color> {
         return IntPoint(x: x, y: y)
     }
 
-    var image: UIImage {
+    var image: OSImage {
         let canvas = Canvas(size: size)
         forAll { p in
             canvas[p] = self[p]
