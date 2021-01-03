@@ -1,5 +1,11 @@
 # LifeHash
 
+```
+⬜️⬛️⬜️
+⬜️⬜️⬛️
+⬛️⬛️⬛️
+```
+
 **© 2020 Blockchain Commons**
 
 Original Author: [Wolf McNally](https://github.com/wolfmcnally)
@@ -20,7 +26,11 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 ### 🆕 New in Version 5!
 
-LifeHashes now come in four flavors:
+#### LifeHashTool command line tool
+
+[LifeHashTool](https://github.com/BlockchainCommons/LifeHashTool) is a command line tool written in Swift that generates LifeHash images as PNG files.
+
+#### LifeHashes now come in four flavors
 
 * **`original`** The one you know and love.
 * **`detailed`** Now with twice the resolution!
@@ -35,7 +45,7 @@ LifeHashes now come in four flavors:
 
 "LifeHash Example" lets you scroll through an endless table of LifeHashes generated from sequential integers, and tap on any of them to get a closer look. The selector at the top lets you choose to browse any of the four LifeHash versions.
 
-![LifeHash Example](Art/Samples-0.jpg?raw=true "Samples 0") ![Samples of LifeHash](Art/Samples-Fiducial-0.jpg?raw=true "Samples Fiducial 0")
+![LifeHash Example](Art/Samples-0.jpg?raw=true "Samples 0") ![Samples of LifeHash](Art/Samples-Fiducials-0.jpg?raw=true "Samples Fiducial 0")
 
 ### From the "LifeHash Gallery" demo app:
 
