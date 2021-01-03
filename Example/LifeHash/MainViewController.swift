@@ -12,7 +12,7 @@ import UIKit
 import LifeHash
 
 class MainViewController: UIViewController {
-    private var version: LifeHashVersion = .original {
+    private var version: LifeHashVersion = .version2 {
         didSet {
             syncToVersion()
         }
@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
-        let control = UISegmentedControl(items: ["Original", "Detailed", "Fiducial", "B&W Fiducial"])
+        let control = UISegmentedControl(items: ["V2", "Detailed", "Fiducial", "B&W Fiducial"])
         control.translatesAutoresizingMaskIntoConstraints = false
         control.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
         control.selectedSegmentIndex = 0
@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
     @objc func segmentedControlChanged() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            version = .original
+            version = .version2
         case 1:
             version = .detailed
         case 2:

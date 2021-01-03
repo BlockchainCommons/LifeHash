@@ -28,7 +28,7 @@ public final class LifeHashState: ObservableObject {
         didSet { updateImage() }
     }
     
-    public init(version: LifeHashVersion = .original) {
+    public init(version: LifeHashVersion = .version1) {
         self.version = version
     }
 
@@ -36,13 +36,13 @@ public final class LifeHashState: ObservableObject {
         didSet { updateImage() }
     }
 
-    public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .original) {
+    public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .version1) {
         self.init(version: version)
         self.fingerprint = fingerprint
         updateImage()
     }
 
-    public convenience init(input: Fingerprintable?, version: LifeHashVersion = .original) {
+    public convenience init(input: Fingerprintable?, version: LifeHashVersion = .version1) {
         self.init(version: version)
         self.input = input
         self.fingerprint = input?.fingerprint

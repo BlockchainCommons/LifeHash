@@ -41,17 +41,17 @@ extension LifeHashGenerator {
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
 
-    public static func image(for fingerprint: Fingerprint, version: LifeHashVersion = .original) -> AnyPublisher<Image, Never> {
+    public static func image(for fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> AnyPublisher<Image, Never> {
         getCachedImage(fingerprint, version: version).map { image in
             Image(osImage: image).interpolation(.none)
         }.eraseToAnyPublisher()
     }
 
-    public static func getCachedImage(_ obj: Fingerprintable, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
+    public static func getCachedImage(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
         getCachedImage(obj.fingerprint, version: version)
     }
 
-    public static func getCachedImage(_ fingerprint: Fingerprint, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
+    public static func getCachedImage(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
         /// Additional requests for the same LifeHash image while one is already in progress are recorded,
         /// and all are responded to when the image is done. This is so almost-simultaneous requests for the
         /// same data don't trigger duplicate work.

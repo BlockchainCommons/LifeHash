@@ -35,7 +35,7 @@ class LifeHashView: UIImageView {
     }
 
     private(set) var input: Data? = nil
-    private(set) var version: LifeHashVersion = .original
+    private(set) var version: LifeHashVersion = .version2
     
     func set(input: Data?, version: LifeHashVersion) {
         self.input = input

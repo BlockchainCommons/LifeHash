@@ -20,28 +20,48 @@ func selectGradient(entropy: BitEnumerator, version: LifeHashVersion) -> Gradien
 //    let value = 0
     switch value {
     case 0:
-        if version == .fiducial {
-            return selectMonochromaticGradientFiducial(entropy: entropy)
-        } else {
+        switch version {
+        case .version1:
             return selectMonochromaticGradient(entropy: entropy)
+        case .version2, .detailed:
+            return selectMonochromaticGradientCMYKSafe(entropy: entropy)
+        case .fiducial:
+            return selectMonochromaticGradientFiducial(entropy: entropy)
+        case .grayscaleFiducial:
+            fatalError()
         }
     case 1:
-        if version == .fiducial {
-            return selectComplementaryGradientFiducial(entropy: entropy)
-        } else {
+        switch version {
+        case .version1:
             return selectComplementaryGradient(entropy: entropy)
+        case .version2, .detailed:
+            return selectComplementaryGradientCMYKSafe(entropy: entropy)
+        case .fiducial:
+            return selectComplementaryGradientFiducial(entropy: entropy)
+        case .grayscaleFiducial:
+            fatalError()
         }
     case 2:
-        if version == .fiducial {
-            return selectTriadicGradientFiducial(entropy: entropy)
-        } else {
+        switch version {
+        case .version1:
             return selectTriadicGradient(entropy: entropy)
+        case .version2, .detailed:
+            return selectTriadicGradientCMYKSafe(entropy: entropy)
+        case .fiducial:
+            return selectTriadicGradientFiducial(entropy: entropy)
+        case .grayscaleFiducial:
+            fatalError()
         }
     case 3:
-        if version == .fiducial {
-            return selectAnalogousGradientFiducial(entropy: entropy)
-        } else {
+        switch version {
+        case .version1:
             return selectAnalogousGradient(entropy: entropy)
+        case .version2, .detailed:
+            return selectAnalogousGradientCMYKSafe(entropy: entropy)
+        case .fiducial:
+            return selectAnalogousGradientFiducial(entropy: entropy)
+        case .grayscaleFiducial:
+            fatalError()
         }
     default:
         fatalError()
@@ -83,14 +103,14 @@ private func selectMonochromaticGradientFiducial(entropy: BitEnumerator) -> Grad
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
+private func selectMonochromaticGradient(entropy: BitEnumerator, hueGenerator: (Frac) -> Color) -> Gradient {
     let hue: Frac = entropy.nextFrac()!
     let isTint = entropy.next()!
     let isReversed = entropy.next()!
     let keyAdvance = entropy.nextFrac()! * 0.3 + 0.05
     let neutralAdvance = entropy.nextFrac()! * 0.3 + 0.05
 
-    var keyColor = HSBColor(hue: hue, saturation: 1.0, brightness: 1.0) |> toColor
+    var keyColor = hueGenerator(hue)
 
     let contrastBrightness: Frac
     if isTint {
@@ -108,15 +128,26 @@ private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
+private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
+    selectMonochromaticGradient(entropy: entropy) { hue in
+        Color(HSBColor(hue: hue, saturation: 1.0, brightness: 1.0))
+    }
+}
+
+private func selectMonochromaticGradientCMYKSafe(entropy: BitEnumerator) -> Gradient {
+    selectMonochromaticGradient(entropy: entropy) { hue in
+        spectrumCMYKSafe(hue)
+    }
+}
+
+private func selectComplementaryGradient(entropy: BitEnumerator, colorGenerator: (Frac, Frac) -> (Color, Color)) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 0.5).truncatingRemainder(dividingBy: 1)
     let lighterAdvance = entropy.nextFrac()! * 0.3
     let darkerAdvance = entropy.nextFrac()! * 0.3
     let isReversed = entropy.next()!
 
-    let color1 = spectrum(spectrum1)
-    let color2 = spectrum(spectrum2)
+    let (color1, color2) = colorGenerator(spectrum1, spectrum2)
 
     let luma1 = color1.luminance
     let luma2 = color2.luminance
@@ -138,6 +169,18 @@ private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
+private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
+    selectComplementaryGradient(entropy: entropy) { (hue1, hue2) in
+        (spectrum(hue1), spectrum(hue2))
+    }
+}
+
+private func selectComplementaryGradientCMYKSafe(entropy: BitEnumerator) -> Gradient {
+    selectComplementaryGradient(entropy: entropy) { (hue1, hue2) in
+        (spectrumCMYKSafe(hue1), spectrumCMYKSafe(hue2))
+    }
+}
+
 private func selectComplementaryGradientFiducial(entropy: BitEnumerator) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 0.5).truncatingRemainder(dividingBy: 1)
@@ -155,7 +198,7 @@ private func selectComplementaryGradientFiducial(entropy: BitEnumerator) -> Grad
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
+private func selectTriadicGradient(entropy: BitEnumerator, colorGenerator: (Frac, Frac, Frac) -> (Color, Color, Color)) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 1.0 / 3).truncatingRemainder(dividingBy: 1)
     let spectrum3 = (spectrum1 + 2.0 / 3).truncatingRemainder(dividingBy: 1)
@@ -163,7 +206,8 @@ private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
     let darkerAdvance = entropy.nextFrac()! * 0.3
     let isReversed = entropy.next()!
 
-    let colors = [spectrum(spectrum1), spectrum(spectrum2), spectrum(spectrum3)]
+    let (color1, color2, color3) = colorGenerator(spectrum1, spectrum2, spectrum3)
+    let colors = [color1, color2, color3]
     let sortedColors = colors.sorted { $0.luminance < $1.luminance }
 
     let darkerColor = sortedColors[0]
@@ -175,6 +219,18 @@ private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
 
     let gradient = Gradient(makeThreeColor(adjustedLighterColor, middleColor, adjustedDarkerColor))
     return isReversed ? gradient.reversed : gradient
+}
+
+private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
+    selectTriadicGradient(entropy: entropy) { (hue1, hue2, hue3) in
+        (spectrum(hue1), spectrum(hue2), spectrum(hue3))
+    }
+}
+
+private func selectTriadicGradientCMYKSafe(entropy: BitEnumerator) -> Gradient {
+    selectTriadicGradient(entropy: entropy) { (hue1, hue2, hue3) in
+        (spectrumCMYKSafe(hue1), spectrumCMYKSafe(hue2), spectrumCMYKSafe(hue3))
+    }
 }
 
 private func selectTriadicGradientFiducial(entropy: BitEnumerator) -> Gradient {
@@ -206,7 +262,7 @@ private func selectTriadicGradientFiducial(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
+private func selectAnalogousGradient(entropy: BitEnumerator, colorGenerator: (Frac, Frac, Frac, Frac) -> (Color, Color, Color, Color)) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 1.0 / 12).truncatingRemainder(dividingBy: 1)
     let spectrum3 = (spectrum1 + 2.0 / 12).truncatingRemainder(dividingBy: 1)
@@ -214,10 +270,7 @@ private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
     let advance = entropy.nextFrac()! * 0.5 + 0.2
     let isReversed = entropy.next()!
 
-    let color1 = spectrum(spectrum1)
-    let color2 = spectrum(spectrum2)
-    let color3 = spectrum(spectrum3)
-    let color4 = spectrum(spectrum4)
+    let (color1, color2, color3, color4) = colorGenerator(spectrum1, spectrum2, spectrum3, spectrum4)
 
     let darkestColor: Color
     let darkColor: Color
@@ -243,6 +296,18 @@ private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
 
     let gradient = Gradient(blend(colors: [adjustedDarkestColor, adjustedDarkColor, adjustedLightColor, adjustedLightestColor]))
     return isReversed ? gradient.reversed : gradient
+}
+
+private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
+    selectAnalogousGradient(entropy: entropy) { (hue1, hue2, hue3, hue4) in
+        (spectrum(hue1), spectrum(hue2), spectrum(hue3), spectrum(hue4))
+    }
+}
+
+private func selectAnalogousGradientCMYKSafe(entropy: BitEnumerator) -> Gradient {
+    selectAnalogousGradient(entropy: entropy) { (hue1, hue2, hue3, hue4) in
+        (spectrumCMYKSafe(hue1), spectrumCMYKSafe(hue2), spectrumCMYKSafe(hue3), spectrumCMYKSafe(hue4))
+    }
 }
 
 private func selectAnalogousGradientFiducial(entropy: BitEnumerator) -> Gradient {

@@ -13,7 +13,8 @@ import Combine
 import Dispatch
 
 public enum LifeHashVersion: Hashable, CaseIterable {
-    case original
+    case version1
+    case version2
     case detailed
     case fiducial
     case grayscaleFiducial
@@ -22,7 +23,7 @@ public enum LifeHashVersion: Hashable, CaseIterable {
 public struct LifeHashGenerator {
     public static func modules(version: LifeHashVersion) -> Int {
         switch version {
-        case .original:
+        case .version1, .version2:
             return 32
         case .detailed:
             return 64
@@ -31,11 +32,11 @@ public struct LifeHashGenerator {
         }
     }
     
-    public static func generate(_ obj: Fingerprintable, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
+    public static func generate(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
         return generate(obj.fingerprint, version: version)
     }
 
-    public static func generate(_ fingerprint: Fingerprint, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
+    public static func generate(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
         return Future { promise in
             DispatchQueue.global().async {
                 let image = generateSync(fingerprint, version: version)
@@ -44,15 +45,15 @@ public struct LifeHashGenerator {
         }
     }
 
-    public static func generateSync(_ obj: Fingerprintable, version: LifeHashVersion = .original) -> OSImage {
+    public static func generateSync(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> OSImage {
         return generateSync(obj.fingerprint, version: version)
     }
 
-    public static func generateSync(_ fingerprint: Fingerprint, version: LifeHashVersion = .original) -> OSImage {
+    public static func generateSync(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> OSImage {
         let length: Int
         let maxGenerations: Int
         switch version {
-        case .original:
+        case .version1, .version2:
             length = 16
             maxGenerations = 150
         case .detailed, .fiducial, .grayscaleFiducial:
@@ -72,8 +73,11 @@ public struct LifeHashGenerator {
         var history = [Data]()
 
         switch version {
-        case .original:
+        case .version1:
             nextCellGrid.data = fingerprint.digest
+        case .version2:
+            // Ensure that .version2 in no way resembles .version1
+            nextCellGrid.data = fingerprint.digest.fingerprint.digest
         case .detailed, .fiducial, .grayscaleFiducial:
             var digest1 = fingerprint.digest
             // Ensure that grayscale fiducials in no way resemble the regular color fiducials
@@ -109,11 +113,11 @@ public struct LifeHashGenerator {
             fracGrid.overlay(cellGrid: currentCellGrid, frac: frac)
         }
     
-        // Normalizing the fracGrid to the range 0..1 was a step left out of the .original
-        // version. In some cases it can cause full range of gradient to go unused.
-        // This fixes the problem for the .detailed and .fiducial versions, while remaining
-        // compatible with the .original version.
-        if version != .original {
+        // Normalizing the fracGrid to the range 0..1 was a step left out of .version1
+        // In some cases it can cause the full range of the gradient to go unused.
+        // This fixes the problem for the other versions, while remaining compatible
+        // with .version1.
+        if version != .version1 {
             var minValue = Double.infinity
             var maxValue = -Double.infinity
             fracGrid.forAll { p in
@@ -130,8 +134,11 @@ public struct LifeHashGenerator {
         let entropy = BitEnumerator(data: fingerprint.digest)
         switch version {
         case .detailed:
-            // Throw away a bit of entropy to ensure we generate different colors and patterns from the original version
+            // Throw away a bit of entropy to ensure we generate different colors and patterns from .version1
             _ = entropy.next()
+        case .version2:
+            // Throw away two bits of entropy to ensure we generate different colors and patterns from .version1 or .detailed.
+            _ = entropy.nextUInt2()
         default:
             break
         }
