@@ -30,7 +30,7 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 ### 🆕 New in Version 6!
 
-Hot on the heels of version 5 comes version 6! The `.original` version has been renamed `.version1` and `.version2` has been introduced. `.version2` fixes a gradient scaling bug. Furthermore, `.version2`, `.detailed`, and `.fiducial` LifeHashes now also use a CMYK-friendly palette that means what you see on-screen is more likely to look like what you see on paper, and in many cases looks less-garish on-screen. The LifeHash generation API still defaults to `.version1`, so you need do nothing if you're alreadying using it: you must opt-in to the other versions. Nonetheless, LifeHash `.version1` is now **DEPRECATED**, so if you're starting a new project, I recommend you pick one of the other styles.
+Hot on the heels of version 5 comes version 6! The `.original` version has been renamed `.version1` and `.version2` has been introduced. `.version2` fixes a gradient scaling bug. Furthermore, `.version2`, `.detailed`, and `.fiducial` LifeHashes now use a CMYK-friendly gamut that means what you see on-screen is more likely to look like what you see on paper, and in many cases looks less-garish on-screen. The LifeHash generation API still defaults to `.version1`, so you need do nothing if you're alreadying using it: you must opt-in to the other versions. Nonetheless, LifeHash `.version1` is now **DEPRECATED**, so if you're starting a new project, I recommend you pick one of the other styles.
 
 #### LifeHashes In Five Flavors
 
