@@ -30,7 +30,7 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 ### 🆕 New in Version 6!
 
-Hot on the heels of version 5 comes version 6! The `.original` version has been renamed `.version1` and `.version2` has been introduced. `.version2` fixes a gradient scaling bug. Furthermore, `.version2` and `.fiducial` LifeHashes now also a CMYK-friendly palete that presents better in print, and also in many cases looks less-garish on-screen. The LifeHash generation API still defaults to `.version1`, so you need do nothing if you're alreadying using it: you must opt-in to the other versions. Nonetheless, LifeHash `.version1` is now **DEPRECATED**, so if you're starting a new project, I recommend you pick one of the other styles.
+Hot on the heels of version 5 comes version 6! The `.original` version has been renamed `.version1` and `.version2` has been introduced. `.version2` fixes a gradient scaling bug. Furthermore, `.version2` and `.fiducial` LifeHashes now also a CMYK-friendly palette that presents better in print, and in many cases looks less-garish on-screen. The LifeHash generation API still defaults to `.version1`, so you need do nothing if you're alreadying using it: you must opt-in to the other versions. Nonetheless, LifeHash `.version1` is now **DEPRECATED**, so if you're starting a new project, I recommend you pick one of the other styles.
 
 #### LifeHashes In Five Flavors
 
@@ -59,13 +59,13 @@ Hot on the heels of version 5 comes version 6! The `.original` version has been 
 
 ### From the "LifeHash Example" demo app:
 
-"LifeHash Example" lets you scroll through an endless table of LifeHashes generated from sequential integers, and tap on any of them to get a closer look. The selector at the top lets you choose to browse any of the four LifeHash versions.
+"LifeHash Example" lets you scroll through an endless table of LifeHashes generated from sequential integers, and tap on any of them to get a closer look. The selector at the top lets you choose to browse `.version2`, `.detailed`, `.fiducial`, and `.grayscaleFiducial` LifeHashes.
 
 ![LifeHash Example](Art/Samples-0.jpg?raw=true "Samples 0") ![Samples of LifeHash](Art/Samples-Fiducials-0.jpg?raw=true "Samples Fiducial 0")
 
 ### From the "LifeHash Gallery" demo app:
 
-"LifeHash Gallery" shows an elegant, artistic presentation of various collections of LifeHashes that automatically change every ten seconds. The latest version shows `version2`, `detailed`, and `fiducial` LifeHashes.
+"LifeHash Gallery" shows an elegant, artistic presentation of various collections of LifeHashes that automatically change every ten seconds. The latest version shows `.version2`, `.detailed`, and `.fiducial` LifeHashes.
 
 ![LifeHash Gallery](Art/gallery-example-1.jpg?raw=true "Samples 0")
 
