@@ -26,11 +26,11 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 ### 🆕 New in Version 5!
 
-#### LifeHashTool command line tool
+#### LifeHashTool Command Line Tool
 
 [LifeHashTool](https://github.com/BlockchainCommons/LifeHashTool) is a command line tool written in Swift that generates LifeHash images as PNG files.
 
-#### LifeHashes now come in four flavors
+#### LifeHashes Now In Four Flavors
 
 * **`original`** The one you know and love.
 * **`detailed`** Now with twice the resolution!
