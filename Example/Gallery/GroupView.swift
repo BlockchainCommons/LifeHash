@@ -42,7 +42,8 @@ class GroupView: UIView {
         }
         let rows = Int.random(in: 1...maxCells(for: traits.verticalSizeClass))
         let columns = Int.random(in: 1...maxCells(for: traits.horizontalSizeClass))
-        let version = LifeHashVersion.allCases.randomElement()!
+        let versions: [LifeHashVersion] = [.original, .detailed, .fiducial]
+        let version = versions.randomElement()!
 
         let columnViews: [UIStackView] = (0 ..< rows).map { _ in
             let rowFrames: [FrameView] = (0 ..< columns).map { _ in
