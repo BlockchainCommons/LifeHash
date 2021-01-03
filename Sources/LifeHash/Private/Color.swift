@@ -162,7 +162,8 @@ struct Color: Codable {
 
     // NOTE: Not gamma-corrected
     var luminance: Frac {
-        return red * 0.2126 + green * 0.7152 + blue * 0.0722
+        return sqrt( pow(0.299 * red, 2) + pow(0.587 * green, 2) + pow(0.114 * blue, 2) )
+//        red * 0.2126 + green * 0.7152 + blue * 0.0722
     }
 
     func withAlphaComponent(_ alpha: Frac) -> Color {
@@ -201,33 +202,25 @@ struct Color: Codable {
         return { $0.darkened(by: frac) }
     }
 
-//    /// Identity fraction is 0.0
-//    func dodged(by frac: Frac) -> Color {
-//        let f = max(1.0 - frac, 1.0e-7)
-//        return Color(
-//            red: min(red / f, 1.0),
-//            green: min(green / f, 1.0),
-//            blue: min(blue / f, 1.0),
-//            alpha: alpha)
-//    }
-//
-//    static func dodged(by frac: Frac) -> (Color) -> Color {
-//        return { $0.dodged(by: frac) }
-//    }
-//
-//    /// Identity fraction is 0.0
-//    func burned(by frac: Frac) -> Color {
-//        let f = max(1.0 - frac, 1.0e-7)
-//        return Color(
-//            red: min(1.0 - (1.0 - red) / f, 1.0),
-//            green: min(1.0 - (1.0 - green) / f, 1.0),
-//            blue: min(1.0 - (1.0 - blue) / f, 1.0),
-//            alpha: alpha)
-//    }
-//
-//    static func burned(by frac: Frac) -> (Color) -> Color {
-//        return { $0.burned(by: frac) }
-//    }
+    /// Identity fraction is 0.0
+    func dodged(by frac: Frac) -> Color {
+        let f = max(1.0 - frac, 1.0e-7)
+        return Color(
+            red: min(red / f, 1.0),
+            green: min(green / f, 1.0),
+            blue: min(blue / f, 1.0),
+            alpha: alpha)
+    }
+
+    /// Identity fraction is 0.0
+    func burned(by frac: Frac) -> Color {
+        let f = max(1.0 - frac, 1.0e-7)
+        return Color(
+            red: min(1.0 - (1.0 - red) / f, 1.0),
+            green: min(1.0 - (1.0 - green) / f, 1.0),
+            blue: min(1.0 - (1.0 - blue) / f, 1.0),
+            alpha: alpha)
+    }
 
     static let black = Color(red: 0, green: 0, blue: 0, alpha: 1)
 //    static let darkGray = Color(red: 0.2509803922, green: 0.2509803922, blue: 0.2509803922, alpha: 1)

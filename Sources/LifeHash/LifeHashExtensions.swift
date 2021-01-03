@@ -14,15 +14,23 @@ import SwiftUI
 
 @objc private class DigestKey: NSObject {
     let digest: Data
+    let version: LifeHashVersion
 
-    init(_ digest: Data) { self.digest = digest }
+    init(digest: Data, version: LifeHashVersion) {
+        self.digest = digest
+        self.version = version
+    }
 
     override var hash: Int {
-        return digest.hashValue
+        var hasher = Hasher()
+        hasher.combine(digest)
+        hasher.combine(version)
+        return hasher.finalize()
     }
 
     override func isEqual(_ object: Any?) -> Bool {
-        return digest == (object as! DigestKey).digest
+        let object = (object as! DigestKey)
+        return digest == object.digest && version == object.version
     }
 }
 
@@ -33,17 +41,17 @@ extension LifeHashGenerator {
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
 
-    public static func image(for fingerprint: Fingerprint) -> AnyPublisher<Image, Never> {
-        getCachedImage(fingerprint).map { image in
+    public static func image(for fingerprint: Fingerprint, version: LifeHashVersion = .original) -> AnyPublisher<Image, Never> {
+        getCachedImage(fingerprint, version: version).map { image in
             Image(osImage: image).interpolation(.none)
         }.eraseToAnyPublisher()
     }
 
-    public static func getCachedImage(_ obj: Fingerprintable) -> Future<OSImage, Never> {
-        getCachedImage(obj.fingerprint)
+    public static func getCachedImage(_ obj: Fingerprintable, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
+        getCachedImage(obj.fingerprint, version: version)
     }
 
-    public static func getCachedImage(_ fingerprint: Fingerprint) -> Future<OSImage, Never> {
+    public static func getCachedImage(_ fingerprint: Fingerprint, version: LifeHashVersion = .original) -> Future<OSImage, Never> {
         /// Additional requests for the same LifeHash image while one is already in progress are recorded,
         /// and all are responded to when the image is done. This is so almost-simultaneous requests for the
         /// same data don't trigger duplicate work.
@@ -74,14 +82,14 @@ extension LifeHashGenerator {
         }
 
         return Future { promise in
-            let digestKey = DigestKey(fingerprint.digest)
+            let digestKey = DigestKey(digest: fingerprint.digest, version: version)
             if recordPromise(promise, for: digestKey) {
                 if let image = cache.object(forKey: digestKey) {
                     //print("HIT")
                     succeedPromises(for: digestKey, with: image)
                 } else {
                     //print("MISS")
-                    let cancellable = LifeHashGenerator.generate(fingerprint).sink { image in
+                    let cancellable = LifeHashGenerator.generate(fingerprint, version: version).sink { image in
                         serializer.sync {
                             cancellables[digestKey] = nil
                         }

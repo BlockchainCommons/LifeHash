@@ -10,22 +10,80 @@
 
 import Foundation
 
-func selectGradient(entropy: BitEnumerator) -> Gradient {
-    switch entropy.nextUInt2() {
+func selectGradient(entropy: BitEnumerator, version: LifeHashVersion) -> Gradient {
+    if version == .grayscaleFiducial {
+        return selectGrayscale(entropy: entropy)
+    }
+    
+    let value = entropy.nextUInt2()
+//    let _ = entropy.nextUInt2()
+//    let value = 3
+    switch value {
     case 0:
-        return selectMonochromaticGradient(entropy: entropy)
+        if version == .fiducial {
+            return selectMonochromaticGradientV2(entropy: entropy)
+        } else {
+            return selectMonochromaticGradientV1(entropy: entropy)
+        }
     case 1:
-        return selectComplementaryGradient(entropy: entropy)
+        if version == .fiducial {
+            return selectComplementaryGradientV2(entropy: entropy)
+        } else {
+            return selectComplementaryGradientV1(entropy: entropy)
+        }
     case 2:
-        return selectTriadicGradient(entropy: entropy)
+        if version == .fiducial {
+            return selectTriadicGradientV2(entropy: entropy)
+        } else {
+            return selectTriadicGradientV1(entropy: entropy)
+        }
     case 3:
-        return selectAnalogousGradient(entropy: entropy)
+        if version == .fiducial {
+            return selectAnalogousGradientV2(entropy: entropy)
+        } else {
+            return selectAnalogousGradientV1(entropy: entropy)
+        }
     default:
         fatalError()
     }
 }
 
-private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
+extension Color {
+    func adjustedForLuminance(relativeTo contrastColor: Color) -> Color {
+        let lum = luminance
+        let contrastLum = contrastColor.luminance
+        let threshold = 0.6
+        let offset = abs(lum - contrastLum)
+        guard offset <= threshold else { return self }
+        let boost = 0.7
+        let t = offset.lerped(from: 0..threshold, to: boost..0)
+        if contrastLum > lum {
+            // darken this color
+            return blend(from: self, to: .black, at: t).burned(by: t * 0.6)
+        } else {
+            // lighten this color
+            return blend(from: self, to: .white, at: t).burned(by: t * 0.6)
+        }
+    }
+}
+
+private func selectGrayscale(entropy: BitEnumerator) -> Gradient {
+    entropy.next()! ? .grayscale : Gradient.grayscale.reversed
+}
+
+private func selectMonochromaticGradientV2(entropy: BitEnumerator) -> Gradient {
+    let hue: Frac = entropy.nextFrac()!
+    let isReversed = entropy.next()!
+    let isTint = entropy.next()!
+
+    let contrastColor: Color = isTint ? .white : .black
+    let keyColor = Color(HSBColor(hue: hue, saturation: 1.0, brightness: 1.0)).adjustedForLuminance(relativeTo: contrastColor)
+
+    let gradient = Gradient(blend(colors: [keyColor, contrastColor, keyColor]))
+    return isReversed ? gradient.reversed : gradient
+}
+
+private func selectMonochromaticGradientV1(entropy: BitEnumerator) -> Gradient {
     let hue: Frac = entropy.nextFrac()!
     let isTint = entropy.next()!
     let isReversed = entropy.next()!
@@ -50,7 +108,7 @@ private func selectMonochromaticGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
+private func selectComplementaryGradientV1(entropy: BitEnumerator) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 0.5).truncatingRemainder(dividingBy: 1)
     let lighterAdvance = entropy.nextFrac()! * 0.3
@@ -80,7 +138,24 @@ private func selectComplementaryGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
+private func selectComplementaryGradientV2(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 0.5).truncatingRemainder(dividingBy: 1)
+    let isTint = entropy.next()!
+    let isReversed = entropy.next()!
+    let neutralColorBias = entropy.next()!
+
+    let neutralColor = isTint ? Color.white : Color.black
+    let color1 = spectrum(spectrum1)
+    let color2 = spectrum(spectrum2)
+    
+    let biasedNeutralColor = blend(from: neutralColor, to: neutralColorBias ? color1 : color2, at: 0.2).burned(by: 0.1)
+
+    let gradient = Gradient(makeThreeColor(color1.adjustedForLuminance(relativeTo: neutralColor), biasedNeutralColor, color2.adjustedForLuminance(relativeTo: neutralColor)))
+    return isReversed ? gradient.reversed : gradient
+}
+
+private func selectTriadicGradientV1(entropy: BitEnumerator) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 1.0 / 3).truncatingRemainder(dividingBy: 1)
     let spectrum3 = (spectrum1 + 2.0 / 3).truncatingRemainder(dividingBy: 1)
@@ -102,7 +177,36 @@ private func selectTriadicGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
+private func selectTriadicGradientV2(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 1.0 / 3).truncatingRemainder(dividingBy: 1)
+    let spectrum3 = (spectrum1 + 2.0 / 3).truncatingRemainder(dividingBy: 1)
+    let isTint = entropy.next()!
+    let neutralInsertIndex = Int(entropy.nextUInt8()!) % 2 + 1
+    let isReversed = entropy.next()!
+
+    let neutralColor = isTint ? Color.white : Color.black
+
+    var colors = [spectrum(spectrum1), spectrum(spectrum2), spectrum(spectrum3)]
+    switch neutralInsertIndex {
+    case 1:
+        colors[0] = colors[0].adjustedForLuminance(relativeTo: neutralColor)
+        colors[1] = colors[1].adjustedForLuminance(relativeTo: neutralColor)
+        colors[2] = colors[2].adjustedForLuminance(relativeTo: colors[1])
+    case 2:
+        colors[1] = colors[1].adjustedForLuminance(relativeTo: neutralColor)
+        colors[2] = colors[2].adjustedForLuminance(relativeTo: neutralColor)
+        colors[0] = colors[0].adjustedForLuminance(relativeTo: colors[1])
+    default:
+        fatalError()
+    }
+    colors.insert(neutralColor, at: neutralInsertIndex)
+
+    let gradient = Gradient(blend(colors: colors))
+    return isReversed ? gradient.reversed : gradient
+}
+
+private func selectAnalogousGradientV1(entropy: BitEnumerator) -> Gradient {
     let spectrum1 = entropy.nextFrac()!
     let spectrum2 = (spectrum1 + 1.0 / 12).truncatingRemainder(dividingBy: 1)
     let spectrum3 = (spectrum1 + 2.0 / 12).truncatingRemainder(dividingBy: 1)
@@ -141,8 +245,39 @@ private func selectAnalogousGradient(entropy: BitEnumerator) -> Gradient {
     return isReversed ? gradient.reversed : gradient
 }
 
-func selectPattern(entropy: BitEnumerator) -> ColorGrid.Pattern {
-    return entropy.next()! ? .snowflake : .pinwheel
+private func selectAnalogousGradientV2(entropy: BitEnumerator) -> Gradient {
+    let spectrum1 = entropy.nextFrac()!
+    let spectrum2 = (spectrum1 + 1.0 / 10).truncatingRemainder(dividingBy: 1)
+    let spectrum3 = (spectrum1 + 2.0 / 10).truncatingRemainder(dividingBy: 1)
+    let isTint = entropy.next()!
+    let neutralInsertIndex = Int(entropy.nextUInt8()!) % 2 + 1
+    let isReversed = entropy.next()!
+
+    let neutralColor = isTint ? Color.white : Color.black
+
+    var colors = [spectrum(spectrum1), spectrum(spectrum2), spectrum(spectrum3)]
+    switch neutralInsertIndex {
+    case 1:
+        colors[0] = colors[0].adjustedForLuminance(relativeTo: neutralColor)
+        colors[1] = colors[1].adjustedForLuminance(relativeTo: neutralColor)
+        colors[2] = colors[2].adjustedForLuminance(relativeTo: colors[1])
+    case 2:
+        colors[1] = colors[1].adjustedForLuminance(relativeTo: neutralColor)
+        colors[2] = colors[2].adjustedForLuminance(relativeTo: neutralColor)
+        colors[0] = colors[0].adjustedForLuminance(relativeTo: colors[1])
+    default:
+        fatalError()
+    }
+    colors.insert(neutralColor, at: neutralInsertIndex)
+
+    let gradient = Gradient(blend(colors: colors))
+    return isReversed ? gradient.reversed : gradient
+}
+
+func selectPattern(entropy: BitEnumerator, version: LifeHashVersion) -> ColorGrid.Pattern {
+    if version == .fiducial || version == .grayscaleFiducial { return .fiducial }
+    let e = entropy.next()!
+    return e ? .snowflake : .pinwheel
 }
 
 private let spectrum = blend(colors: [

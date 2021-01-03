@@ -9,16 +9,24 @@
 //
 
 import UIKit
+import LifeHash
 
 class DetailViewController: UIViewController {
     var hashTitle: String! {
-        get { return label.text }
+        get { label.text }
         set { label.text = newValue }
     }
 
     var hashInput: Data! {
-        get { return lifeHashView.hashInput }
-        set { lifeHashView.hashInput = newValue }
+        lifeHashView.hashInput
+    }
+    
+    var version: LifeHashVersion {
+        lifeHashView.version
+    }
+    
+    func set(hashInput: Data?, version: LifeHashVersion) {
+        lifeHashView.set(hashInput: hashInput, version: version)
     }
 
     static let fontSize: CGFloat = 24

@@ -14,10 +14,12 @@ class ColorGrid: Grid<Color> {
     enum Pattern {
         case snowflake
         case pinwheel
+        case fiducial
     }
 
     init(fracGrid: FracGrid, gradient: Gradient, pattern: Pattern) {
-        let size = IntSize(width: fracGrid.size.width * 2, height: fracGrid.size.height * 2)
+        let multiplier = pattern == .fiducial ? 1 : 2
+        let size = IntSize(width: fracGrid.size.width * multiplier, height: fracGrid.size.height * multiplier)
         super.init(size: size, initialValue: .black)
 
         let patternTransforms: [Transform]
@@ -26,6 +28,8 @@ class ColorGrid: Grid<Color> {
             patternTransforms = Self.snowflakeTransforms
         case .pinwheel:
             patternTransforms = Self.pinwheelTransforms
+        case .fiducial:
+            patternTransforms = Self.fiducialTransforms
         }
 
         fracGrid.forAll { p in
@@ -52,6 +56,10 @@ class ColorGrid: Grid<Color> {
         Transform(transpose: true, reflectX: true, reflectY: false),
         Transform(transpose: true, reflectX: false, reflectY: true),
         Transform(transpose: false, reflectX: true, reflectY: true)
+    ]
+    
+    private static let fiducialTransforms = [
+        Transform(transpose: false, reflectX: false, reflectY: false)
     ]
 
     private func draw(p: IntPoint, color: Color, transforms: [Transform]) {

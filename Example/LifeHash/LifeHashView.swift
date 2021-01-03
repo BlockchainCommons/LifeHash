@@ -23,8 +23,14 @@ public class LifeHashView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public var hashInput: Data? = nil {
-        didSet { syncToInput() }
+    public private(set) var hashInput: Data? = nil
+    
+    public private(set) var version: LifeHashVersion = .original
+    
+    public func set(hashInput: Data?, version: LifeHashVersion) {
+        self.hashInput = hashInput
+        self.version = version
+        syncToInput()
     }
 
     public func reset() {
@@ -49,7 +55,7 @@ public class LifeHashView: UIImageView {
 
         guard let hashInput = hashInput else { return }
 
-        self.cancellable = LifeHashGenerator.getCachedImage(hashInput).receive(on: DispatchQueue.main).sink { image in
+        self.cancellable = LifeHashGenerator.getCachedImage(hashInput, version: version).receive(on: DispatchQueue.main).sink { image in
             guard hashInput == self.hashInput else { return }
             self.set(image: image)
         }

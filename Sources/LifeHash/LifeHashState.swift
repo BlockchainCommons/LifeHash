@@ -23,17 +23,27 @@ public final class LifeHashState: ObservableObject {
     public var input: Fingerprintable? {
         didSet { fingerprint = input?.fingerprint }
     }
+    
+    public var version: LifeHashVersion {
+        didSet { updateImage() }
+    }
+    
+    public init(version: LifeHashVersion = .original) {
+        self.version = version
+    }
 
     public var fingerprint: Fingerprint? {
         didSet { updateImage() }
     }
 
-    public init(_ fingerprint: Fingerprint? = nil) {
+    public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .original) {
+        self.init(version: version)
         self.fingerprint = fingerprint
         updateImage()
     }
 
-    public init(input: Fingerprintable?) {
+    public convenience init(input: Fingerprintable?, version: LifeHashVersion = .original) {
+        self.init(version: version)
         self.input = input
         self.fingerprint = input?.fingerprint
         updateImage()
@@ -58,7 +68,7 @@ public final class LifeHashState: ObservableObject {
             return
         }
         cancellable?.cancel()
-        cancellable = LifeHashGenerator.getCachedImage(fingerprint).sink { osImage in
+        cancellable = LifeHashGenerator.getCachedImage(fingerprint, version: version).sink { osImage in
             DispatchQueue.main.async {
                 self.osImage = osImage
             }

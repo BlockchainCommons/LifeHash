@@ -30,12 +30,17 @@ class LifeHashView: UIImageView {
         didSet { backgroundColor = resetColor }
     }
 
-    public var fingerprintable: Fingerprintable? = nil {
+    var fingerprintable: Fingerprintable? = nil {
         didSet { syncToFingerprintable() }
     }
 
-    public var input: Data? = nil {
-        didSet { syncToInput() }
+    private(set) var input: Data? = nil
+    private(set) var version: LifeHashVersion = .original
+    
+    func set(input: Data?, version: LifeHashVersion) {
+        self.input = input
+        self.version = version
+        syncToInput()
     }
 
     private func syncToFingerprintable() {
@@ -49,6 +54,6 @@ class LifeHashView: UIImageView {
 
     private func syncToInput() {
         guard let input = input else { return }
-        image = LifeHashGenerator.generateSync(input)
+        image = LifeHashGenerator.generateSync(input, version: version)
     }
 }

@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import LifeHash
 
 class GroupView: UIView {
     private lazy var columnStackView: UIStackView = {
@@ -41,10 +42,11 @@ class GroupView: UIView {
         }
         let rows = Int.random(in: 1...maxCells(for: traits.verticalSizeClass))
         let columns = Int.random(in: 1...maxCells(for: traits.horizontalSizeClass))
+        let version = LifeHashVersion.allCases.randomElement()!
 
         let columnViews: [UIStackView] = (0 ..< rows).map { _ in
             let rowFrames: [FrameView] = (0 ..< columns).map { _ in
-                let view = FrameView(frame: .zero)
+                let view = FrameView(version: version)
                 view.updateImage()
                 return view
             }

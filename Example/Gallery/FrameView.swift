@@ -14,14 +14,17 @@ import UIKit
 import Interpolate
 
 class FrameView: UIView {
+    private let version: LifeHashVersion
+    
     private lazy var imageView: LifeHashView = {
         let view = LifeHashView(frame: .zero)
         view.contentMode = .scaleAspectFit
         return view
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(version: LifeHashVersion) {
+        self.version = version
+        super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         imageView.constrainFrameToFrame(insets: UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40))
@@ -37,7 +40,7 @@ class FrameView: UIView {
         (0 ..< count).forEach { _ in
             data.append(UInt8.random(in: 0 ... 255))
         }
-        imageView.input = data
+        imageView.set(input: data, version: version)
         let colors = imageView.image!.getColors(quality: .highest)!
         let c = colors.nonNeutral ?? .black
         backgroundColor = c.interpolate(to: UIColor.black, at: 0.2)

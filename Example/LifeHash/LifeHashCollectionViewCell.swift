@@ -13,9 +13,9 @@ import LifeHash
 import UIKit
 
 class LifeHashCollectionViewCell: UICollectionViewCell {
-    static let imageHeight: CGFloat = 64
-    static let width: CGFloat = 64
-    static let spacing: CGFloat = 5
+    static let imageHeight: CGFloat = 96
+    static let width: CGFloat = 96
+    static let spacing: CGFloat = 10
     static let height = imageHeight + spacing + labelHeight
     static let imageSize = CGSize(width: width, height: imageHeight)
     static let size = CGSize(width: width, height: height)
@@ -24,8 +24,15 @@ class LifeHashCollectionViewCell: UICollectionViewCell {
     static let labelHeight = font.lineHeight
 
     var hashInput: Data? {
-        get { return lifeHashView.hashInput }
-        set { lifeHashView.hashInput = newValue }
+        lifeHashView.hashInput
+    }
+    
+    var version: LifeHashVersion {
+        return lifeHashView.version
+    }
+    
+    func set(hashInput: Data?, version: LifeHashVersion) {
+        lifeHashView.set(hashInput: hashInput, version: version)
     }
 
     var hashTitle: String? {
