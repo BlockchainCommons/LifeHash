@@ -6,11 +6,7 @@
 🟨🟦🟦🟦🟨<br/>
 🟨🟨🟨🟨🟨<br/>
 
-**© 2020 Blockchain Commons**
-
-Original Author: [Wolf McNally](https://github.com/wolfmcnally)
-
----
+### _by [Wolf McNally](https://www.github.com/wolfmcnally) and [Christopher Allen](https://www.github.com/ChristopherA)_
 
 Watch the LifeHash explainer video!
 
