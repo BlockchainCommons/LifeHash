@@ -194,7 +194,13 @@ private func selectComplementaryGradientFiducial(entropy: BitEnumerator) -> Grad
     
     let biasedNeutralColor = blend(from: neutralColor, to: neutralColorBias ? color1 : color2, at: 0.2).burned(by: 0.1)
 
-    let gradient = Gradient(makeThreeColor(color1.adjustedForLuminance(relativeTo: neutralColor), biasedNeutralColor, color2.adjustedForLuminance(relativeTo: neutralColor)))
+    let gradient = Gradient(
+        makeThreeColor(
+            color1.adjustedForLuminance(relativeTo: biasedNeutralColor),
+            biasedNeutralColor,
+            color2.adjustedForLuminance(relativeTo: biasedNeutralColor)
+        )
+    )
     return isReversed ? gradient.reversed : gradient
 }
 
@@ -243,7 +249,7 @@ private func selectTriadicGradientFiducial(entropy: BitEnumerator) -> Gradient {
 
     let neutralColor = isTint ? Color.white : Color.black
 
-    var colors = [spectrum(spectrum1), spectrum(spectrum2), spectrum(spectrum3)]
+    var colors = [spectrumCMYKSafe(spectrum1), spectrumCMYKSafe(spectrum2), spectrumCMYKSafe(spectrum3)]
     switch neutralInsertIndex {
     case 1:
         colors[0] = colors[0].adjustedForLuminance(relativeTo: neutralColor)
