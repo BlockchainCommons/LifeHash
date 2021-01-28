@@ -42,3 +42,9 @@ public struct Fingerprint {
         String(digest.hex.prefix(count))
     }
 }
+
+extension Fingerprint: CustomStringConvertible {
+    public var description: String {
+        return digest.hex
+    }
+}
