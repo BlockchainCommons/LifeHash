@@ -1,4 +1,4 @@
-# LifeHash
+# LifeHash - The Swift Implementation
 
 🟨🟨🟨🟨🟨<br/>
 🟨🟨🟦🟨🟨<br/>
@@ -6,7 +6,7 @@
 🟨🟦🟦🟦🟨<br/>
 🟨🟨🟨🟨🟨<br/>
 
-* <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons-super-simple.png" width=16 valign="bottom">&nbsp;&nbsp; ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/blob/master/README.md) technology family***
+* <img src="images/logos/crypto-commons-super-simple.png" width=16 valign="bottom">&nbsp;&nbsp; ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/blob/master/README.md) technology family***
 
 ### _by [Wolf McNally](https://www.github.com/wolfmcnally) and [Christopher Allen](https://www.github.com/ChristopherA)_
 
@@ -22,13 +22,17 @@ After the pattern becomes stable (or begins repeating) the resulting history is 
 
 Some bits of the initial hash are then used to deterministically apply symmetry and color to the icon to add beauty and quick recognizability.
 
+#### Implementations
+
+| Type | Name | Language | Note |
+|------|------|----------|------|
+| Reference | [bc-lifehash](https://github.com/BlockchainCommons/LifeHash) | C++/C
+| Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Swift
+| Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Mathematica/Wolfram Language | `version1` only
+
 #### LifeHashTool Command Line Tool
 
 [LifeHashTool](https://github.com/BlockchainCommons/LifeHashTool) is a command line tool written in Swift that generates LifeHash images as PNG files.
-
-### 🆕 New in Version 6!
-
-Hot on the heels of version 5 comes version 6! The `.original` version has been renamed `.version1` and `.version2` has been introduced. `.version2` fixes a gradient scaling bug. Furthermore, `.version2`, `.detailed`, and `.fiducial` LifeHashes now use a CMYK-friendly gamut that means what you see on-screen is more likely to look like what you see on paper, and in many cases looks less-garish on-screen. The LifeHash generation API still defaults to `.version1`, so you need do nothing if you're alreadying using it: you must opt-in to the other versions. Nonetheless, LifeHash `.version1` is now **DEPRECATED**, so if you're starting a new project, I recommend you pick one of the other styles.
 
 #### LifeHashes In Five Flavors
 
@@ -78,10 +82,6 @@ Hot on the heels of version 5 comes version 6! The `.original` version has been 
 * Don't vignette or round the corners of a LifeHash image, every pixel contributes to the security of the image, so show the image as a square. If you *really* want to round the corners, make the radius small enough to still show the corner pixels.
 * Don't interpolate or blur a LifeHash image: show every pixel crisply. On iOS UIKit this is accomplished by setting `layer.magnificationFilter = .nearest` on a `UIImageView`. Under SwiftUI you call `myImage.interpolation(.none)`. The iOS LifeHash library already does this for you.
 * The iOS/Mac LifeHash library renders LifeHash images asynchronously and caches the result, so if you pass in the same Fingerprint you'll get the same image back right away. But if LifeHash rendering seems slow, be sure you're compiling the Release configuration of your target: LifeHash is *really fast* when compiled for Release.
-
-## Platforms
-
-LifeHash is currently available through Swift Package Manager and as a Mathematica (Wolfram Language) notebook.
 
 ## License
 
