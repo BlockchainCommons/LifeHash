@@ -20,6 +20,9 @@ import AppKit
 #endif
 
 public final class LifeHashState: ObservableObject {
+    public let generateAsync: Bool
+    public let moduleSize: Int
+    
     public var input: Fingerprintable? {
         didSet { fingerprint = input?.fingerprint }
     }
@@ -28,22 +31,24 @@ public final class LifeHashState: ObservableObject {
         didSet { updateImage() }
     }
     
-    public init(version: LifeHashVersion = .version1) {
+    public init(version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
         self.version = version
+        self.generateAsync = generateAsync
+        self.moduleSize = moduleSize
     }
 
     public var fingerprint: Fingerprint? {
         didSet { updateImage() }
     }
 
-    public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .version1) {
-        self.init(version: version)
+    public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
+        self.init(version: version, generateAsync: generateAsync, moduleSize: moduleSize)
         self.fingerprint = fingerprint
         updateImage()
     }
 
-    public convenience init(input: Fingerprintable?, version: LifeHashVersion = .version1) {
-        self.init(version: version)
+    public convenience init(input: Fingerprintable?, version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
+        self.init(version: version, generateAsync: generateAsync, moduleSize: moduleSize)
         self.input = input
         self.fingerprint = input?.fingerprint
         updateImage()
@@ -67,11 +72,15 @@ public final class LifeHashState: ObservableObject {
             osImage = nil
             return
         }
-        cancellable?.cancel()
-        cancellable = LifeHashGenerator.getCachedImage(fingerprint, version: version).sink { osImage in
-            DispatchQueue.main.async {
-                self.osImage = osImage
+        if generateAsync {
+            cancellable?.cancel()
+            cancellable = LifeHashGenerator.getCachedImage(fingerprint, version: version, moduleSize: moduleSize).sink { osImage in
+                DispatchQueue.main.async {
+                    self.osImage = osImage
+                }
             }
+        } else {
+            self.osImage = LifeHashGenerator.generateSync(fingerprint, version: version, moduleSize: moduleSize)
         }
     }
 }

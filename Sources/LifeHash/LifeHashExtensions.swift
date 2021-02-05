@@ -41,17 +41,17 @@ extension LifeHashGenerator {
     private static let serializer = DispatchQueue(label: "LifeHash serializer")
     private static var cancellables: [DigestKey: AnyCancellable] = [:]
 
-    public static func image(for fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> AnyPublisher<Image, Never> {
-        getCachedImage(fingerprint, version: version).map { image in
+    public static func image(for fingerprint: Fingerprint, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> AnyPublisher<Image, Never> {
+        getCachedImage(fingerprint, version: version, moduleSize: moduleSize).map { image in
             Image(osImage: image).interpolation(.none)
         }.eraseToAnyPublisher()
     }
 
-    public static func getCachedImage(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
-        getCachedImage(obj.fingerprint, version: version)
+    public static func getCachedImage(_ obj: Fingerprintable, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> Future<OSImage, Never> {
+        getCachedImage(obj.fingerprint, version: version, moduleSize: moduleSize)
     }
 
-    public static func getCachedImage(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
+    public static func getCachedImage(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> Future<OSImage, Never> {
         /// Additional requests for the same LifeHash image while one is already in progress are recorded,
         /// and all are responded to when the image is done. This is so almost-simultaneous requests for the
         /// same data don't trigger duplicate work.
@@ -89,7 +89,7 @@ extension LifeHashGenerator {
                     succeedPromises(for: digestKey, with: image)
                 } else {
                     //print("MISS")
-                    let cancellable = LifeHashGenerator.generate(fingerprint, version: version).sink { image in
+                    let cancellable = LifeHashGenerator.generate(fingerprint, version: version, moduleSize: moduleSize).sink { image in
                         serializer.sync {
                             cancellables[digestKey] = nil
                         }

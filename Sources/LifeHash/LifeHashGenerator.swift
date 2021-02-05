@@ -11,6 +11,7 @@
 import Foundation
 import Combine
 import Dispatch
+import CoreGraphics
 
 public enum LifeHashVersion: Hashable, CaseIterable {
     case version1
@@ -32,24 +33,24 @@ public struct LifeHashGenerator {
         }
     }
     
-    public static func generate(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
-        return generate(obj.fingerprint, version: version)
+    public static func generate(_ obj: Fingerprintable, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> Future<OSImage, Never> {
+        return generate(obj.fingerprint, version: version, moduleSize: moduleSize)
     }
 
-    public static func generate(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> Future<OSImage, Never> {
+    public static func generate(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> Future<OSImage, Never> {
         return Future { promise in
             DispatchQueue.global().async {
-                let image = generateSync(fingerprint, version: version)
+                let image = generateSync(fingerprint, version: version, moduleSize: moduleSize)
                 promise(.success(image))
             }
         }
     }
 
-    public static func generateSync(_ obj: Fingerprintable, version: LifeHashVersion = .version1) -> OSImage {
-        return generateSync(obj.fingerprint, version: version)
+    public static func generateSync(_ obj: Fingerprintable, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> OSImage {
+        return generateSync(obj.fingerprint, version: version, moduleSize: moduleSize)
     }
 
-    public static func generateSync(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1) -> OSImage {
+    public static func generateSync(_ fingerprint: Fingerprint, version: LifeHashVersion = .version1, moduleSize: Int = 1) -> OSImage {
         let length: Int
         let maxGenerations: Int
         switch version {
@@ -145,6 +146,8 @@ public struct LifeHashGenerator {
         let gradient = selectGradient(entropy: entropy, version: version)
         let pattern = selectPattern(entropy: entropy, version: version)
         let colorGrid = ColorGrid(fracGrid: fracGrid, gradient: gradient, pattern: pattern)
-        return colorGrid.image
+        assert(moduleSize > 0)
+        let scaledImage = colorGrid.image.scaled(by: CGFloat(moduleSize))
+        return scaledImage
     }
 }
