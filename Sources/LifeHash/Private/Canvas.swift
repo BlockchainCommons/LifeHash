@@ -19,8 +19,7 @@ import AppKit
 #endif
 
 class Canvas {
-    let bounds: IntRect
-    var clearColor: Color?
+    let size: IntSize
 
     private let chunkyBytesCount: Int
     private let planarFloatsCount: Int
@@ -45,9 +44,8 @@ class Canvas {
     private let context: CGContext
     private var _image: CGImage?
 
-    init(size: IntSize, clearColor: Color? = .black) {
-        bounds = size.bounds
-        self.clearColor = clearColor
+    init(size: IntSize) {
+        self.size = size
 
         assert(size.width >= 1, "width must be >= 1")
         assert(size.height >= 1, "height must be >= 1")
@@ -86,12 +84,6 @@ class Canvas {
 
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
         context = CGContext(data: argb8PremultipliedData, width: size.width, height: size.height, bitsPerComponent: chunkyBitsPerComponent, bytesPerRow: chunkyBytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
-
-        //println("width:\(width) height:\(height) componentsPerPixel:\(componentsPerPixel) chunkyBytesPerComponent:\(chunkyBytesPerComponent) chunkyBitsPerComponent:\(chunkyBitsPerComponent) chunkyBytesPerPixel:\(chunkyBytesPerPixel) chunkyBytesPerRow:\(chunkyBytesPerRow) chunkyBytesCount:\(chunkyBytesCount)")
-
-        //println("planarBytesPerComponent:\(planarBytesPerComponent) planarBytesPerRow:\(planarBytesPerRow) planarFloatsPerRow:\(planarFloatsPerRow) planarFloatsCount:\(planarFloatsCount)")
-
-        //println("data:\(redF.data) height:\(redF.height) width:\(redF.width) rowBytes:\(redF.rowBytes)")
     }
 
     deinit {
@@ -109,8 +101,7 @@ class Canvas {
     }
     #elseif canImport(AppKit)
     var image: NSImage {
-        let boundsSize = self.bounds.size
-        let size = CGSize(width: CGFloat(boundsSize.width), height: CGFloat(boundsSize.height))
+        let size = CGSize(width: CGFloat(self.size.width), height: CGFloat(self.size.height))
         return NSImage(cgImage: cgImage, size: size)
     }
     #endif
@@ -133,109 +124,17 @@ class Canvas {
         self._image = nil
     }
 
-    func isValidPoint(_ p: IntPoint) -> Bool {
-        return p.x >= 0 && p.y >= 0 && p.x < Int(alphaF.width) && p.y < Int(alphaF.height)
-    }
-
-    func clampPoint(_ p: IntPoint) -> IntPoint {
-        let px = p.x
-        let py = p.y
-        let x = min(max(px, bounds.minX), bounds.maxX - 1)
-        let y = min(max(py, bounds.minY), bounds.maxY - 1)
-        return IntPoint(x: x, y: y)
-    }
-
-    private func checkPoint(_ point: IntPoint) {
-        assert(point.x >= bounds.minX, "x must be >= 0")
-        assert(point.y >= bounds.minY, "y must be >= 0")
-        assert(point.x < bounds.size.width, "x must be < width")
-        assert(point.y < bounds.size.height, "y must be < height")
-    }
-
     private func offsetForPoint(_ point: IntPoint) -> Int {
         return planarFloatsPerRow * point.y + point.x
     }
 
     func setPoint(_ point: IntPoint, to color: Color) {
-        checkPoint(point)
-
         invalidateImage()
 
         let offset = offsetForPoint(point)
-        alphaFData[offset] = Float(color.alpha)
-        redFData[offset] = Float(color.red)
-        greenFData[offset] = Float(color.green)
-        blueFData[offset] = Float(color.blue)
-    }
-
-    func colorAtPoint(_ point: IntPoint) -> Color {
-        checkPoint(point)
-
-        let offset = offsetForPoint(point)
-        return Color(red: Frac(redFData[offset]), green: Frac(greenFData[offset]), blue: Frac(blueFData[offset]), alpha: Frac(alphaFData[offset]))
-    }
-
-    subscript(point: IntPoint) -> Color {
-        get { return colorAtPoint(point) }
-        set { setPoint(point, to: newValue) }
-    }
-
-    subscript(x: Int, y: Int) -> Color {
-        get { return colorAtPoint(IntPoint(x: x, y: y)) }
-        set { setPoint(IntPoint(x: x, y: y), to: newValue) }
-    }
-
-    subscript(xRange: CountableClosedRange<Int>, y: Int) -> Color {
-        get { return colorAtPoint(IntPoint(x: xRange.lowerBound, y: y)) }
-        set {
-            for x in xRange {
-                self[x, y] = newValue
-            }
-        }
-    }
-
-    subscript(x: Int, yRange: CountableClosedRange<Int>) -> Color {
-        get { return colorAtPoint(IntPoint(x: x, y: yRange.lowerBound)) }
-        set {
-            for y in yRange {
-                self[x, y] = newValue
-            }
-        }
-    }
-
-    subscript(xRange: CountableRange<Int>, y: Int) -> Color {
-        get { return colorAtPoint(IntPoint(x: xRange.lowerBound, y: y)) }
-        set {
-            for x in xRange {
-                self[x, y] = newValue
-            }
-        }
-    }
-
-    subscript(x: Int, yRange: CountableRange<Int>) -> Color {
-        get { return colorAtPoint(IntPoint(x: x, y: yRange.lowerBound)) }
-        set {
-            for y in yRange {
-                self[x, y] = newValue
-            }
-        }
-    }
-
-    func clearToColor(_ color: Color) {
-        invalidateImage()
-
-        vImageOverwriteChannelsWithScalar_PlanarF(Float(color.red), &redF, UInt32(kvImageNoFlags))
-        vImageOverwriteChannelsWithScalar_PlanarF(Float(color.green), &greenF, UInt32(kvImageNoFlags))
-        vImageOverwriteChannelsWithScalar_PlanarF(Float(color.blue), &blueF, UInt32(kvImageNoFlags))
-        vImageOverwriteChannelsWithScalar_PlanarF(Float(color.alpha), &alphaF, UInt32(kvImageNoFlags))
-    }
-
-    func clear() {
-        guard let color = clearColor else { return }
-        clearToColor(color)
-    }
-
-    func randomPoint() -> IntPoint {
-        return bounds.randomPoint()
+        alphaFData[offset] = 1.0
+        redFData[offset] = Float(color.r) / 255
+        greenFData[offset] = Float(color.g) / 255
+        blueFData[offset] = Float(color.b) / 255
     }
 }
