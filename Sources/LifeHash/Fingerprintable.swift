@@ -30,7 +30,7 @@ extension String: Fingerprintable {
     public var fingerprintData: Data { self.data(using: .utf8)! }
 }
 
-public struct Fingerprint {
+public struct Fingerprint: Equatable {
     public let digest: Data
 
     public init(digest: Data) {
