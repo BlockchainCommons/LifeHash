@@ -26,7 +26,7 @@ Some bits of the initial hash are then used to deterministically apply symmetry 
 
 | Type | Name | Language | Note |
 |------|------|----------|------|
-| Reference | [bc-lifehash](https://github.com/BlockchainCommons/LifeHash) | C++/C
+| Reference | [bc-lifehash](https://github.com/BlockchainCommons/bc-lifehash) | C++/C
 | Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Swift
 | Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Mathematica/Wolfram Language | `version1` only
 
