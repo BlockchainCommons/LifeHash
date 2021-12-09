@@ -7,12 +7,12 @@
 
 import UIKit
 
-public func isDarkMode(_ traitEnvironment: UITraitEnvironment) -> Bool {
+public func isDarkMode(with traitEnvironment: UITraitEnvironment) -> Bool {
     return traitEnvironment.traitCollection.isDarkMode
 }
 
 public var isDarkMode: Bool {
-    return isDarkMode(UIScreen.main)
+    return LifeHashExample.isDarkMode(with: UIScreen.main)
 }
 
 extension UITraitCollection {

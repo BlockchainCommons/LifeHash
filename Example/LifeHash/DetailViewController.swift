@@ -116,7 +116,7 @@ class DetailViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        if isDarkMode(self) {
+        if isDarkMode(with: self) {
             blurView.effect = UIBlurEffect(style: .dark)
         } else {
             blurView.effect = UIBlurEffect(style: .light)
