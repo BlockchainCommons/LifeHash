@@ -30,6 +30,14 @@ extension String: Fingerprintable {
     public var fingerprintData: Data { self.data(using: .utf8)! }
 }
 
+extension UUID: Fingerprintable {
+    public var fingerprintData: Data {
+        withUnsafeBytes(of: self) {
+            Data($0.bindMemory(to: UInt8.self))
+        }
+    }
+}
+
 public struct Fingerprint: Equatable {
     public let digest: Data
 
