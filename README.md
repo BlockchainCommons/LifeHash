@@ -29,6 +29,7 @@ See a LifeHash demo at [LifeHash.info](https://lifehash.info/).
 | Type | Name | Language | Note |
 |------|------|----------|------|
 | Reference | [bc-lifehash](https://github.com/BlockchainCommons/bc-lifehash) | C++/C
+| Third-Party | [bc-lifehash-python](https://github.com/BlockchainCommons/bc-lifehash-python) | Python | [Cramium](https://cramiumsolutions.com/)
 | Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Swift
 | Reference | [LifeHash](https://github.com/BlockchainCommons/LifeHash) | Mathematica/Wolfram Language | `version1` only
 
