@@ -67,7 +67,7 @@ public struct LifeHashGenerator {
             v = lifehash_grayscale_fiducial
         }
         let im_ptr = fingerprint.digest.withUnsafeBytes {
-            lifehash_make_from_fingerprint($0.bindMemory(to: UInt8.self).baseAddress, v, moduleSize)
+            lifehash_make_from_digest($0.bindMemory(to: UInt8.self).baseAddress, v, moduleSize, false)
         }
         
         let im = im_ptr!.pointee

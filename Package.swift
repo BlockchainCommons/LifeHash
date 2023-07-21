@@ -12,8 +12,7 @@ let package = Package(
             targets: ["LifeHash"]),
         ],
     dependencies: [
-//        .package(name: "CLifeHash", path: "../bc-lifehash")
-        .package(name: "CLifeHash", url: "https://github.com/BlockchainCommons/bc-lifehash", from: "0.4.0")
+        .package(name: "CLifeHash", url: "https://github.com/BlockchainCommons/bc-lifehash", from: "0.4.1")
     ],
     targets: [
         .target(
