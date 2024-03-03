@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "03EC4BCE227CD437007B5302"
-               BuildableName = "LifeHashGallery.app"
-               BlueprintName = "LifeHashGallery"
-               ReferencedContainer = "container:LifeHashExample.xcodeproj">
+               BuildableName = "Gallery.app"
+               BlueprintName = "Gallery"
+               ReferencedContainer = "container:Gallery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "03EC4BCE227CD437007B5302"
-            BuildableName = "LifeHashGallery.app"
-            BlueprintName = "LifeHashGallery"
-            ReferencedContainer = "container:LifeHashExample.xcodeproj">
+            BuildableName = "Gallery.app"
+            BlueprintName = "Gallery"
+            ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "03EC4BCE227CD437007B5302"
-            BuildableName = "LifeHashGallery.app"
-            BlueprintName = "LifeHashGallery"
-            ReferencedContainer = "container:LifeHashExample.xcodeproj">
+            BuildableName = "Gallery.app"
+            BlueprintName = "Gallery"
+            ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -3,21 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0382CE00235CFBAB009636DC /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CDFF235CFBAB009636DC /* LifeHash */; };
-		0382CE02235CFBBE009636DC /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CE01235CFBBE009636DC /* LifeHash */; };
 		0382CE0B235D0C9E009636DC /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 0382CE0A235D0C9E009636DC /* UIImageColors */; };
-		038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */; };
 		03A18D122585FFE900AE5FE4 /* DispatchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D102585FF9E00AE5FE4 /* DispatchUtils.swift */; };
 		03A18D152586039A00AE5FE4 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D13258602B000AE5FE4 /* ViewExtensions.swift */; };
 		03A18D1D2586085300AE5FE4 /* Interpolate in Frameworks */ = {isa = PBXBuildFile; productRef = 03A18D1C2586085300AE5FE4 /* Interpolate */; };
-		03A18D1F25860D7500AE5FE4 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */; };
-		03A18D21258622F900AE5FE4 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A18D20258622F900AE5FE4 /* ViewExtensions.swift */; };
-		03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9721B8D338000F4876 /* LifeHashView.swift */; };
-		03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E80B9921B91523000F4876 /* DetailViewController.swift */; };
 		03EC4BD2227CD438007B5302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BD1227CD438007B5302 /* AppDelegate.swift */; };
 		03EC4BD4227CD438007B5302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BD3227CD438007B5302 /* ViewController.swift */; };
 		03EC4BD7227CD438007B5302 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC4BD5227CD438007B5302 /* Main.storyboard */; };
@@ -26,24 +19,10 @@
 		03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE1227CD75B007B5302 /* LifeHashView.swift */; };
 		03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE7227E0DBD007B5302 /* FrameView.swift */; };
 		03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC4BE9227E107A007B5302 /* GroupView.swift */; };
-		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		792FC0042B947D8800D2A3E1 /* LifeHash in Frameworks */ = {isa = PBXBuildFile; productRef = 792FC0032B947D8800D2A3E1 /* LifeHash */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		034A929124B414110079BD0E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		034A92F524B42B240079BD0E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,17 +36,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0382CDFD235CFAFE009636DC /* LifeHash */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LifeHash; path = ..; sourceTree = "<group>"; };
-		03852D9F2585F4A500A116B0 /* LifeHash_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeHash_Example.entitlements; sourceTree = "<group>"; };
 		03852DA02585F7E700A116B0 /* LifeHash_Gallery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeHash_Gallery.entitlements; sourceTree = "<group>"; };
-		038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashCollectionViewCell.swift; sourceTree = "<group>"; };
 		03A18D102585FF9E00AE5FE4 /* DispatchUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchUtils.swift; sourceTree = "<group>"; };
 		03A18D13258602B000AE5FE4 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
-		03A18D20258622F900AE5FE4 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		03E80B9721B8D338000F4876 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
-		03E80B9921B91523000F4876 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		03EC4BCF227CD437007B5302 /* LifeHashGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHashGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03EC4BCF227CD437007B5302 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EC4BD1227CD438007B5302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03EC4BD3227CD438007B5302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03EC4BD6227CD438007B5302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,13 +49,6 @@
 		03EC4BE1227CD75B007B5302 /* LifeHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeHashView.swift; sourceTree = "<group>"; };
 		03EC4BE7227E0DBD007B5302 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		03EC4BE9227E107A007B5302 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* LifeHashExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeHashExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,17 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792FC0042B947D8800D2A3E1 /* LifeHash in Frameworks */,
 				03A18D1D2586085300AE5FE4 /* Interpolate in Frameworks */,
 				0382CE0B235D0C9E009636DC /* UIImageColors in Frameworks */,
-				0382CE02235CFBBE009636DC /* LifeHash in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACCD1AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0382CE00235CFBAB009636DC /* LifeHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +72,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		03EC4BD0227CD438007B5302 /* LifeHash Gallery */ = {
+		03EC4BD0227CD438007B5302 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
 				03EC4BD1227CD438007B5302 /* AppDelegate.swift */,
@@ -130,7 +87,6 @@
 				03EC4BDA227CD43A007B5302 /* LaunchScreen.storyboard */,
 				03EC4BDD227CD43A007B5302 /* Info.plist */,
 			);
-			name = "LifeHash Gallery";
 			path = Gallery;
 			sourceTree = "<group>";
 		};
@@ -138,11 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				03852DA02585F7E700A116B0 /* LifeHash_Gallery.entitlements */,
-				03852D9F2585F4A500A116B0 /* LifeHash_Example.entitlements */,
-				607FACD21AFB9204008FA782 /* Example for LifeHash */,
-				03EC4BD0227CD438007B5302 /* LifeHash Gallery */,
+				03EC4BD0227CD438007B5302 /* Gallery */,
 				607FACD11AFB9204008FA782 /* Products */,
-				0382CDFD235CFAFE009636DC /* LifeHash */,
 				0382CDFE235CFBAB009636DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -150,45 +103,17 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* LifeHashExample.app */,
-				03EC4BCF227CD437007B5302 /* LifeHashGallery.app */,
+				03EC4BCF227CD437007B5302 /* Gallery.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		607FACD21AFB9204008FA782 /* Example for LifeHash */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* MainViewController.swift */,
-				03E80B9921B91523000F4876 /* DetailViewController.swift */,
-				038A99A32150D72E00F9EA8E /* LifeHashCollectionViewCell.swift */,
-				03A18D1E25860D7500AE5FE4 /* DeviceUtils.swift */,
-				03E80B9721B8D338000F4876 /* LifeHashView.swift */,
-				03A18D20258622F900AE5FE4 /* ViewExtensions.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				607FACD31AFB9204008FA782 /* Supporting Files */,
-			);
-			name = "Example for LifeHash";
-			path = LifeHash;
-			sourceTree = "<group>";
-		};
-		607FACD31AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		03EC4BCE227CD437007B5302 /* LifeHashGallery */ = {
+		03EC4BCE227CD437007B5302 /* Gallery */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHashGallery" */;
+			buildConfigurationList = 03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "Gallery" */;
 			buildPhases = (
 				03EC4BCB227CD437007B5302 /* Sources */,
 				03EC4BCC227CD437007B5302 /* Frameworks */,
@@ -199,35 +124,14 @@
 			);
 			dependencies = (
 			);
-			name = LifeHashGallery;
+			name = Gallery;
 			packageProductDependencies = (
-				0382CE01235CFBBE009636DC /* LifeHash */,
 				0382CE0A235D0C9E009636DC /* UIImageColors */,
 				03A18D1C2586085300AE5FE4 /* Interpolate */,
+				792FC0032B947D8800D2A3E1 /* LifeHash */,
 			);
 			productName = "LifeHash Gallery";
-			productReference = 03EC4BCF227CD437007B5302 /* LifeHashGallery.app */;
-			productType = "com.apple.product-type.application";
-		};
-		607FACCF1AFB9204008FA782 /* LifeHashExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHashExample" */;
-			buildPhases = (
-				607FACCC1AFB9204008FA782 /* Sources */,
-				607FACCD1AFB9204008FA782 /* Frameworks */,
-				607FACCE1AFB9204008FA782 /* Resources */,
-				034A929124B414110079BD0E /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LifeHashExample;
-			packageProductDependencies = (
-				0382CDFF235CFBAB009636DC /* LifeHash */,
-			);
-			productName = LifeHash;
-			productReference = 607FACD01AFB9204008FA782 /* LifeHashExample.app */;
+			productReference = 03EC4BCF227CD437007B5302 /* Gallery.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -243,13 +147,9 @@
 					03EC4BCE227CD437007B5302 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 1000;
-					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LifeHashExample" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Gallery" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -261,13 +161,13 @@
 			packageReferences = (
 				0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */,
 				03A18D192586084200AE5FE4 /* XCRemoteSwiftPackageReference "Interpolate" */,
+				792FC0022B947D8800D2A3E1 /* XCLocalSwiftPackageReference "../.." */,
 			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* LifeHashExample */,
-				03EC4BCE227CD437007B5302 /* LifeHashGallery */,
+				03EC4BCE227CD437007B5302 /* Gallery */,
 			);
 		};
 /* End PBXProject section */
@@ -280,16 +180,6 @@
 				03EC4BDC227CD43A007B5302 /* LaunchScreen.storyboard in Resources */,
 				03EC4BD9227CD43A007B5302 /* Assets.xcassets in Resources */,
 				03EC4BD7227CD438007B5302 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACCE1AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,20 +197,6 @@
 				03EC4BEA227E107A007B5302 /* GroupView.swift in Sources */,
 				03EC4BE2227CD75B007B5302 /* LifeHashView.swift in Sources */,
 				03EC4BE8227E0DBD007B5302 /* FrameView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACCC1AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				03E80B9821B8D338000F4876 /* LifeHashView.swift in Sources */,
-				03A18D21258622F900AE5FE4 /* ViewExtensions.swift in Sources */,
-				03A18D1F25860D7500AE5FE4 /* DeviceUtils.swift in Sources */,
-				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
-				03E80B9A21B91523000F4876 /* DetailViewController.swift in Sources */,
-				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				038A99A42150D72E00F9EA8E /* LifeHashCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,22 +219,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDF1AFB9204008FA782 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -376,9 +236,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 92TUA8H52D;
+				DEVELOPMENT_TEAM = YZHG975W3A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Gallery/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LifeHash Gallery";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -386,7 +247,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
+				PRODUCT_BUNDLE_IDENTIFIER = "blockchaincommons.LifeHash-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -408,16 +269,17 @@
 				CODE_SIGN_ENTITLEMENTS = LifeHash_Gallery.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92TUA8H52D;
+				DEVELOPMENT_TEAM = YZHG975W3A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Gallery/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "LifeHash Gallery";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Gallery";
+				PRODUCT_BUNDLE_IDENTIFIER = "blockchaincommons.LifeHash-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -535,52 +397,10 @@
 			};
 			name = Release;
 		};
-		607FACF01AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = LifeHash_Example.entitlements;
-				DEVELOPMENT_TEAM = 92TUA8H52D;
-				INFOPLIST_FILE = LifeHash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
-			};
-			name = Debug;
-		};
-		607FACF11AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = LifeHash_Example.entitlements;
-				DEVELOPMENT_TEAM = 92TUA8H52D;
-				INFOPLIST_FILE = LifeHash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arciem.LifeHash-Example";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "LifeHashGallery" */ = {
+		03EC4BE0227CD43A007B5302 /* Build configuration list for PBXNativeTarget "Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03EC4BDE227CD43A007B5302 /* Debug */,
@@ -589,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LifeHashExample" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -598,16 +418,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeHashExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF01AFB9204008FA782 /* Debug */,
-				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		792FC0022B947D8800D2A3E1 /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
@@ -629,14 +447,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0382CDFF235CFBAB009636DC /* LifeHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LifeHash;
-		};
-		0382CE01235CFBBE009636DC /* LifeHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LifeHash;
-		};
 		0382CE0A235D0C9E009636DC /* UIImageColors */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0382CE09235D0C93009636DC /* XCRemoteSwiftPackageReference "UIImageColors" */;
@@ -646,6 +456,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03A18D192586084200AE5FE4 /* XCRemoteSwiftPackageReference "Interpolate" */;
 			productName = Interpolate;
+		};
+		792FC0032B947D8800D2A3E1 /* LifeHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LifeHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
