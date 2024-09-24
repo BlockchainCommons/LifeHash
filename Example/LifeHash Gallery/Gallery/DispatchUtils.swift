@@ -8,7 +8,7 @@ public typealias BoolBlock = (Bool) -> Void
 public let mainQueue = DispatchQueue.main
 public let backgroundQueue = DispatchQueue.global()
 
-public protocol Cancelable: class {
+public protocol Cancelable: AnyObject {
     var isCanceled: Bool { get }
     func cancel()
 }

@@ -19,6 +19,7 @@ import UIKit
 import AppKit
 #endif
 
+@MainActor
 public final class LifeHashState: ObservableObject {
     public let generateAsync: Bool
     public let moduleSize: Int
@@ -28,30 +29,30 @@ public final class LifeHashState: ObservableObject {
     }
     
     public var version: LifeHashVersion {
-        didSet { updateImage() }
+        didSet { updateImageTask() }
     }
-    
+
+    public var fingerprint: Fingerprint? {
+        didSet { updateImageTask() }
+    }
+
     public init(version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
         self.version = version
         self.generateAsync = generateAsync
         self.moduleSize = moduleSize
     }
 
-    public var fingerprint: Fingerprint? {
-        didSet { updateImage() }
-    }
-
     public convenience init(_ fingerprint: Fingerprint? = nil, version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
         self.init(version: version, generateAsync: generateAsync, moduleSize: moduleSize)
         self.fingerprint = fingerprint
-        updateImage()
+        updateImageTask()
     }
 
     public convenience init(input: Fingerprintable?, version: LifeHashVersion = .version1, generateAsync: Bool = true, moduleSize: Int = 1) {
         self.init(version: version, generateAsync: generateAsync, moduleSize: moduleSize)
         self.input = input
         self.fingerprint = input?.fingerprint
-        updateImage()
+        updateImageTask()
     }
 
     @Published public var image: Image?
@@ -64,23 +65,27 @@ public final class LifeHashState: ObservableObject {
             }
         }
     }
+    
+    private var taskInProgress: Task<Void, Never>?
 
-    private var cancellable: AnyCancellable?
+    private func updateImageTask() {
+        if let taskInProgress {
+            taskInProgress.cancel()
+        }
+        taskInProgress = Task {
+            await updateImage()
+        }
+    }
 
-    private func updateImage() {
-        guard let fingerprint = fingerprint else {
+    private func updateImage() async {
+        guard let fingerprint else {
             osImage = nil
             return
         }
         if generateAsync {
-            cancellable?.cancel()
-            cancellable = LifeHashGenerator.getCachedImage(fingerprint, version: version, moduleSize: moduleSize).sink { osImage in
-                DispatchQueue.main.async {
-                    self.osImage = osImage
-                }
-            }
+            self.osImage = await LifeHashGenerator.shared.image(fingerprint: fingerprint, version: version, moduleSize: moduleSize)
         } else {
-            self.osImage = LifeHashGenerator.generateSync(fingerprint, version: version, moduleSize: moduleSize)
+            self.osImage = LifeHashGenerator.generateSync(fingerprint: fingerprint, version: version, moduleSize: moduleSize)
         }
     }
 }

@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -15,12 +15,14 @@ let package = Package(
             targets: ["LifeHash"]),
         ],
     dependencies: [
-        .package(url: "https://github.com/BlockchainCommons/bc-lifehash", from: "0.4.1")
+        .package(url: "https://github.com/BlockchainCommons/bc-lifehash", from: "0.4.1"),
+        .package(url: "https://github.com/nicklockwood/LRUCache.git", from: "1.0.0"),
     ],
     targets: [
         .target(
             name: "LifeHash",
             dependencies: [
+                "LRUCache",
                 .product(name: "CLifeHash", package: "bc-lifehash")
             ])
         ]

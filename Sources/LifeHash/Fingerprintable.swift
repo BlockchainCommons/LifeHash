@@ -38,7 +38,7 @@ extension UUID: Fingerprintable {
     }
 }
 
-public struct Fingerprint: Equatable {
+public struct Fingerprint: Equatable, Hashable, Sendable {
     public let digest: Data
 
     public init(digest: Data) {
