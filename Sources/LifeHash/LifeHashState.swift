@@ -9,7 +9,7 @@
 //
 
 import Foundation
-import Combine
+import Observation
 import Dispatch
 import SwiftUI
 
@@ -19,8 +19,8 @@ import UIKit
 import AppKit
 #endif
 
-@MainActor
-public final class LifeHashState: ObservableObject {
+@MainActor @Observable
+public final class LifeHashState {
     public let generateAsync: Bool
     public let moduleSize: Int
     
@@ -55,8 +55,8 @@ public final class LifeHashState: ObservableObject {
         updateImageTask()
     }
 
-    @Published public var image: Image?
-    @Published public var osImage: OSImage? {
+    public var image: Image?
+    public var osImage: OSImage? {
         didSet {
             if let osImage = osImage {
                 image = Image(osImage: osImage).interpolation(.none)

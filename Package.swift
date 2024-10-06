@@ -5,9 +5,10 @@ import PackageDescription
 let package = Package(
     name: "LifeHash",
     platforms: [
-        .iOS(.v13), 
-        .macOS(.v11),
-        .tvOS(.v13)
+        .iOS(.v17),
+        .macCatalyst(.v17),
+        .macOS(.v14),
+        .tvOS(.v17)
     ],
     products: [
         .library(

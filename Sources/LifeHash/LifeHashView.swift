@@ -12,7 +12,7 @@ import Foundation
 import SwiftUI
 
 public struct LifeHashView<MissingView>: View where MissingView: View {
-    @ObservedObject var state: LifeHashState
+    var state: LifeHashState
     private let missingView: () -> MissingView
 
     public init(state: LifeHashState, @ViewBuilder missingView: @escaping () -> MissingView) {
